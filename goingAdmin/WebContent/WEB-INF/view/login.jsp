@@ -7,7 +7,7 @@
 <title>로그인 </title>
 </head>
 <body>
-아이디:
-비번:
+아이디:  
+비번:  
 </body>
 </html>
