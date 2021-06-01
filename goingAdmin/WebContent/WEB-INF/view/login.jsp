@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>로그인</title>
+<title>로그인 </title>
 </head>
 <body>
-ID:
-Password:
+아이디:
+비번:
 </body>
 </html>
