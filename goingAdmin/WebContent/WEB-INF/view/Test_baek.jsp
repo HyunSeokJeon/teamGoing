@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>������</title>
+<title>로그인</title>
 </head>
 <body>
-
+ID:
+Password:
+회원가입 버튼
 </body>
 </html>
