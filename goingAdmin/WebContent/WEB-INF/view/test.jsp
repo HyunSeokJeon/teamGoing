@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>aa.jsp</title>
+<title>test.jsp</title>
 </head>
 <body>
 
