@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인 </title>
+<title>Insert title here</title>
 </head>
 <body>
-아이디:  
-비번:  
+
 </body>
 </html>
