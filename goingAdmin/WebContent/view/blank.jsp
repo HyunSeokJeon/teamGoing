@@ -1,4 +1,6 @@
 
+<%@ include file="/view/common/header.jspf" %>
+
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -10,3 +12,4 @@
 
             </div>
             <!-- End of Main Content -->
+<%@ include file="/view/common/footer.jspf" %>
