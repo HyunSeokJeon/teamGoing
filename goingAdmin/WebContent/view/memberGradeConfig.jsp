@@ -73,28 +73,32 @@ td {
 
 				<tr>
 					<td>회원등급명</td>
-					<td><input type="search" class="form-control form-control-sm"
+					<td><input type="text" class="form-control form-control-sm"
 						placeholder="" aria-controls="dataTable"></td>
 				</tr>
 
 				<tr>
-					<td>구매금액(3개월) 이상</td>
-					<td><input type="search" class="form-control form-control-sm"
+					<td>최근 3개월 구매금액</td>
+					<td><input type="text" class="form-control form-control-sm"
 						placeholder="" aria-controls="dataTable"></td>
 				</tr>
 
 				<tr>
 					<td>할인율</td>
-					<td><input type="search" class="form-control form-control-sm"
+					<td><input type="text" class="form-control form-control-sm"
 						placeholder="" aria-controls="dataTable"></td>
 				</tr>
 
-				<%-- 로그인하면 회원등급 옆에 표시할 아이콘  --%> 		
+				<%-- 로그인하면 회원등급 옆에 표시할 아이콘 
+				https://webdir.tistory.com/435 파일업로드 아이콘관련 html/css/js  --%> 		
+				
 				<tr>
 					<td>등급 아이콘</td> 				
 					<td>
 						<div class="filebox">
-							<label for="ex_file">업로드</label> <input type="file" id="ex_file">
+							<label for="ex_file">업로드</label> <input type="file" accept="image/jpeg,image/gif,image/png"
+
+							 id="ex_file">
 						</div>
 					</td>
 				</tr>
@@ -103,7 +107,7 @@ td {
 					<td colspan="5" style="text-align: right;"><a href="#"
 						class="btn btn-primary btn-icon-split"> <span
 							class="icon text-white-50"> <i class="fas fa-edit"></i>
-						</span> <span class="text">회원 등급 등록</span>
+						</span> <span class="text">회원 등급 등록</span> 
 					</a></td>
 
 				</tr>

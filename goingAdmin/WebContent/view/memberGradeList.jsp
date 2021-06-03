@@ -34,7 +34,7 @@
 				<tr class="px-3 py-5 bg-gradient-primary text-white">
 					<th>선택</th>
 					<th>회원등급</th>
-					<th>구매금액(3개월) 이상</th>
+					<th>최근 3개월 구매금액</th>
 					<th>할인율</th>
 					<th>회원수</th>
 				</tr>
