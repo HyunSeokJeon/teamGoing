@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/view/common/header.jspf"%>
 
-<!-- 상품 추가 버튼을 누르면 나오는 화면 -->
+<!-- 상품 수정 버튼을 누르면 나오는 화면 -->
 <div class="container-fluid">
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800 mr-auto p-2">상품 관리</h1>
@@ -36,8 +36,9 @@
 			<!-- Card Body -->
 			<div class="card-body">
 				<form class="form-group">
-					<input type="hidden" name="productId" value=""/>
+					<!-- 아래의 값들은 DB에서 해당 상품의 정보를 그대로 받아올 수 있도록 -->
 					<!-- sql문을 위한 제품id값 -->
+					<input type="hidden" name="productId" value=""/>
 					<div class="col-md-4 mb-3">
 						<label for="productType">상품 분류</label>
 						<select class="custom-select mr-sm-2" id="productType">
@@ -75,7 +76,7 @@
 					<div class="col">
 						<button type="submit"
 							class="p-2 d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-							<i class="fas fa-check fa-sm text-white-50"></i> &nbsp;상품 추가
+							<i class="fas fa-check fa-sm text-white-50"></i> &nbsp;상품 수정
 						</button>
 						<button type="submit"
 							class="p-2 d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm ml-2">
