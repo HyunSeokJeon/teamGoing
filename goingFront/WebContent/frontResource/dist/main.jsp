@@ -7,7 +7,7 @@
 	<div class="row justify-content-center bg-white border-top"
 		style="height: 60rem;">
 
-		<div class="col-md-4 d-flex align-items-center justify-content-center">
+		<div class="col-md-4 d-flex align-items-center justify-content-center main-header">
 			<div class="row w-100">
 				<ul class="nav nav-tabs mb-2" id="myTab" role="tablist">
 					<li class="nav-item"><a class="nav-link active text-dark"
@@ -79,13 +79,111 @@
 			</div>
 
 		</div>
-		<div class="col-md-4 d-flex align-items-end">
+		<div class="col-md-4 d-flex align-items-end main-header">
 			<div>
 				<img src="<%=imgPath%>mainAssist.jpg" class="img-fluid"
 					style="width: 100em; height: auto;">
 			</div>
 		</div>
 	</div>
+	<div class="container my-4">
+		<div class="row"><span class="h2 px-10">인기많은 상품</span></div>
+		<div class="row">
+			<div class="col py-2">
+				<div id="carouselExampleControls" class="carousel slide main-showcase-box" data-ride="carousel" data-interval="false">
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<div class="row justify-content-start">
+								<div class="card col mx-4 border-0 main-card">
+									<div class="overflow-hidden main-showcase-productImg"><img class="card-img-top " src="assets/img/mainp1.png" alt="First slide" ></div>
+									<div class="card-body main-showcase-product">
+										<h5 class="card-title">Card title</h5>
+										<p class="card-text">Some quick example</p>
+									</div>
+								</div>
+								<div class="card col mx-4 border-0 main-card">
+									<div class="overflow-hidden main-showcase-productImg"><img class="card-img-top " src="assets/img/mainp1.png" alt="First slide"></div>
+									<div class="card-body main-showcase-product">
+										<h5 class="card-title">Card title</h5>
+										<p class="card-text">Some quick example</p>
+									</div>
+								</div>
+								<div class="card col mx-4 border-0 main-card">
+									<div class="overflow-hidden main-showcase-productImg"><img class="card-img-top " src="assets/img/mainp1.png" alt="First slide"></div>
+									<div class="card-body main-showcase-product">
+										<h5 class="card-title">Card title</h5>
+										<p class="card-text">Some quick example</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="row justify-content-start">
+								<div class="card col mx-4 border-0 main-card">
+									<div class="overflow-hidden main-showcase-productImg"><img class="card-img-top " src="assets/img/mainp2.png" alt="First slide" ></div>
+									<div class="card-body main-showcase-product">
+										<h5 class="card-title">Card title</h5>
+										<p class="card-text">Some quick example</p>
+									</div>
+								</div>
+								<div class="card col mx-4 border-0 main-card">
+									<div class="overflow-hidden main-showcase-productImg"><img class="card-img-top " src="assets/img/mainp2.png" alt="First slide"></div>
+									<div class="card-body main-showcase-product">
+										<h5 class="card-title">Card title</h5>
+										<p class="card-text">Some quick example</p>
+									</div>
+								</div>
+								<div class="card col mx-4 border-0 main-card">
+									<div class="overflow-hidden main-showcase-productImg"><img class="card-img-top " src="assets/img/mainp2.png" alt="First slide"></div>
+									<div class="card-body main-showcase-product">
+										<h5 class="card-title">Card title</h5>
+										<p class="card-text">Some quick example</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="row justify-content-start">
+								<div class="card col mx-4 border-0 main-card">
+									<div class="overflow-hidden main-showcase-productImg"><img class="card-img-top " src="assets/img/mainp3.png" alt="First slide" ></div>
+									<div class="card-body main-showcase-product">
+										<h5 class="card-title">Card title</h5>
+										<p class="card-text">Some quick example</p>
+									</div>
+								</div>
+								<div class="card col mx-4 border-0 main-card">
+									<div class="overflow-hidden main-showcase-productImg"><img class="card-img-top " src="assets/img/mainp3.png" alt="First slide"></div>
+									<div class="card-body main-showcase-product">
+										<h5 class="card-title">Card title</h5>
+										<p class="card-text">Some quick example</p>
+									</div>
+								</div>
+								<div class="card col mx-4 border-0 main-card">
+									<div class="overflow-hidden main-showcase-productImg"><img class="card-img-top " src="assets/img/mainp3.png" alt="First slide"></div>
+									<div class="card-body main-showcase-product">
+										<h5 class="card-title">Card title</h5>
+										<p class="card-text">Some quick example</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					<a class="carousel-control-prev carousel-control-next-cu" href="#carouselExampleControls" role="button" data-slide="prev"> 
+						<span class="carousel-control-prev-icon text-dark" aria-hidden="true"><i class="bi bi-caret-left-fill h1"></i></span>
+						
+					</a> 
+					<a class="carousel-control-next carousel-control-next-cu" href="#carouselExampleControls" role="button" data-slide="next"> 
+						<span class="carousel-control-next-icon text-dark" aria-hidden="true"><i class="bi bi-caret-right-fill h1"></i></span> 
+					</a>
+				</div>
+			</div>
+
+		</div>
+		
+	</div>
+	
+	
 </div>
 
 <%@ include file="../dist/include/footer.jspf"%>
