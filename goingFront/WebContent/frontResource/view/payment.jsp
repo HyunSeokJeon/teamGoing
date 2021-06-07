@@ -18,38 +18,7 @@
     </head>
     <body>
     	
-    	<!-- 메뉴 목록 -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light ">
-  		<a class="navbar-brand" href="#">Going</a>
-  			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    			<span class="navbar-toggler-icon"></span>
-  			</button>
-  		<div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNavDropdown">
-    		<ul class="navbar-nav">
-      			<li class="nav-item active">
-        			<a class="nav-link fs-4" href="#">메뉴1</a>
-      			</li>
-      			<li class="nav-item">
-        			<a class="nav-link fs-4" href="#">메뉴2</a>
-      			</li>
-      			<li class="nav-item">
-        			<a class="nav-link fs-4" href="#">메뉴3</a>
-      			</li>
-      			<li class="nav-item dropdown">
-        			<a class="nav-link dropdown-toggle fs-4" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          		메뉴 List
-        			</a>
-        					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          						<a class="dropdown-item" href="#">의류</a>
-          						<a class="dropdown-item" href="#">컨텐츠</a>
-         						 <a class="dropdown-item" href="#">영상</a>
-        					</div>
-      			</li>
-    		</ul>
-  		</div>
-</nav>
-    
-    <!-- 메뉴 목록 끝 -->
+    	
         <div class="d-flex" id="wrapper">
         	
             <!-- Sidebar-->
@@ -70,10 +39,11 @@
                 <!-- Page content-->
                 
                		<!-- 상품 정보 -->
-               		<div class="text-center my-3"><h3>Product Info 상품정보</h3></div>
+               		<div class="text-center my-3"><h3>Product Info 상품정보
+               			</h3></div>
                		
  		<div class=" border-top border-bottom border-dark bg-light container">
- 				<div class="form-row">
+ 			<div class="row">
  				<div class="border-top border-bottom my-3 col-2 text-center">
  					이미지
  				</div>
@@ -95,7 +65,7 @@
  				<div class= "border-top border-bottom  my-3 col-2 text-center">
  					합계	
  				</div>
- 				</div>
+ 			</div>
  				
  		<div class = "container">
  			<div class= "row">
