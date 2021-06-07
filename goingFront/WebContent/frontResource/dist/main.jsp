@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ include file="../dist/include/header.jspf"%>
-<%@ include file="../dist/include/productHeader.jspf"%>
+<%@ include file="/frontResource/dist/include/header.jspf"%>
+
 <div class="container">
 	<div class="row justify-content-center bg-white border-top"
 		style="height: 60rem;">
@@ -228,4 +228,4 @@
 	
 </div>
 
-<%@ include file="../dist/include/footer.jspf"%>
+<%@ include file="/frontResource/dist/include/footer.jspf"%>
