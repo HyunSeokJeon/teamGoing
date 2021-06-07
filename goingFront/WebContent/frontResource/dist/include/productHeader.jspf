@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!-- Masthead-->
 <header class="masthead">
 	<div class="container position-relative">
@@ -11,7 +11,7 @@
 					<!-- Signup form-->
 					<form>
 						<div class="input-group input-group-lg">
-							<input class="form-control" type="text" placeholder="»óÇ°À» °Ë»öÇÏ¼¼¿ä"
+							<input class="form-control" type="text" placeholder="ìƒí’ˆì„ ê²€ìƒ‰í•˜ì„¸ìš”"
 								aria-label="Enter your email..."
 								aria-describedby="button-submit" />
 							<button class="btn btn-primary" id="button-submit" type="button">

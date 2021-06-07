@@ -22,9 +22,31 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="<%=cssPath %>styles.css" rel="stylesheet" />
+        <link href="<%=cssPath %>styles.custom.css" rel="stylesheet" />
     </head>
        <body>
         <!-- Navigation-->
+        <%-- <nav class="navbar navbar-expand-lg bg-light text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top"><img src="<%=imgPath%>goingLogo.png"/></a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                    	
+                        <li class="nav-item mx-0 mx-lg-1">
+                        <a class=" px-0 px-lg-3 rounded btn btn-primary btn-sm" href="#portfolio">로그인</a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1">
+                        <a class=" px-0 px-lg-3 border rounded btn btn-light btn-sm" href="#about">회원가입</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav> --%>
         <nav class="navbar navbar-expand-lg bg-light text-uppercase fixed-top" id="mainNav">
             <div class="container">
                 <a class="navbar-brand" href="#page-top"><img src="<%=imgPath%>goingLogo.png"/></a>

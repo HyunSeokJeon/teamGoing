@@ -3,7 +3,8 @@
   padding:1rem 4rem;
   height:20rem;
 }
-.main-items{
+.main-header{
+	max-width: 570px !important;
 }
 
 .main-card{
@@ -16,4 +17,31 @@
 }
 .carousel-control-next-cu{
   width: 5% !important;
+}
+
+.px-10{
+	padding-right: 6rem !important;
+    padding-left: 6rem !important;
+}
+@media (min-width: 768px){
+  .main-showcase-favor-imgbox{
+    height:18vw;
+    overflow: hidden;
+  }
+  .main-showcase-favor-img{
+    height:100%;
+  }
+}
+
+.main-showcase-favor-img{
+  width: 100%;
+  object-fit:cover;
+}
+
+.like-heart-pink{
+  color: #FE1D73;
+}
+
+.like-star-yellow{
+	color:#FEBD09;
 }

@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 
 <%@ include file="../dist/include/header.jspf"%>
-
-<div class="conatiner">
+<%@ include file="../dist/include/productHeader.jspf"%>
+<div class="container">
 	<div class="row justify-content-center bg-white border-top"
 		style="height: 60rem;">
 
@@ -178,11 +178,53 @@
 					</a>
 				</div>
 			</div>
-
 		</div>
+
 		
 	</div>
-	
+	<div class="row my-4"><span class="h2 px-10">매진 임박 TOP3!</span></div>
+		<div class="row justify-content-between px-10">
+			<div class="col-md-4">
+				<div class="main-showcase-favor-imgbox" >
+					<img src="assets/img/favorP1.jpg" alt="" class="main-showcase-favor-img">
+				</div>
+				<div class="row m-3 p-1 align-items-center justify-content-center">
+					<div class="col">
+						<i class="bi bi-suit-heart-fill like-heart-pink h5"></i> <span class="h5">100</span>
+					</div>
+					<div class="col d-flex justify-content-end">
+						<a href="" class="btn btn-sm btn-outline-primary">바로가기</a>
+					</div>
+				</div>
+				
+			</div>
+			<div class="col-md-4">
+				<div class="main-showcase-favor-imgbox" >
+					<img src="assets/img/favorP2.jpg" alt="" class="main-showcase-favor-img">
+				</div>
+				<div class="row m-3 p-1 align-items-center justify-content-center">
+					<div class="col">
+						<i class="bi bi-suit-heart-fill like-heart-pink h5"></i> <span class="h5">100</span>
+					</div>
+					<div class="col d-flex justify-content-end">
+						<a href="" class="btn btn-sm btn-outline-primary">바로가기</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="main-showcase-favor-imgbox" >
+					<img src="assets/img/favorP1.jpg" alt="" class="main-showcase-favor-img">
+				</div>
+				<div class="row m-3 p-1 align-items-center justify-content-center">
+					<div class="col">
+						<i class="bi bi-suit-heart-fill like-heart-pink h5"></i> <span class="h5">100</span>
+					</div>
+					<div class="col d-flex justify-content-end">
+						<a href="" class="btn btn-sm btn-outline-primary">바로가기</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	
 </div>
 
