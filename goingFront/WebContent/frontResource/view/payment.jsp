@@ -33,13 +33,44 @@
                 </div>
             </div>-->
             <!-- Page content wrapper-->
-            <div class="container-fluid" id="page-content-wrapper">
+            
+<div class="container-fluid" id="page-content-wrapper">
                 <!--헤더부분 삽입 해야 됨-->
-                
+               
+        		<nav class="navbar navbar-expand-lg navbar-light bg-light " style="margin-top:5rem">
+        			<div class="collapse navbar-collapse d-flex justify-content-around " id="navbarSupportedContent">
+        				<ul class="navbar-nav mr-auto ">
+	        				  <li class="nav-item dropdown">
+							        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							          메뉴1
+							        </a>
+							        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							          <a class="dropdown-item" href="#">Action</a>
+							          <a class="dropdown-item" href="#">Another action</a>
+							          <div class="dropdown-divider"></div>
+							          <a class="dropdown-item" href="#">Something else here</a>
+							        </div>
+						      </li>
+	        				<li class="list-inline-item list-group-item mx-10" >분류2</li>
+	        				<li class="list-inline-item list-group-item mx-10">분류3</li>
+	        				<li class="list-inline-item list-group-item mx-10">분류4</li>
+	        				<li class="list-inline-item list-group-item mx-10">분류5</li>
+	        				<li class="list-inline-item list-group-item mx-10">분류6</li>
+	        				<li class="list-inline-item list-group-item mx-10">분류7</li>
+        				</ul>
+        			</div>
+        			<div></div>
+        			<div></div>
+        			<div></div>
+        			
+        				
+        			
+        		</nav>
+        		
                 <!-- Page content-->
                 
                		<!-- 상품 정보 -->
-               		<div class="text-center my-3"><h3>Product Info 상품정보
+               		<div class="text-center my-5"><h3>상품정보
                			</h3></div>
                		
  		<div class=" border-top border-bottom border-dark bg-light container">

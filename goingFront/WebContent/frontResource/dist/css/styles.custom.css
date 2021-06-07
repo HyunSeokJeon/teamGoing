@@ -3,6 +3,12 @@
   padding:1rem 4rem;
   height:20rem;
 }
+
+.mx-10{
+	margin-left: 6rem !important;
+	margin-right : 6rem !important;
+}
+
 .main-header{
 	max-width: 570px !important;
 }
@@ -44,4 +50,8 @@
 
 .like-star-yellow{
 	color:#FEBD09;
+}
+
+#page-content-wrapper> div:first-child{
+	margin-top: 5rem !important;
 }
