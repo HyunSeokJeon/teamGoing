@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <% 
 	String path = request.getContextPath();
+
 	String assetsPath = request.getContextPath() + "/frontResource/dist/assets/";
 	String cssPath = request.getContextPath() + "/frontResource/dist/css/";
 	String jsPath = request.getContextPath() + "/frontResource/dist/js/";
@@ -35,7 +36,6 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto align-items-center">
-                    	
                         <li class="nav-item mx-0 mx-lg-1">
                         <a class=" px-0 px-lg-3 rounded btn btn-primary btn-sm" href="#portfolio">로그인</a>
                         </li>
@@ -57,6 +57,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto align-items-center">
+                    	
+                    	
+                    	
                     	
                         <li class="nav-item mx-0 mx-lg-1">
                         <a class=" px-0 px-lg-3 rounded btn btn-primary btn-sm" href="#portfolio">로그아웃</a>
