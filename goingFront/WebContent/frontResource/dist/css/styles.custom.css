@@ -93,3 +93,18 @@
 #page-content-wrapper> div:first-child{
 	margin-top: 5rem !important;
 }
+.iconbox{
+	display: block !important;
+	padding: 60px 0 !important;
+}
+
+.fs-icon {
+    font-size: 6rem !important;
+  }
+  
+  .mt-6 {
+  margin-top: 4rem !important;
+}
+.aa{
+	min-height:500rem;
+}
