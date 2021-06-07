@@ -3,6 +3,7 @@
     
  
 <!-- Footer-->
+        <!-- Footer-->
         <footer class="footer bg-light">
             <div class="container">
                 <div class="row">
@@ -34,3 +35,14 @@
                 </div>
             </div>
         </footer>
+        <!-- Bootstrap core JS-->
+        <!-- Bootstrap core JavaScript-->
+        <script src="<%=vendorPath %>jquery/jquery.min.js"></script>
+        <script src="<%=vendorPath %>bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="<%=vendorPath %>jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
