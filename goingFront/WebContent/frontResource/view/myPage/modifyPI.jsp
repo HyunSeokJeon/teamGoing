@@ -14,9 +14,9 @@
 				<p class="h1">계정정보 변경</p>
 
 
-				<form>
+				<form action="#">
 					<div class="form-group my-3">
-						<label for="customerID">아이디 - 비밀번호 변경</label>
+						<label for="customerID">아이디</label>
 						<div class="row mt-2">
 							<div class="col-8">
 								<input class="form-control form-control-sm" id="customerID"
@@ -25,7 +25,7 @@
 							<div class="col">
 								<a onfocus=blur()
 									class ="btn btn-secondary btn-sm"
-									href="javascript:void(window.open('modifyPassword.jsp','win0','width=500,height=768,status=no,toolbar=no,scrollbars=no'))">
+									href="javascript:void(window.open('modifyPassword.jsp','win0','width=375,height=768,status=no,toolbar=no,scrollbars=no'))">
 									비밀번호 변경</a>
 							</div>
 						</div>
