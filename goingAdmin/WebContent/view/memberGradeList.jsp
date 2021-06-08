@@ -88,12 +88,16 @@
 				<tr>
 					<td colspan="5" style="text-align: right;"><a href="#"
 						class="btn btn-primary btn-icon-split"> <span
-							class="icon text-white-50"> <i class="fas fa-edit"></i>
-						</span> <span class="text">회원 등급 추가</span>
+							class="icon text-white-50"><i class="fas fa-user-edit"></i>
+						</span> <span class="text">회원등급 추가</span>
+					</a> <a href="#" class="btn btn-warning btn-icon-split"> <span
+							class="icon text-white-50"><i class="fas fa-edit"></i>
+						</span><span class="text">회원등급 수정</span>
 					</a> <a href="#" class="btn btn-danger btn-icon-split"> <span
 							class="icon text-white-50"> <i class="fas fa-trash"></i>
 						</span> <span class="text">선택 등급 삭제</span>
 					</a></td>
+
 				</tr>
 
 			</table>
