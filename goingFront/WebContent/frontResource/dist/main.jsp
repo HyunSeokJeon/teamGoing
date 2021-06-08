@@ -1,114 +1,231 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-  <%@ include file = "../dist/include/header.jspf" %>
-  
-    
-        <!-- Icons Grid-->
-        <section class="features-icons bg-light text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>
-                            <h3>Fully Responsive</h3>
-                            <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
-                            <h3>Bootstrap 5 Ready</h3>
-                            <p class="lead mb-0">Featuring the latest build of the new Bootstrap 5 framework!</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex"><i class="bi-terminal m-auto text-primary"></i></div>
-                            <h3>Easy to Use</h3>
-                            <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Image Showcases-->
-        <section class="showcase">
-            <div class="container-fluid p-0">
-                <div class="row g-0">
-                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-1.jpg')"></div>
-                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                        <h2>Fully Responsive Design</h2>
-                        <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
-                    </div>
-                </div>
-                <div class="row g-0">
-                    <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-2.jpg')"></div>
-                    <div class="col-lg-6 my-auto showcase-text">
-                        <h2>Updated For Bootstrap 5</h2>
-                        <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 5 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 5!</p>
-                    </div>
-                </div>
-                <div class="row g-0">
-                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-3.jpg')"></div>
-                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                        <h2>Easy to Use & Customize</h2>
-                        <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Testimonials-->
-        <section class="testimonials text-center bg-light">
-            <div class="container">
-                <h2 class="mb-5">What people are saying...</h2>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                            <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-1.jpg" alt="..." />
-                            <h5>Margaret E.</h5>
-                            <p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                            <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-2.jpg" alt="..." />
-                            <h5>Fred S.</h5>
-                            <p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                            <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-3.jpg" alt="..." />
-                            <h5>Sarah W.</h5>
-                            <p class="font-weight-light mb-0">"Thanks so much for making these free resources available to us!"</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Call to Action-->
-        <section class="call-to-action text-white text-center" id="signup">
-            <div class="container position-relative">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6">
-                        <h2 class="mb-4">Ready to get started? Sign up now!</h2>
-                        <!-- Signup form-->
-                        <form>
-                            <div class="input-group input-group-lg">
-                                <input class="form-control" type="text" placeholder="Enter your email..." aria-label="Enter your email..." aria-describedby="button-submit" />
-                                <button class="btn btn-primary" id="button-submit" type="button">Sign up!</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
-    
-    <%@ include file="../dist/include/footer.jspf" %>
+	pageEncoding="UTF-8"%>
+
+<%@ include file="/frontResource/dist/include/header.jspf"%>
+
+<div class="container">
+	<div class="row justify-content-center bg-white border-top"
+		style="height: 60rem;">
+
+		<div class="col-md-4 d-flex align-items-center justify-content-center main-header">
+			<div class="row w-100">
+				<ul class="nav nav-tabs mb-2" id="myTab" role="tablist">
+					<li class="nav-item"><a class="nav-link active text-dark"
+						id="home-tab" data-toggle="tab" href="#home" role="tab"
+						aria-controls="home" aria-selected="true">서비스 찾기</a></li>
+					<li class="nav-item"><a class="nav-link text-dark"
+						id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+						aria-controls="profile" aria-selected="false">About Us</a></li>
+					<li class="nav-item"><a class="nav-link text-dark"
+						id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+						aria-controls="contact" aria-selected="false">카테고리</a></li>
+				</ul>
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane fade show active" id="home" role="tabpanel"
+						aria-labelledby="home-tab">
+						<div class="input-group my-4">
+							<input type="text" class="form-control" placeholder="검색어를 입력하세요."
+								aria-label="Recipient's username"
+								aria-describedby="button-addon2" id="mainsearch">
+							<div class="input-group-append">
+								<button class="btn btn-outline-primary" type="button"
+									id="button-addon2">Button</button>
+
+
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="profile" role="tabpanel"
+						aria-labelledby="profile-tab">
+						<div class="my-4">Lorem ipsum dolor sit amet consectetur
+							adipisicing elit. Officia suscipit non consequatur iste
+							cupiditate, nobis, odit reprehenderit architecto ea rem molestias
+							inventore. Nostrum reprehenderit totam dolore adipisci dolorem
+							velit quo?</div>
+					</div>
+					<div class="tab-pane fade" id="contact" role="tabpanel"
+						aria-labelledby="contact-tab">
+						<div class="my-4 h1 d-flex justify-content-around">
+							<div>
+								<i class="bi bi-align-bottom"></i>
+							</div>
+							<div>
+								<i class="bi bi-app"></i>
+							</div>
+							<div>
+								<i class="bi bi-app"></i>
+							</div>
+							<div>
+								<i class="bi bi-app"></i>
+							</div>
+
+						</div>
+						<div class="my-4 h1 d-flex justify-content-around">
+							<div>
+								<i class="bi bi-align-bottom"></i>
+							</div>
+							<div>
+								<i class="bi bi-app"></i>
+							</div>
+							<div>
+								<i class="bi bi-app"></i>
+							</div>
+							<div>
+								<i class="bi bi-app"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-md-4 d-flex align-items-end main-header">
+			<div>
+				<img src="<%=imgPath%>mainAssist.jpg" class="img-fluid"
+					style="width: 100em; height: auto;">
+			</div>
+		</div>
+	</div>
+	<div class="container my-4">
+		<div class="row"><span class="h2 px-10">인기많은 상품</span></div>
+		<div class="row">
+			<div class="col py-2">
+				<div id="carouselExampleControls" class="carousel slide main-showcase-box" data-ride="carousel" data-interval="false">
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<div class="row justify-content-start">
+								<div class="card col mx-4 border-0 main-card">
+									<div class="overflow-hidden main-showcase-productImg"><img class="card-img-top " src="assets/img/mainp1.png" alt="First slide" ></div>
+									<div class="card-body main-showcase-product">
+										<h5 class="card-title">Card title</h5>
+										<p class="card-text">Some quick example</p>
+									</div>
+								</div>
+								<div class="card col mx-4 border-0 main-card">
+									<div class="overflow-hidden main-showcase-productImg"><img class="card-img-top " src="assets/img/mainp1.png" alt="First slide"></div>
+									<div class="card-body main-showcase-product">
+										<h5 class="card-title">Card title</h5>
+										<p class="card-text">Some quick example</p>
+									</div>
+								</div>
+								<div class="card col mx-4 border-0 main-card">
+									<div class="overflow-hidden main-showcase-productImg"><img class="card-img-top " src="assets/img/mainp1.png" alt="First slide"></div>
+									<div class="card-body main-showcase-product">
+										<h5 class="card-title">Card title</h5>
+										<p class="card-text">Some quick example</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="row justify-content-start">
+								<div class="card col mx-4 border-0 main-card">
+									<div class="overflow-hidden main-showcase-productImg"><img class="card-img-top " src="assets/img/mainp2.png" alt="First slide" ></div>
+									<div class="card-body main-showcase-product">
+										<h5 class="card-title">Card title</h5>
+										<p class="card-text">Some quick example</p>
+									</div>
+								</div>
+								<div class="card col mx-4 border-0 main-card">
+									<div class="overflow-hidden main-showcase-productImg"><img class="card-img-top " src="assets/img/mainp2.png" alt="First slide"></div>
+									<div class="card-body main-showcase-product">
+										<h5 class="card-title">Card title</h5>
+										<p class="card-text">Some quick example</p>
+									</div>
+								</div>
+								<div class="card col mx-4 border-0 main-card">
+									<div class="overflow-hidden main-showcase-productImg"><img class="card-img-top " src="assets/img/mainp2.png" alt="First slide"></div>
+									<div class="card-body main-showcase-product">
+										<h5 class="card-title">Card title</h5>
+										<p class="card-text">Some quick example</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="row justify-content-start">
+								<div class="card col mx-4 border-0 main-card">
+									<div class="overflow-hidden main-showcase-productImg"><img class="card-img-top " src="assets/img/mainp3.png" alt="First slide" ></div>
+									<div class="card-body main-showcase-product">
+										<h5 class="card-title">Card title</h5>
+										<p class="card-text">Some quick example</p>
+									</div>
+								</div>
+								<div class="card col mx-4 border-0 main-card">
+									<div class="overflow-hidden main-showcase-productImg"><img class="card-img-top " src="assets/img/mainp3.png" alt="First slide"></div>
+									<div class="card-body main-showcase-product">
+										<h5 class="card-title">Card title</h5>
+										<p class="card-text">Some quick example</p>
+									</div>
+								</div>
+								<div class="card col mx-4 border-0 main-card">
+									<div class="overflow-hidden main-showcase-productImg"><img class="card-img-top " src="assets/img/mainp3.png" alt="First slide"></div>
+									<div class="card-body main-showcase-product">
+										<h5 class="card-title">Card title</h5>
+										<p class="card-text">Some quick example</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					<a class="carousel-control-prev carousel-control-next-cu" href="#carouselExampleControls" role="button" data-slide="prev"> 
+						<span class="carousel-control-prev-icon text-dark" aria-hidden="true"><i class="bi bi-caret-left-fill h1"></i></span>
+						
+					</a> 
+					<a class="carousel-control-next carousel-control-next-cu" href="#carouselExampleControls" role="button" data-slide="next"> 
+						<span class="carousel-control-next-icon text-dark" aria-hidden="true"><i class="bi bi-caret-right-fill h1"></i></span> 
+					</a>
+				</div>
+			</div>
+		</div>
+
+		
+	</div>
+	<div class="row my-4"><span class="h2 px-10">매진 임박 TOP3!</span></div>
+		<div class="row justify-content-between px-10">
+			<div class="col-md-4">
+				<div class="main-showcase-favor-imgbox" >
+					<img src="assets/img/favorP1.jpg" alt="" class="main-showcase-favor-img">
+				</div>
+				<div class="row m-3 p-1 align-items-center justify-content-center">
+					<div class="col">
+						<i class="bi bi-suit-heart-fill like-heart-pink h5"></i> <span class="h5">100</span>
+					</div>
+					<div class="col d-flex justify-content-end">
+						<a href="" class="btn btn-sm btn-outline-primary">바로가기</a>
+					</div>
+				</div>
+				
+			</div>
+			<div class="col-md-4">
+				<div class="main-showcase-favor-imgbox" >
+					<img src="assets/img/favorP2.jpg" alt="" class="main-showcase-favor-img">
+				</div>
+				<div class="row m-3 p-1 align-items-center justify-content-center">
+					<div class="col">
+						<i class="bi bi-suit-heart-fill like-heart-pink h5"></i> <span class="h5">100</span>
+					</div>
+					<div class="col d-flex justify-content-end">
+						<a href="" class="btn btn-sm btn-outline-primary">바로가기</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="main-showcase-favor-imgbox" >
+					<img src="assets/img/favorP1.jpg" alt="" class="main-showcase-favor-img">
+				</div>
+				<div class="row m-3 p-1 align-items-center justify-content-center">
+					<div class="col">
+						<i class="bi bi-suit-heart-fill like-heart-pink h5"></i> <span class="h5">100</span>
+					</div>
+					<div class="col d-flex justify-content-end">
+						<a href="" class="btn btn-sm btn-outline-primary">바로가기</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+</div>
+
+<%@ include file="/frontResource/dist/include/footer.jspf"%>

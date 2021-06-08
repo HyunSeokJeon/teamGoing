@@ -56,11 +56,6 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-<<<<<<< HEAD
-                Interface
-            </div>
-
-=======
                 Management
             </div>
 			
@@ -89,8 +84,7 @@
             <div class="sidebar-heading">
                 Interface
             </div>
-            
->>>>>>> refs/heads/develop
+
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
