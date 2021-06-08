@@ -6,73 +6,59 @@
 
 <div class="container position-relative">
 	<div class="row justify-content-center">
-		<div class="col-md-6">
+		<div class="col-md-8">
 			<div class="text-left">
 				<!-- Page heading-->
 				<h1 class="mb-5">&nbsp;</h1>
 				<!-- Signup form-->
-				<p class="h2">등급 <i class="bi bi-dot"></i> 쿠폰 관리 </p>
+				<p class="h2 ">
+					등급 <i class="bi bi-dot"></i> 쿠폰 관리
+				</p>
+				<div class="row my-5">
+					<div class="col-8 h4 mt-2">
+					고객님의 등급은 : 입니다.
+					</div>
+					<div class="col pt-2 h5" style="text-align: right;">
+						<a href ="#" style="text-decoration: none" class="badge badge-light">
+							자세히 보기
+							<i class="bi bi-arrow-right-circle-fill"></i>
+						</a>
+					</div>
+				</div>
+				<p class="h4">사용할 수 있는 쿠폰 : 장</p>
+				<!-- 쿠폰 사용여부 == 'N' -->
+				<table class="table text-center">
+					<caption style="font-size:.75rem">쿠폰마다 사용방법 및 기간이 상이함.</caption>
+					<thead class="thead-light">
+						<tr>
+							<th scope="col">No</th>
+							<th scope="col">할인율</th>
+							<th scope="col">쿠폰명</th>
+							<th scope="col">유효기간</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td>2%</td>
+							<td>브론즈 특별전용 쿠폰</td>
+							<td style="font-size:.8rem">2021년 06월 30일</td>
+						</tr>
+						<tr>
+							<th scope="row">2</th>
+							<td>Jacob</td>
+							<td>Thornton</td>
+							<td>@fat</td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td>Larry</td>
+							<td>the Bird</td>
+							<td>@twitter</td>
+						</tr>
+					</tbody>
+				</table>
 
-				
-				<form action="#">
-					<div class="form-group my-3">
-						<label for="customerID">아이디</label>
-						<div class="row mt-2">
-							<div class="col-8">
-								<input class="form-control form-control-sm" id="customerID"
-									value="hong" disabled>
-							</div>
-							<div class="col">
-								<a onfocus=blur()
-									class ="btn btn-secondary btn-sm"
-									href="javascript:void(window.open('modifyPassword.jsp','win0','width=375,height=768,status=no,toolbar=no,scrollbars=no'))">
-									비밀번호 변경</a>
-							</div>
-						</div>
-						
-					</div>
-			
-				
-					<div class="form-group my-3">
-						<label for="customerName mb-2">이름</label> <input
-							class="form-control form-control-sm mt-2" id="customerName"
-							value="홍길동">
-					</div>
-					<div class="form-group my-3">
-						<label for="customerEmail">이메일</label> <input
-							class="form-control form-control-sm mt-2" id="customerEmail"
-							value="hong@naver.com">
-					</div>
-					<div class="form-group my-3">
-						<label for="customerPhonenum">휴대전화</label> <input
-							class="form-control form-control-sm mt-2" id="customerPhonenum"
-							value="hong-hong-hong">
-					</div>
-					<div class="form-row my-3">
-						<div class="col-6">
-							<label for="customAddressCode1">주소</label>
-							<div class="input-group input-group-sm mt-2">
-								<input class="form-control" type="text" value="111-111"
-									aria-describedby="searchPost" id="customAddressCode1" />
-								<button class="btn btn-primary btn-sm" id="searchPost"
-									type="button">
-									<i class="bi bi-search"></i>
-								</button>
-							</div>
-						</div>
-					</div>
-					<div class="form-group my-3">
-						<input class="form-control form-control-sm mt-2"
-							id="customAddress1" value="서울시 머시기 ㅎㅎㅎ">
-					</div>
-					<div class="form-group my-3">
-						<input class="form-control form-control-sm mt-2"
-							id="customAddress2" value="111-1111">
-					</div>
-
-					<button class="btn btn-primary btn-sm mx-2" type="submit">확인</button>
-					<button class="btn btn-danger btn-sm mx-2" type="submit">취소</button>
-				</form>
 
 			</div>
 		</div>
