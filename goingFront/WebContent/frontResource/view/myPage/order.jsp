@@ -33,15 +33,15 @@
             </div>-->
             <!-- Page content wrapper-->
             
-<div class="container-fluid position-relative  aa" id="page-content-wrapper">
+<div class="container-fluid position-relative" id="page-content-wrapper">
                 <!--헤더부분 삽입 해야 됨-->
                
         		<nav class="navbar navbar-expand-lg navbar-light bg-light " style="margin-top:4rem">
-        			<div class="collapse navbar-collapse d-flex justify-content-around " id="navbarSupportedContent">
+        			<div class="collapse navbar-collapse d-flex justify-content-center " id="navbarSupportedContent">
         				<ul class="navbar-nav mr-auto ">
 	        				  <li class="nav-item dropdown">
-							        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							          메뉴1
+							        <a class="nav-link fs-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							          Home
 							        </a>
 							        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							          <a class="dropdown-item" href="#">Action</a>
@@ -50,12 +50,75 @@
 							          <a class="dropdown-item" href="#">Something else here</a>
 							        </div>
 						      </li>
-	        				<li class="list-inline-item list-group-item mx-10" >분류2</li>
-	        				<li class="list-inline-item list-group-item mx-10">분류3</li>
-	        				<li class="list-inline-item list-group-item mx-10">분류4</li>
-	        				<li class="list-inline-item list-group-item mx-10">분류5</li>
-	        				<li class="list-inline-item list-group-item mx-10">분류6</li>
-	        				<li class="list-inline-item list-group-item mx-10">분류7</li>
+	        						<ul class="navbar-nav mr-auto">
+	        							<li class="nav-item dropdown">
+	        								<a class="nav-link fs-4 " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										          인기
+										    </a>
+										        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+										          <a class="dropdown-item" href="#">Action</a>
+										          <a class="dropdown-item" href="#">Another action</a>
+										          <div class="dropdown-divider"></div>
+										          <a class="dropdown-item" href="#">Something else here</a>
+										        </div>
+	        							</li>
+	        						</ul>
+	        						
+	        						<ul class="navbar-nav mr-auto">
+	        							<li class="nav-item dropdown">
+	        								<a class="nav-link fs-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										          브랜드
+										    </a>
+										        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+										          <a class="dropdown-item" href="#">Action</a>
+										          <a class="dropdown-item" href="#">Another action</a>
+										          <div class="dropdown-divider"></div>
+										          <a class="dropdown-item" href="#">Something else here</a>
+										        </div>
+	        							</li>
+	        						</ul>
+	        						
+	        						<ul class="navbar-nav mr-auto">
+	        							<li class="nav-item dropdown">
+	        								<a class="nav-link fs-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										          콘텐츠
+										    </a>
+										        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+										          <a class="dropdown-item" href="#">Action</a>
+										          <a class="dropdown-item" href="#">Another action</a>
+										          <div class="dropdown-divider"></div>
+										          <a class="dropdown-item" href="#">Something else here</a>
+										        </div>
+	        							</li>
+	        						</ul>
+	        						
+	        						<ul class="navbar-nav mr-auto">
+	        							<li class="nav-item dropdown">
+	        								<a class="nav-link fs-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										          이벤트
+										    </a>
+										        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+										          <a class="dropdown-item" href="#">Action</a>
+										          <a class="dropdown-item" href="#">Another action</a>
+										          <div class="dropdown-divider"></div>
+										          <a class="dropdown-item" href="#">Something else here</a>
+										        </div>
+	        							</li>
+	        						</ul>
+	        						
+	        						<ul class="navbar-nav mr-auto">
+	        							<li class="nav-item dropdown">
+	        								<a class="nav-link fs-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										          마이페이지
+										    </a>
+										        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+										          <a class="dropdown-item" href="#">Action</a>
+										          <a class="dropdown-item" href="#">Another action</a>
+										          <div class="dropdown-divider"></div>
+										          <a class="dropdown-item" href="#">Something else here</a>
+										        </div>
+	        							</li>
+	        						</ul>
         				</ul>
         			</div>
         		</nav>
@@ -90,15 +153,29 @@
                	</div>
                			
                			
-               <div class="d-flex justify-content-left">
-               		<div class="">
+               <div class="container d-flex justify-content-left mt-4">
+               		<div class="border list-group-item ">
                			1주일
                		</div>
-               		<div>
+               		<div class= "border list-group-item">
                			1개월
                		</div>
-               		<div>
+               		<div class= "border list-group-item ">
                			3개월
+               		</div>
+               		<div class= "border list-group-item ">
+               			전체 시기
+               		</div>
+               		
+               		<div class="form-group col-md-2 offset-1">              			
+               			<input type="date" class="form-control" placeholder="YY/MM/DD">
+               		</div>
+               			
+               		<div class="form-group col-md-2">              			
+               			<input type="date" class="form-control" placeholder="YY/MM/DD">
+               		</div>
+               		<div>
+               			<button class="btn btn-outline-primary" type="button">조회</button>
                		</div>
                </div>
                			
