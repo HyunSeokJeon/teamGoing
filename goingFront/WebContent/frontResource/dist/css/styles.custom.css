@@ -113,3 +113,23 @@
     border-radius: 0.2rem;
 }
 
+.badge-light {
+  color: #3a3b45;
+  background-color: #f8f9fc;
+}
+
+a.badge-light:hover, a.badge-light:focus {
+  color: #3a3b45;
+  background-color: #d4daed;
+}
+
+a.badge-light:focus, a.badge-light.focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(248, 249, 252, 0.5);
+}
+
+.badge-bronze{
+	color: #FFFFFF;
+  background-color: #4F261D;
+}
+
