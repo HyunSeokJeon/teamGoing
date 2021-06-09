@@ -94,6 +94,19 @@
 	margin-top: 5rem !important;
 }
 
+.iconbox{
+	display: block !important;
+	padding: 60px 0 !important;
+}
+
+.fs-icon {
+    font-size: 6rem !important;
+  }
+  
+  .mt-6 {
+  margin-top: 4rem !important;
+}
+
 .btn-hxs-wxl{
 	    padding: .25rem 1rem;
     font-size: .875rem;
@@ -119,8 +132,4 @@ a.badge-light:focus, a.badge-light.focus {
 	color: #FFFFFF;
   background-color: #4F261D;
 }
-
-
-
-
 
