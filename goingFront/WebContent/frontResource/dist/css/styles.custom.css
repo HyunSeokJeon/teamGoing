@@ -113,3 +113,65 @@
     border-radius: 0.2rem;
 }
 
+.info{
+	display: inline-block;
+    width: 50.5rem;
+    margin-top: .4rem;
+    margin-left: 2.5rem;
+    vertical-align: top;
+    padding-left : 2,5rem;
+	
+}
+.infoitem{
+	padding-left: 2,5rem;
+	font-size: 0;
+	
+}
+
+.infoLabel{
+	display: inline-block;
+    width: 9rem;
+    padding-right: .5rem;
+    color: #000;
+    font-size: 1.6rem;
+    font-weight: normal;
+    line-height: 160%;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+.infoDesc{
+	display: inline-block !important;
+    max-width: 39rem !important;
+    vertical-align: top !important;
+}
+div{
+	display:block !important;
+}
+
+
+
+
+.posterBox{
+	display: inline-block;
+    width: 30rem;
+}
+
+.posterBoxTop{
+	background-position: 50% 50%;
+    position: relative;
+    height: 40rem;
+}
+.posterBoxImage{
+	display: block;
+    width: 100%;
+    height: 100%;
+    border: .1rem solid #dadee3;
+    box-sizing: border-box;
+}
+.summary{
+	position: relative;
+    padding-bottom: 6.5rem;
+    font-size: 0;
+}
+
