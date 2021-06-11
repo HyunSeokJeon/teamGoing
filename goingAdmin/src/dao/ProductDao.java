@@ -34,7 +34,7 @@ public class ProductDao {
 	
 	private Product convertProduct(ResultSet rs) throws SQLException {
 		return new Product(
-				rs.getInt("productID"), rs.getInt("productType"), rs.getString("productName"), rs.getInt("productPrice"),
+				rs.getInt("productID"), rs.getInt("productTypeID"), rs.getString("productName"), rs.getInt("productPrice"),
 				rs.getString("productImage"), rs.getString("productDesc"), rs.getInt("productLove"), rs.getString("productSellStart"),
 				rs.getString("productSellEnd"), rs.getString("productSellYN"));
 	}

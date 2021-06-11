@@ -14,7 +14,7 @@ public class ReadProductManagementHandler implements CommandHandler{
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		req.setAttribute("productList", readProductService.productList());
 		
-		return "/WEB-INF/view/management/productMGMT.jsp";
+		return "/WEB-INF/view/management/product/productMGMT.jsp";
 	}
 	
 	
