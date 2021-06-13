@@ -15,6 +15,21 @@ public class Product {
 	
 	
 	
+	
+	public Product(Integer productType, String productName, int productPrice, String productImage,
+			String productDesc, int productLove, String productSellYN) {
+		super();
+		this.productType = productType;
+		this.productName = productName;
+		this.productPrice = productPrice;
+		this.productImage = productImage;
+		this.productDesc = productDesc;
+		this.productLove = productLove;
+		this.productSellYN = productSellYN;
+	}
+
+
+
 	public Product(Integer productID, Integer productType, String productName, Integer productPrice,
 			String productImage, String productDesc, Integer productLove, String productSellStart,
 			String productSellEnd, String productSellYN) {
@@ -30,6 +45,7 @@ public class Product {
 		this.productSellEnd = productSellEnd;
 		this.productSellYN = productSellYN;
 	}
+	
 	public Integer getProductID() {
 		return productID;
 	}
