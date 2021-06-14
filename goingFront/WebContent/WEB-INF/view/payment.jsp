@@ -1,11 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
   <%@ include file = "../../frontResource/dist/include/header.jspf" %>
   
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    	<script language = "javascript">
+function showPopup(){
+	window.open("/goingFront/coupon.go?couponID=2","쿠폰 조회", "width=500, height=300, left=100, top=50");
+}
+</script>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -194,7 +199,7 @@
 			<dt class="col-sm-2 text-left">쿠폰</dt>
 			<dd class= "col-sm-10 ">
 				<input type="text" >
-				<input type="button"  value="쿠폰조회">
+				<input type="button"  value="쿠폰조회" onclick="showPopup();"/>
 			</dd>
 		</dl>
 			<dl class="row ">
