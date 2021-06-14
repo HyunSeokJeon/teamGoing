@@ -8,7 +8,7 @@
     <head>
     	<script language = "javascript">
 function showPopup(){
-	window.open("/goingFront/coupon.go?couponID=2","쿠폰 조회", "width=500, height=300, left=100, top=50");
+	window.open("/goingFront/coupon.go?couponID=?","쿠폰 조회", "width=500, height=300, left=100, top=50");
 }
 </script>
         <meta charset="utf-8" />
