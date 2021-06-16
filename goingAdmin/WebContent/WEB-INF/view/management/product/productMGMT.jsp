@@ -7,7 +7,7 @@
 <div class="container-fluid">
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">상품 관리</h1>
-		<a href="#"
+		<a href="<%=path %>/manage/createProduct.go"
 			class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
 			<i class="fas fa-plus fa-sm text-white-50"></i> &nbsp;상품 추가 <!-- #TODO 상품추가를 클릭 한다면 상품추가 페이지로 이동할 수 있도록 -->
 		</a>
@@ -62,8 +62,8 @@
 								<td>${product.productType}</td>
 								<td>${product.productName}</td>
 								<td>${product.productPrice }</td>
-								<td>${product.productImage }</td>
-								<td>${product.productDesc }</td>
+								<td><a href="javascript:void(window.open('<%=path %>/upload/${product.productImage}','win0','width=800,height=768,status=no,toolbar=no,scrollbars=no'))">상품확인</a></td>
+								<td><a href="javascript:void(window.open('<%=path %>/upload/${product.productDesc}','win0','width=800,height=768,status=no,toolbar=no,scrollbars=no'))">상품확인</a></td>
 								<td>${product.productSellStart }</td>
 								<td>${product.productLove }</td>
 								<c:if test="${product.productSellYN eq '0'}"><td></td></c:if> 

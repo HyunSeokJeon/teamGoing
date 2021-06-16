@@ -36,7 +36,7 @@
 			</div>
 			<!-- Card Body -->
 			<div class="card-body">
-				<form class="form-group" action="<%=path %>/manage/createProduct.go" method="post">
+				<form class="form-group" action="<%=path %>/manage/createProduct.go" method="post" enctype="multipart/form-data">
 					<input type="hidden" name="productId" value=""/>
 					<div class="col-md-4 mb-3">
 						<label for="productType">상품 분류</label>
@@ -57,34 +57,41 @@
 						<input type="text" class="form-control" id="productPrice" name="productPrice" placeholder="상품가격(숫자만 입력)">
 					</div>
 					<div class="col-md-8 mb-3">
-						<label for="productPrice">상품설명</label>
-						<textarea class="form-control" id="productDesc" name="productDesc"></textarea>
+						<label for="productPrice">상품썸네일</label>
+						<input type="file" class="form-control" id="productImg" name="productImg"></input>
 					</div>
+					<div class="col-md-8 mb-3">
+						<label for="productPrice">상품설명</label>
+						<input type="file" class="form-control" id="productDesc" name="productDesc"></input>
+					</div>
+					
 					<label class="form-label" for="files">제품설명 사진</label>
 					<div class="col border rounded py-4" id="files">
 						
 						<!-- 상품사진은 img저장방법 구현, db구조 img테이블 생성 후, 처리 -->
-						<input type="file" class="form-control-file" id="customFile" name="productImg"/><br/>
-						<input type="file" class="form-control-file" id="customFile" /><br/>
-						
-						<button type="button" class="p-2 d-none d-sm-inline-block btn btn-sm btn-success shadow-sm ml-2">
+						<input type="file" class="form-control-file" id="customFile1" name="productImg1"/><br/>
+						<input type="file" class="form-control-file" id="customFile2" name="productImg2"/><br/>
+						<input type="file" class="form-control-file" id="customFile3" name="productImg3"/><br/>
+						<input type="file" class="form-control-file" id="customFile4" name="productImg4"/><br/>
+						<input type="file" class="form-control-file" id="customFile5" name="productImg5"/><br/>
+						<!-- <button type="button" class="p-2 d-none d-sm-inline-block btn btn-sm btn-success shadow-sm ml-2">
 							<i class="fas fa-plus fa-sm text-white-50"></i> &nbsp;사진항목 추가
 						</button>
 						<button type="button" class="p-2 d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm ml-2">
-							<i class="fas fa-minus fa-sm text-white-50"></i> &nbsp;사진항목 삭제</button>
+							<i class="fas fa-minus fa-sm text-white-50"></i> &nbsp;사진항목 삭제</button> -->
 						
 						<!-- 제품사진 추가를 누를때 file input이 늘어날 수 있도록 -->
 					</div>
 					<br/>
 					<div class="col">
-						<button type="submit"
+						<button type="submit" id="create_product_submit"
 							class="p-2 d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
 							<i class="fas fa-check fa-sm text-white-50"></i> &nbsp;상품 추가
 						</button>
-						<button type="button"
+						<a href="<%=path %>/manage/readProduct.go"
 							class="p-2 d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm ml-2">
 							<i class="fas fa-times fa-sm text-white-50"></i>&nbsp;취소
-						</button>
+						</a>
 						<!-- 상품 추가버튼을 눌렀을때 상품DB에 추가되도록 취소는 상품목록으로 되돌아가도록 -->
 					</div>
 				</form>
@@ -92,4 +99,5 @@
 		</div>
 	</div>
 </div>
+
 <%@ include file="/WEB-INF/view/common/footer.jspf"%>

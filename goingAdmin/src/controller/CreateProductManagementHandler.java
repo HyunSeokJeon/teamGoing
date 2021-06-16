@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class CreateProductManagementHandler implements CommandHandler{
 		return FORM_VIEW;
 	}
 	
-	private String processSubmit(HttpServletRequest req, HttpServletResponse res) throws SQLException {
+	private String processSubmit(HttpServletRequest req, HttpServletResponse res) throws SQLException, IOException {
 		ps.createProduct(req);
 		return "/WEB-INF/view/management/product/createProduct.jsp";
 	}
