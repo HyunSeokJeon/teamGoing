@@ -68,7 +68,7 @@ public class ProductService {
 		Enumeration files = multi.getFileNames();
 		String[] fileArray = new String[7];
 		String file, filename, origfilename;
-		for(int i=1; i<5; i++) {
+		for(int i=0; i<7; i++) {
 			file = (String) files.nextElement();
 			System.out.println(file);
 			if(file.equalsIgnoreCase("productImg")) {
@@ -90,7 +90,7 @@ public class ProductService {
 			conn.setAutoCommit(false);
 			int lastProductId = productDao.createProduct(conn, newProduct);
 			fs.uploadFile(multi, conn, fileArray, lastProductId);
-			conn.rollback();
+			conn.commit();
 		}catch (SQLException e) {
 			JdbcUtil.rollback(conn);
 			e.getStackTrace();
