@@ -1,5 +1,5 @@
 
-<%@ include file = "view/common/header.jspf" %>
+<%@ include file="/WEB-INF/view/common/header.jspf"%>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -334,4 +334,4 @@
 
             </div>
             <!-- End of Main Content -->
-<%@ include file = "view/common/footer.jspf" %>
+<%@ include file="/WEB-INF/view/common/footer.jspf"%>
