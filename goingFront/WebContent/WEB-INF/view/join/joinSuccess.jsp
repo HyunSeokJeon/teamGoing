@@ -7,7 +7,7 @@
 <title>가입 완료</title>
 <script type="text/javascript">
 	alert(`${param.name}님, 회원 가입에 성공했습니다.`);
-	location.href = "index.html";
+	location.href = "/main.go";
 </script>
 </head>
 <body>
