@@ -8,13 +8,14 @@ import java.util.Map;
 
 import dao.ProductTypeDao;
 import dao.ProlistDao;
-import dto.Prolist;
 import jdbc.JdbcUtil;
 import jdbc.connection.ConnectionProvider;
+import model.Prolist;
 
 public class ProlistService {
 		private ProlistDao prolistDao = new ProlistDao();
 		private ProductTypeDao ptd = new ProductTypeDao();
+		
 		
 		public Map<Integer, List<Prolist>> arrageProduct() {
 			Connection conn =null;
@@ -35,5 +36,32 @@ public class ProlistService {
 			}
 		
 			
-		} 
+		}
+		
+		public List<Prolist> arrageLowProduct() throws SQLException{
+			Connection conn = null;
+			
+			try {
+				conn = ConnectionProvider.getConnection();
+				List<Prolist>productListofType = ptd.selectLowPrice(conn);
+				return productListofType;
+			}finally {
+				
+			}
+			
+		}
+		
+		public List<Prolist>arrageHighProduct() throws SQLException{
+			Connection conn = null;
+			
+			try {
+				conn = ConnectionProvider.getConnection();
+				List<Prolist>productListofType = ptd.selectHighPrice(conn);
+				return productListofType;
+			}finally {
+				
+			}
+		}
+		
+		
 }

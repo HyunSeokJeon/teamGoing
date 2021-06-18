@@ -1,4 +1,4 @@
-<%@page import="dto.Prolist"%>
+<%@page import="model.Prolist"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
@@ -16,6 +16,18 @@
         <link href="<%=request.getContextPath()%>/frontResource/dist/css/stylesproduct.css" rel="stylesheet" />
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     </head>
+    <script type="text/javascript">
+	
+    function divide(productTypeId){
+    	window.location.href = "/goingFront/list.go?productTypeId=" + productTypeId;
+    }
+    
+    function seperate(productTypeId){
+    	window.location.href = "/goingFront/list.go?productTypeId=" + productTypeId;
+    }
+</script>
+
+
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -68,34 +80,27 @@
                     <!-- <p class="lead fw-normal text-white-50 mb-0"></p> -->
                 	</div>
                 	</form>
-                </div >
-                
+                </div >             
             </div>
         </header>
         <!-- 카테고리 -->
         <div class="border d-flex justify-content-left  bg-light">
-        	<div class="col-2">Category</div>
-        	<div class="col-2">분류</div>
+        	<div class="col-2"></div>
+        	<div class="col-2"></div>       	
         	<div class=" col-8 ">
-        			<ul >
-        				<li class="list-inline-item">분류1</li>
-        				<li class="list-inline-item">분류2</li>
-        				<li class="list-inline-item">분류3</li>
-        				<li class="list-inline-item">분류4</li>
-        				<li class="list-inline-item">분류5</li>
-        				<li class="list-inline-item">분류6</li>
-        				<li class="list-inline-item">분류7</li>
-        				
-        			</ul>
+        			<button class="list-inline-item"  id="num1"  onclick = 'divide(10)'>분류1</button>
+        			<button class="list-inline-item"  id="num2"  onclick = 'divide(20)'>분류2</button>	
+        			<button class="list-inline-item"  id="num3"  onclick = 'divide(30)'>분류3</button>	
+        			<button class="list-inline-item"  id="num4"  onclick = 'divide(40)'>분류4</button>	
+        			<button class="list-inline-item"  id="num5"  onclick = 'divide(50)'>분류5</button>		
         		</div>
-        		
         </div>
         <!-- 상품 정렬 순  -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="d-flex justify-content-center collapse navbar-collapse">
-        	<div class="nav-item" style="margin-right: 15px"> 신상품 순 </div>
-        	<div class="nav-item " style="margin-right: 15px"> 낮은 가격 순 </div>
-        	<div class="nav-item " style="margin-right: 15px"> 높은 가격 순 </div>
+        	<button class="nav-item"  onclick = 'seperate("")'> 신상품 순 </button>
+        	<button class="nav-item "  onclick = 'seperate("lowPrice")'> 낮은 가격 순 </button>
+        	<button class="nav-item "  onclick = 'seperate("highPrice")'> 높은 가격 순 </button>
         			<div class="nav-item dropdown">
         				<a class="nav-link drpodown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">판매순</a>
                             <ul class="dropdown-menu" aria-labelledby="narbarDropdown">
@@ -135,239 +140,6 @@
                         </div>
                     </div>
                     </c:forEach>
-                		 
-                		 
-                	<%--	 <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder"></h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$20.00</span>
-                                    $18.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border d-flex justify-content-center bg-transparent ">
-                                <div class="text-inline"><a class="btn btn-outline-dark mt-auto" href="#">장바구니</a></div>
-                                <div class="text-inline"><a class="btn btn-outline-dark mt-auto" href="#">바로 구매</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Sale Item</h5>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$50.00</span>
-                                    $25.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border d-flex justify-content-center bg-transparent ">
-                                <div class="text-inline"><a class="btn btn-outline-dark mt-auto" href="#">장바구니</a></div>
-                                <div class="text-inline"><a class="btn btn-outline-dark mt-auto" href="#">바로 구매</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Popular Item</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->
-                                    $40.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border d-flex justify-content-center bg-transparent ">
-                                <div class="text-inline"><a class="btn btn-outline-dark mt-auto" href="#">장바구니</a></div>
-                                <div class="text-inline"><a class="btn btn-outline-dark mt-auto" href="#">바로 구매</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Sale Item</h5>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$50.00</span>
-                                    $25.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                           <div class="card-footer p-4 pt-0 border d-flex justify-content-center bg-transparent ">
-                                <div class="text-inline"><a class="btn btn-outline-dark mt-auto" href="#">장바구니</a></div>
-                                <div class="text-inline"><a class="btn btn-outline-dark mt-auto" href="#">바로 구매</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Fancy Product</h5>
-                                    <!-- Product price-->
-                                    $120.00 - $280.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border d-flex justify-content-center bg-transparent ">
-                                <div class="text-inline"><a class="btn btn-outline-dark mt-auto" href="#">장바구니</a></div>
-                                <div class="text-inline"><a class="btn btn-outline-dark mt-auto" href="#">바로 구매</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Special Item</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$20.00</span>
-                                    $18.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border d-flex justify-content-center bg-transparent ">
-                                <div class="text-inline"><a class="btn btn-outline-dark mt-auto" href="#">장바구니</a></div>
-                                <div class="text-inline"><a class="btn btn-outline-dark mt-auto" href="#">바로 구매</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Popular Item</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    <!-- Product price-->
-                                    $40.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border d-flex justify-content-center bg-transparent ">
-                               <div class="text-inline"><a class="btn btn-outline-dark mt-auto" href="#">장바구니</a></div>
-                                <div class="text-inline"><a class="btn btn-outline-dark mt-auto" href="#">바로 구매</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="#" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Sale Item</h5>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$50.00</span>
-                                    $25.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border d-flex justify-content-center bg-transparent ">
-                                <div class="text-inline"><a class="btn btn-outline-dark mt-auto" href="#">장바구니</a></div>
-                                <div class="text-inline"><a class="btn btn-outline-dark mt-auto" href="#">바로 구매</a></div>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="#" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">Sale Item</h5>
-                                    <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$50.00</span>
-                                    $25.00
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                             <div class="card-footer p-4 pt-0 border d-flex justify-content-center bg-transparent ">
-	                                <div class="text-inline"><a class="btn btn-outline-dark mt-auto" href="#">장바구니</a></div>
-	                                <div class="text-inline"><a class="btn btn-outline-dark mt-auto" href="#">바로구매</a></div>
-	                            </div>
-                            </div>
-                        </div>
-                    </div>--%>
                 </div>  
             </div>  
         </section>

@@ -11,8 +11,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import dto.Prolist;
 import jdbc.JdbcUtil;
+import model.Prolist;
 
 public class ProlistDao {
 	public Map<Integer, List<Prolist>> selectByAll(Connection conn,  ArrayList<Integer> ptl) throws SQLException {
