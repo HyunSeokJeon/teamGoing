@@ -106,13 +106,13 @@ function showPopup(){
  		<div class = "container">
  			<div class= "row">
  				<div class=" col-2 text-center">
- 					<img src=""  class="rounded float-left">
+ 					<img src=<%=request.getParameter("productImage") %>  class="rounded float-left">
  				</div >
  			<div class="col-3 text-center">
- 				<span>[단독특가]올시즌 스탠다드 핏 슬랙스 (시그니쳐 합섬) - 블랙[레가시]</span>
+ 				<span><%=request.getParameter("productName") %></span>
  			</div>
  			<div class= "col-2 text-center">
- 				<span>52,900</span>
+ 				<span><%=request.getParameter("productPrice") %></span>
  			</div >
  			<div class= "col-1 text-center">
  				<span>1</span>
