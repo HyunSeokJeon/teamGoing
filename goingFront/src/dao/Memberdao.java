@@ -83,6 +83,25 @@ public class Memberdao {
 			pstmt.executeUpdate();
 		}
 	}
+
+	public static String getGrade(Connection conn, String userId) throws SQLException{
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String grade = null;
+		try {
+			pstmt = conn.prepareStatement("select customergrade from customer where customerid = ?");
+			pstmt.setString(1, userId);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				grade = rs.getString(1);
+			}
+		}finally {
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(rs);
+		}
+		return grade;
+	}
 	
 	
 	
