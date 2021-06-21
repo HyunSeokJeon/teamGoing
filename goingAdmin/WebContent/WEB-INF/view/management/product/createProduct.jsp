@@ -3,6 +3,8 @@
 	
 <%@ include file="/WEB-INF/view/common/header.jspf"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script defer type="text/javascript" src="<%=path%>/adminResource/js/productcommon.js"></script>
+<script defer type="text/javascript" src="<%=path%>/adminResource/js/product.js"></script>
 <!-- 상품 추가 버튼을 누르면 나오는 화면 -->
 <div class="container-fluid">
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -36,8 +38,7 @@
 			</div>
 			<!-- Card Body -->
 			<div class="card-body">
-				<form class="form-group" action="<%=path %>/manage/createProduct.go" method="post" enctype="multipart/form-data">
-					<input type="hidden" name="productId" value=""/>
+				<form class="form-group" action="#" method="post" enctype="multipart/form-data" id="createform">
 					<div class="col-md-4 mb-3">
 						<label for="productType">상품 분류</label>
 						<select class="custom-select mr-sm-2" id="productType" name="productType">
@@ -57,14 +58,99 @@
 						<input type="text" class="form-control" id="productPrice" name="productPrice" placeholder="상품가격(숫자만 입력)">
 					</div>
 					<div class="col-md-8 mb-3">
-						<label for="productPrice">상품썸네일</label>
+						<label for="productImg">상품썸네일</label>
 						<input type="file" class="form-control" id="productImg" name="productImg"></input>
 					</div>
 					<div class="col-md-8 mb-3">
-						<label for="productPrice">상품설명</label>
+						<label for="productDesc">상품정보</label>
 						<input type="file" class="form-control" id="productDesc" name="productDesc"></input>
 					</div>
+					<div class="col-md-4 mb-3">
+						<label for="productPrproductPlaytimeice">상품 상영 시간(분)</label>
+						<input type="text" class="form-control" id="productPlaytime" name="productPlaytime"></input>
+					</div>
+					<div class="col-md-4 mb-3">
+						<label for="productAgeLimit">상품(공연)연령제한</label>
+						<input type="text" class="form-control" id="productAgeLimit" name="productAgeLimit"></input>
+					</div>
+					<p>판매시작일자</p>
+					<div class="row">
+						<div class="col-md-3 mb-3">
+							<select class="custom-select mr-sm-2" id="productSellStart1" name="productSellStart1" onchange="dateChange(this)">
+							</select>
+						</div>
+						
+						<div class="col-md-2 mb-3">
+							<select class="custom-select mr-sm-2" id="productSellStart2" name="productSellStart2" onchange="dateChange(this)">
+							</select>
+						</div>
+						
+						<div class="col-md-2 mb-3">
+							<select class="custom-select mr-sm-2" id="productSellStart3" name="productSellStart3">
+							</select>
+						</div>
+					</div>
 					
+					<p>판매종료일자</p>
+					<div class="row">
+						<div class="col-md-3 mb-3">
+							<select class="custom-select mr-sm-2" id="productSellEnd1" name="productSellEnd1" onchange="dateChange(this)">
+							</select>
+						</div>
+						
+						<div class="col-md-2 mb-3">
+							<select class="custom-select mr-sm-2" id="productSellEnd2" name="productSellEnd2" onchange="dateChange(this)">
+							</select>
+						</div>
+						
+						<div class="col-md-2 mb-3">
+							<select class="custom-select mr-sm-2" id="productSellEnd3" name="productSellEnd3">
+							</select>
+						</div>
+					</div>
+					
+					<p>상품기간시작 - 공연기간</p>
+					<div class="row">
+						<div class="col-md-3 mb-3">
+							<select class="custom-select mr-sm-2" id="productPeriods1" name="productPeriods1" onchange="dateChange(this)">
+							</select>
+						</div>
+						
+						<div class="col-md-2 mb-3">
+							<select class="custom-select mr-sm-2" id="productPeriods2" name="productPeriods2" onchange="dateChange(this)">
+							</select>
+						</div>
+						
+						<div class="col-md-2 mb-3">
+							<select class="custom-select mr-sm-2" id="productPeriods3" name="productPeriods3">
+							</select>
+						</div>
+					</div>
+					
+					<p>상품기간종료 - 공연기간</p>
+					<div class="row">
+						<div class="col-md-3 mb-3">
+							<select class="custom-select mr-sm-2" id="productPeriode1" name="productPeriode1" onchange="dateChange(this)">
+							</select>
+						</div>
+						
+						<div class="col-md-2 mb-3">
+							<select class="custom-select mr-sm-2" id="productPeriode2" name="productPeriode2" onchange="dateChange(this)">
+							</select>
+						</div>
+						
+						<div class="col-md-2 mb-3">
+							<select class="custom-select mr-sm-2" id="productPeriode3" name="productPeriode3">
+							</select>
+						</div>
+					</div>
+					<p>상품노출여부</p>
+					<div class="row">
+						<div class="col-md-4 mb-3" id="productSellYN">
+							<input type="radio" name="productSellYN" value="1" class="mx-2" checked="checked">노출	
+							<input type="radio" name="productSellYN" value="0" class="mx-2">비노출				
+						</div>
+					</div>
 					<label class="form-label" for="files">제품설명 사진</label>
 					<div class="col border rounded py-4" id="files">
 						
@@ -94,6 +180,9 @@
 						</a>
 						<!-- 상품 추가버튼을 눌렀을때 상품DB에 추가되도록 취소는 상품목록으로 되돌아가도록 -->
 					</div>
+					
+					
+					
 				</form>
 			</div>
 		</div>
