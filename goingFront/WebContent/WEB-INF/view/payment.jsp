@@ -42,9 +42,9 @@ function showPopup(){
 <div class="container-fluid" id="page-content-wrapper">
                 <!--헤더부분 삽입 해야 됨-->
                
-        		<nav class="navbar navbar-expand-lg navbar-light bg-light " style="margin-top:5rem">
+        		<nav class="navbar navbar-expand-lg navbar-light  " style="margin-top:4rem">
         			<div class="collapse navbar-collapse d-flex justify-content-around " id="navbarSupportedContent">
-        				<ul class="navbar-nav mr-auto ">
+        				 <!--<ul class="navbar-nav mr-auto ">
 	        				  <li class="nav-item dropdown">
 							        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							          메뉴1
@@ -56,13 +56,14 @@ function showPopup(){
 							          <a class="dropdown-item" href="#">Something else here</a>
 							        </div>
 						      </li>
-	        				<li class="list-inline-item list-group-item mx-10" >분류2</li>
-	        				<li class="list-inline-item list-group-item mx-10">분류3</li>
-	        				<li class="list-inline-item list-group-item mx-10">분류4</li>
-	        				<li class="list-inline-item list-group-item mx-10">분류5</li>
-	        				<li class="list-inline-item list-group-item mx-10">분류6</li>
-	        				<li class="list-inline-item list-group-item mx-10">분류7</li>
-        				</ul>
+						      </ul>
+						       -->
+	        				<button class="border-0 btn btn-dark list-inline-item   mx-10" >콘서트</button>
+	        				<button class="border-0 btn btn-dark list-inline-item  mx-10">영화</button>
+	        				<button class="border-0 btn btn-dark list-inline-item  mx-10">전시회</button>
+	        				<button class="border-0 btn btn-dark list-inline-item  mx-10">연극</button>
+	        				<button class="border-0 btn btn-dark list-inline-item  mx-10">뮤지컬</button>
+        				
         			</div>
         			<div></div>
         			<div></div>
@@ -223,7 +224,7 @@ function showPopup(){
 		<div class="border-top border-bottom border-dark bg-light container">
 			<dl class="row">
 				<dt class="col-sm-6 text-left">총 상품 금액</dt>
-				<dd class="col-sm-6 text-right">52,900</dd>
+				<dd class="col-sm-6 text-right"><%=request.getParameter("productPrice") %></dd>
 			</dl>
 			<dl class="row">
 				<dt class="col-sm-6 text-left">배송비</dt>

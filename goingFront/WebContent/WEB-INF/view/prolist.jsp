@@ -161,9 +161,9 @@
         <!-- 상품 정렬 순  -->
         <nav class="navbar navbar-expand-lg navbar-light">
         <div class="d-flex justify-content-left collapse navbar-collapse">
-        	<span class=" "  onclick = 'seperate("")'> <Strong>신상품 순 </Strong></span>
-        	<span class="  " style = "margin-left : 10px " onclick = 'seperate("lowPrice")'> <Strong>낮은 가격 순</Strong> </span>
-        	<span class=" "  style = "margin-left : 10px " onclick = 'seperate("highPrice")'> <Strong>높은 가격 순 </Strong></span>
+        	<a class=" text-dark"  role = "button" onclick = 'seperate("")'> <Strong>신상품 순 </Strong></a>
+        	<a class="text-dark"  role = "button" style = "margin-left : 10px " onclick = 'seperate("lowPrice")'> <Strong>낮은 가격 순</Strong> </a>
+        	<a class="text-dark"  role = "button" style = "margin-left : 10px " onclick = 'seperate("highPrice")'> <Strong>높은 가격 순 </Strong></a>
         			<div class="nav-item dropdown">
         				<a class="nav-link drpodown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">판매순</a>
                             <ul class="dropdown-menu" aria-labelledby="narbarDropdown">
