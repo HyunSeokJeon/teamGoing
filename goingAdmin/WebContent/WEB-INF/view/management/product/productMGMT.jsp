@@ -14,7 +14,7 @@
 	</div>
 
 
-	<div class="col" style="min-width:1080px;">
+	<div class="col" style="min-width:1400px;">
 		<div class="card shadow mb-4">
 			<!-- Card Header - Dropdown -->
 			<div
@@ -42,15 +42,17 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th scope="col">#상품번호</th>
 							<th scope="col">상품종류</th>
 							<th scope="col">상품명</th>
 							<th scope="col">가격</th>
 							<th scope="col">상품 이미지</th>
 							<th scope="col">상품 정보</th>
-							<!-- 상품 정보 이미지는 팝업으로? -->
-							<th scope="col">등록날짜</th>
+							<th scope="col">상영시간</th>
+							<th scope="col">연령제한</th>
 							<th scope="col">좋아요</th>
+							<th scope="col">판매기간</th>
+							<th scope="col">상영기간</th>
+							<th scope="col">등록날짜</th>
 							<th scope="col">판매여부</th>
 							<th scope="col"></th>
 						</tr>
@@ -58,16 +60,19 @@
 					<tbody>
 						<c:forEach var="product" items="${productList}">
 							<tr>
-								<th scope="row">${product.productID}</th>
 								<td>${product.productType}</td>
 								<td>${product.productName}</td>
 								<td>${product.productPrice }</td>
 								<td><a href="javascript:void(window.open('<%=path %>/upload/${product.productImage}','win0','width=800,height=768,status=no,toolbar=no,scrollbars=no'))">상품확인</a></td>
 								<td><a href="javascript:void(window.open('<%=path %>/upload/${product.productDesc}','win0','width=800,height=768,status=no,toolbar=no,scrollbars=no'))">상품확인</a></td>
-								<td>${product.productSellStart }</td>
+								<td>${product.productPlaytime }분</td>
+								<td>${product.productAgeLimit }세</td>
 								<td>${product.productLove }</td>
-								<c:if test="${product.productSellYN eq '0'}"><td></td></c:if> 
-								<c:if test="${product.productSellYN eq '1'}"><td>판매중</td></c:if>
+								<td>${product.productSellStart }<br>~${product.productSellEnd }</td>
+								<td>${product.productPeriods }<br>~${product.productPeriode }</td>
+								<td>${product.productRegdate }</td>
+								<c:if test="${product.productSellYN eq '0'}"><td>비노출</td></c:if> 
+								<c:if test="${product.productSellYN eq '1'}"><td>노출</td></c:if>
 								<td><a href="<%=path %>/manage/modifyProduct.go?productId=${product.productID}" class="btn btn-sm btn-primary shadow-sm">수정</a></td>
 								<!-- #TODO 수정 삭제가 가능하도록 button이외에 a태그를 사용하던 매개변수를 넘겨줄 수 있도록 하자 -->
 								<!-- #TODO 수정시 수정 페이지로 이동할 수 있도록 삭제시 확인버튼을 출력해서 확인시 넘어갈 수 있도록 -->

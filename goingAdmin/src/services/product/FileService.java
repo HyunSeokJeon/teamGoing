@@ -81,7 +81,6 @@ public class FileService {
 		String imgHead =  "0";
 		for(int i=1; i<fileArray.length; i++) {
 			file = fileArray[i];
-			System.out.println(file);
 			filename = multi.getFilesystemName(file);
 			origfilename = multi.getOriginalFileName(file);
 			
@@ -100,7 +99,6 @@ public class FileService {
 	}
 	
 	private void upload(List<ProductImg> pImgList, Connection conn) throws SQLException {
-			System.out.println(pImgList.size());
 			for(int i=0; i<pImgList.size(); i++) {
 				productImgDao.insert(conn, pImgList.get(i));
 			}

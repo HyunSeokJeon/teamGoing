@@ -14,8 +14,8 @@
 		<param-value>
 			jdbcdriver=oracle.jdbc.driver.OracleDriver
 			jdbcUrl=jdbc:oracle:thin:@localhost:1521:xe
-			dbUser=SCOTT
-			dbPass=TIGER
+			dbUser=GOGO
+			dbPass=GOGO
 			validationQuery=select 1
 			minIdle=3
 			maxTotal=30
@@ -53,4 +53,7 @@
 		<servlet-name>frontHandlerURI</servlet-name>
 		<url-pattern>*.go</url-pattern>
 	</servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>/WEB-INF/view/main.jsp</welcome-file>
+	</welcome-file-list>
 </web-app>
