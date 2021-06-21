@@ -4,10 +4,9 @@
 <%@ include file="/WEB-INF/view/include/header.jspf"%>
 
 <div class="container">
-	<div class="row justify-content-center bg-white border-top"
-		style="height: 60rem;">
+	<div class="row justify-content-center bg-white border-top main-size1">
 
-		<div class="col-md-4 d-flex align-items-center justify-content-center main-header">
+		<div class="col-md-5 d-flex align-items-center justify-content-center main-header">
 			<div class="row w-100">
 				<ul class="nav nav-tabs mb-2" id="myTab" role="tablist">
 					<li class="nav-item"><a class="nav-link active text-dark"
@@ -23,17 +22,53 @@
 				<div class="tab-content" id="myTabContent">
 					<div class="tab-pane fade show active" id="home" role="tabpanel"
 						aria-labelledby="home-tab">
-						<div class="input-group my-4">
+						<p class="h2 my-4">어떤 서비스가 <br>필요하세요?</p>
+						<div class="input-group">
 							<input type="text" class="form-control" placeholder="검색어를 입력하세요."
 								aria-label="Recipient's username"
 								aria-describedby="button-addon2" id="mainsearch">
 							<div class="input-group-append">
 								<button class="btn btn-outline-primary" type="button"
 									id="button-addon2">Button</button>
-
-
 							</div>
 						</div>
+						<div class="my-4 h1 row row-cols-4 justify-content-start">
+							<a href="<%=path%>/list.go " class="d-flex align-items-center justify-content-center">
+								<div class="main-icons">
+									<img class="mainicon mt-4" src="https://img.icons8.com/ios-filled/50/000000/concert.png"/>
+									<p class="h7 text-center my-1">콘서트</p>
+								</div>
+							</a>
+							<a href="<%=path%>/list.go " class="d-flex align-items-center justify-content-center">
+								<div class="main-icons">
+									<img class="mainicon mt-4" src="https://img.icons8.com/ios-filled/50/000000/guitarist.png"/>
+									<p class="h7 text-center my-1">공연</p>
+								</div>
+							</a>
+							<a href="<%=path%>/list.go " class="d-flex align-items-center justify-content-center">
+								<div class="main-icons">
+									<img class="mainicon mt-4" src="https://img.icons8.com/pastel-glyph/64/000000/curtains--v1.png"/>
+									<p class="h7 text-center my-1">연극</p>
+								</div>
+							</a>
+							<a href="<%=path%>/list.go " class="d-flex align-items-center justify-content-center">
+								<div class="main-icons">
+									<img class="mainicon mt-4" src="https://img.icons8.com/ios/50/000000/ballerina-full-body.png"/>
+									<p class="h7 text-center my-1">무용</p>
+								</div>
+							</a>
+							<a href="<%=path%>/list.go " class="d-flex align-items-center justify-content-center">
+								<div class="main-icons">
+									<img class="mainicon mt-4" src="https://img.icons8.com/ios/50/000000/ballerina-full-body.png"/>
+									<p class="h7 text-center my-1">콘서트</p>
+								</div>
+							</a>
+							
+							
+
+						</div>
+						
+						
 					</div>
 					<div class="tab-pane fade" id="profile" role="tabpanel"
 						aria-labelledby="profile-tab">
@@ -47,16 +82,16 @@
 						aria-labelledby="contact-tab">
 						<div class="my-4 h1 d-flex justify-content-around">
 							<div>
-								<i class="bi bi-align-bottom"></i>
+								<a href="<%=path%>/list.go"><i class="bi bi-three-dots"></i></a>
 							</div>
 							<div>
-								<i class="bi bi-app"></i>
+								<a href="<%=path%>/list.go?productTypeId=10"><i class="bi bi-bookmark-star"></i></a>
 							</div>
 							<div>
-								<i class="bi bi-app"></i>
+								<a href="<%=path%>/list.go?productTypeId=20"><i class="bi bi-binoculars"></i></a>
 							</div>
 							<div>
-								<i class="bi bi-app"></i>
+								<a href="<%=path%>/list.go?productTypeId=30"><i class="bi bi-app"></i></a>
 							</div>
 
 						</div>
@@ -79,7 +114,7 @@
 			</div>
 
 		</div>
-		<div class="col-md-4 d-flex align-items-end main-header">
+		<div class="col-md-5 d-flex align-items-end main-header">
 			<div>
 				<img src="<%=imgPath%>mainAssist.jpg" class="img-fluid"
 					style="width: 100em; height: auto;">
