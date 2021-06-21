@@ -1,4 +1,29 @@
 @charset "UTF-8";
+@media (min-width: 768px){
+	.main-size1{
+		height:45rem;
+		min-width:1085px;
+	}
+}
+a{
+	text-decoration:none !important;
+}
+.h7{
+	color:black;
+	font-size: 0.8rem;
+}
+.mainicon{
+	height:50px;
+	width:50px;
+  
+}
+.main-icons>img{
+	transition: .2s linear;
+}
+.main-icons:hover>img{
+	transform: translateY(-10px);
+}
+
 .nav-item-position-rel{
 	position:relative;
 }
@@ -167,7 +192,7 @@
 	position: relative;
     padding-bottom: 6.5rem;
     font-size: 0;
-
+}
 .badge-light {
   color: #3a3b45;
   background-color: #f8f9fc;
@@ -187,5 +212,9 @@ a.badge-light:focus, a.badge-light.focus {
 	color: #FFFFFF;
   background-color: #4F261D;
 
+}
+
+.login-input{
+	min-width:25rem;
 }
 
