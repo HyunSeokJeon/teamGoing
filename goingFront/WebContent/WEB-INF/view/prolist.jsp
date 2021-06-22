@@ -1,8 +1,9 @@
+<%@page import="service.User"%>
 <%@page import="model.Prolist"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ include file = "/frontResource/dist/include/header.jspf" %>
+    <%@ include file = "/WEB-INF/view/include/header.jspf" %>
 <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -71,7 +72,7 @@
                 </div>
         </nav>
         <!-- Header-->
-        <header class="bg-light py-5">
+        <header class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-dark">
                     <h1 class="display-4 fw-bolder">Going</h1>
@@ -96,7 +97,7 @@
 						<li class="nav-item dropdown"><a class="nav-link fs-4 "
 							href="#" id="navbarDropdown2" role="button"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<button class="border-0 btn btn-dark"  id="num5"  onclick = 'divide(50)'>전시회</button> </a>  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<button class="border-0 btn btn-dark"  id="num5"  onclick = 'divide(50)'>콘서트</button> </a>  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 										          <a class="dropdown-item" href="#">Action</a>
 										          <a class="dropdown-item" href="#">Another action</a>
 										          <div class="dropdown-divider"></div>
@@ -161,7 +162,7 @@
         <!-- 상품 정렬 순  -->
         <nav class="navbar navbar-expand-lg navbar-light">
         <div class="d-flex justify-content-left collapse navbar-collapse">
-        	<a class=" text-dark"  role = "button" onclick = 'seperate("")'> <Strong>신상품 순 </Strong></a>
+        	<a class=" text-dark"  role = "button" onclick = 'seperate("")'> <Strong>최신 순 </Strong></a>
         	<a class="text-dark"  role = "button" style = "margin-left : 10px " onclick = 'seperate("lowPrice")'> <Strong>낮은 가격 순</Strong> </a>
         	<a class="text-dark"  role = "button" style = "margin-left : 10px " onclick = 'seperate("highPrice")'> <Strong>높은 가격 순 </Strong></a>
         			<div class="nav-item dropdown">
@@ -194,7 +195,7 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder" ><a href="<%=path %>productInfo.go?pId=${Prolist.productID}">${Prolist.productName}</a></h5>
+                                    <h5 class="fw-bolder" ><a href="<%=path %>/productInfo.go?pId=${Prolist.productID}">${Prolist.productName}</a></h5>
                                     <!-- Product price-->
                                     ${Prolist.productPrice}
                                 </div>

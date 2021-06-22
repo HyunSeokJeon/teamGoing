@@ -4,7 +4,7 @@
 
 	<!-- Page content wrapper-->
 
-	<div class="container-fluid position-relative"
+	<div class=" container-fluid position-relative"
 		id="page-content-wrapper">
 		<!--헤더부분 삽입 해야 됨-->
 

@@ -1,16 +1,25 @@
+<%@page import="service.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-  <%@ include file = "../../frontResource/dist/include/header.jspf" %>
-  
+  <%@ include file = "../../WEB-INF/view/include/header.jspf" %>
+  <%
+  	
+/*   	User user = null;
+  	String name = null;
+  	String id = null;
+	  if(session.getAttribute("authUser") instanceof User){
+		  	user = (User)session.getAttribute("authUser");
+		  	name = user.getName();
+		  	id = user.getId();
+	  }else {
+		  
+	  }  */
+    %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    	<script language = "javascript">
-function showPopup(){
-	window.open("/goingFront/coupon.go?couponID=?","쿠폰 조회", "width=500, height=300, left=100, top=50");
-}
-</script>
+    
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -137,20 +146,27 @@ function showPopup(){
                 	</h3>
                 </div>
 		 <!--  구매자 정보 --> 
-  		 <div class="border-top border-bottom border-dark bg-light container">            
-  	<div class="form-row">
+  		 <div class="border-top border-bottom border-dark bg-light container"> 
+  		 <form>           
+  	<div class="form-row"  id="chekform">
+  		<div class="form-check">
+			  <input class="form-check-input" type="checkbox"  value="12"    id="checkmain"  checked>
+			  <label class="form-check-label" for="checkmain" >
+			    동일
+			  </label>
+		</div>
     	<div class="form-group col-md-6">
-		      <label for="buyername">구매자</label>
-		      <input type="text" class="form-control" id="buyername" placeholder="">
+		      <label for="CUSTOMERNAME"></label>
+		      <input type="text" class="form-control " disabled id="CUSTOMERNAME"  name = "checkInfo" value ="${ec.CUSTOMERNAME}" placeholder="">
     	</div>
     <div class="form-group col-md-6">
 			      <label for="phoneNumber">전화번호</label>
-			      <input type="text" class="form-control" id="phoneNumber" placeholder="하이픈(-)없이 작성해주세요">
+			      <input type="text" class="form-control"  disabled id="phoneNumber" name = "checkInfo" value = "${ec.CUSTOMERPHONENUM }"placeholder="하이픈(-)없이 작성해주세요">
     </div>
-  </div>
+  
   <div class="form-group col-md-6">
 		    <label for="inputAddress">배송지 주소</label>
-		    <input type="text" class="form-control" id="inputAddress" placeholder="">
+		    <input type="text" class="form-control" disabled id="inputAddress"  name = "checkInfo" value = "${ec.CUSTOMERADDRESS1 }"placeholder="">
   </div>
   <div class="form-group col-md-6">
 		    <label for="reqMemo">요청 메모</label>
@@ -158,10 +174,11 @@ function showPopup(){
   </div>
   	<div class="form-group col-md-6">
 		    <label for="email">이메일</label>
-		    <input type="email" class="form-control" id="email" placeholder="">
+		    <input type="email" class="form-control" id="email"  disabled name = "checkInfo" value ="${ec.CUSTOMEREMAIL }"placeholder="">
   </div>
- </div>
- 
+ 	</div>
+ 	</form>
+</div>
  		<div class="my-4 text-center">
  			<h3>
  			 배송 정보
@@ -293,3 +310,36 @@ function showPopup(){
         <script src="../dist/js/scriptssidebar.js"></script>
     </body>
 </html>
+	<script language = "javascript">
+function showPopup(){
+	window.open("/goingFront/coupon.go?couponID=?","쿠폰 조회", "width=500, height=300, left=100, top=50");
+}
+
+
+var chek = document.getElementById("checkmain");
+
+var chekN	= document.getElementsByName('checkInfo');
+
+
+let che = ["${ec.CUSTOMERNAME}", "${ec.CUSTOMERPHONENUM }", "${ec.CUSTOMERADDRESS1 }", "${ec.CUSTOMEREMAIL }"];
+
+chek.addEventListener('change', function(){
+	if(chek.checked == false){
+		for(var i=0;  i<chekN.length; i++){
+			chekN[i].value="";
+			chekN[i].disabled = false;
+		}
+		
+	}else {
+		for(var i=0; i<chekN.length; i++){
+				chekN[i].value = che[i];	
+				chekN[i].disabled = true;
+		}
+		
+	}
+});	 
+
+
+
+
+</script>
