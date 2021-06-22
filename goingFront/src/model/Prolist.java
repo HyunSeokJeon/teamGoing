@@ -1,21 +1,31 @@
 package model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Prolist {
 	
-		private int productID;
-		private int productTypeID;
-		private String productName;
-		private int productPrice;
-		private String productDesc;
-		private int productLove;
-		private Date productSellStart;
-		private Date productSellEnd;
-		private String productSellYN;
-		private String productImage;
+	private Integer productID;
+	private Integer productTypeID;
+	private String productName;
+	private Integer productPrice;
+	private String productImage;
+	private String productDesc;
+	private int productPlaytime;
+	private int productAgeLimit;
+	private Integer productLove;
+	private Date productSellStart;
+	private Date productSellEnd;
+	private Date productPeriods;
+	private Date productPeriode;
+	private Date productRegdate;
+	private String productSellYN;
 		
-		
+	
+	private String productType;
+	
+		public Prolist() {
+			
+		}
 		
 		public Prolist(int productID, int productTypeID, String productName, int productPrice, String productDesc,
 				int productLove, Date productSellStart, Date productSellEnd, String productSellYN,
@@ -32,6 +42,31 @@ public class Prolist {
 			this.productSellYN = productSellYN;
 			this.productImage = productImage;
 		}
+		
+		
+		
+		public Prolist(Integer productID, Integer productTypeID, String productName, Integer productPrice,
+				String productImage, String productDesc, int productPlaytime, int productAgeLimit, Integer productLove,
+				Date productSellStart, Date productSellEnd, Date productPeriods, Date productPeriode,
+				Date productRegdate, String productSellYN) {
+			super();
+			this.productID = productID;
+			this.productTypeID = productTypeID;
+			this.productName = productName;
+			this.productPrice = productPrice;
+			this.productImage = productImage;
+			this.productDesc = productDesc;
+			this.productPlaytime = productPlaytime;
+			this.productAgeLimit = productAgeLimit;
+			this.productLove = productLove;
+			this.productSellStart = productSellStart;
+			this.productSellEnd = productSellEnd;
+			this.productPeriods = productPeriods;
+			this.productPeriode = productPeriode;
+			this.productRegdate = productRegdate;
+			this.productSellYN = productSellYN;
+		}
+
 		public int getProductID() {
 			return productID;
 		}
@@ -92,5 +127,34 @@ public class Prolist {
 		public void setProductImage(String productImage) {
 			this.productImage = productImage;
 		}
+
+		public int getProductPlaytime() {
+			return productPlaytime;
+		}
+
+		public int getProductAgeLimit() {
+			return productAgeLimit;
+		}
+
+		public Date getProductPeriods() {
+			return productPeriods;
+		}
+
+		public Date getProductPeriode() {
+			return productPeriode;
+		}
+
+		public Date getProductRegdate() {
+			return productRegdate;
+		}
+		
+		public String getProductType() {
+			return productType;
+		}
+
+		public void setProductType(String productType) {
+			this.productType = productType;
+		}
+
 		
 }
