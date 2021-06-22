@@ -82,4 +82,24 @@ public class ProductTypeDao {
 		}
 	}
 	
+	public String selectProductTypeById(Connection conn, int productTypeId) throws SQLException {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String result = null;
+		try {
+			pstmt = conn.prepareStatement("select producttype from producttype where producttypeid = ?");
+			pstmt.setInt(1, productTypeId);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getString("producttype");
+			}
+			
+		}finally {
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(rs);
+		}
+		return result;
+	}
+	
 }

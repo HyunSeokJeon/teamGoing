@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -93,5 +95,21 @@ public class JoinService {
 				JdbcUtil.close(conn);
 			}
 		}
+
+	public boolean getIdCheckResult(String inputId) throws SQLException {
+		Set<String> idSet = null;
+		try(Connection conn = ConnectionProvider.getConnection()){
+			idSet = memberDao.selectCustomerIdByAll(conn);
+		}
+		
+		int before = idSet.size();
+		idSet.add(inputId);
+		int after = idSet.size();
+		if(before == after) {
+			return false;
+		}else {
+			return true;
+		}
+	}
 
 }

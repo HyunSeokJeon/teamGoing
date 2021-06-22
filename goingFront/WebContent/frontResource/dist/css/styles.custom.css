@@ -218,3 +218,16 @@ a.badge-light:focus, a.badge-light.focus {
 	min-width:25rem;
 }
 
+@media (min-width: 576px){
+	.col-sm-1d5 {
+	    flex: 0 0 auto;
+	    width: 12.5%;
+	}
+	.col-sm-0d75 {
+	    flex: 0 0 auto;
+	    width: 7.5%;
+	}
+}
+.inline-block{
+	display:inline-block !important;
+}

@@ -62,6 +62,18 @@ public class ProlistService {
 				
 			}
 		}
+
+		public Prolist getProduct(String productId) throws SQLException {
+			int productID = Integer.parseInt(productId);
+			String productType = null;
+			Prolist prolist = new Prolist();
+			try(Connection conn = ConnectionProvider.getConnection()){
+				prolist = prolistDao.selectById(conn, productID);
+				productType = ptd.selectProductTypeById(conn, prolist.getProductTypeID());
+				prolist.setProductType(productType);
+			}
+			return prolist;
+		}
 		
 		
 }
