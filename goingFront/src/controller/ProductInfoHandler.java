@@ -29,10 +29,7 @@ public class ProductInfoHandler implements CommandHandler{
 	}
 
 	private String processSubmit(HttpServletRequest req, HttpServletResponse res) throws SQLException {
-		String productId = req.getParameter("pId");
-		String userId = req.getParameter("customerid");
-		String action = req.getParameter("action");
-		ps.insertOrUpdatePLove(productId, userId, action);
+		
 		return null;
 	}
 

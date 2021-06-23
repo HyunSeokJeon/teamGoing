@@ -31,13 +31,13 @@ document.getElementById("likeitem").addEventListener("click", function (event) {
             // 좋아요 취소
             heart.className = heart.className.replace("d-none", "");
             heartFill.className += "d-none";
-            httpRequest.open("POST", `/goingFront/productInfo.go?pId=${productId}&customerid=${userId}&action=0`, true);
+            httpRequest.open("POST", `/goingFront/productLove.go?pId=${productId}&customerid=${userId}&action=0`, true);
 			httpRequest.send();	
         } else {
             // 좋아요!
             heart.className += "d-none";
             heartFill.className = heartFill.className.replace("d-none", "");
-            httpRequest.open("POST", `/goingFront/productInfo.go?pId=${productId}&customerid=${userId}&action=1`, true);
+            httpRequest.open("POST", `/goingFront/productLove.go?pId=${productId}&customerid=${userId}&action=1`, true);
 			httpRequest.send();
         }
     } else {
