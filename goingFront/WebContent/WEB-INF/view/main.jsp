@@ -23,15 +23,18 @@
 					<div class="tab-pane fade show active" id="home" role="tabpanel"
 						aria-labelledby="home-tab">
 						<p class="h2 my-4">어떤 서비스가 <br>필요하세요?</p>
+						<!-- 검색 창 -->
+						<form action="/goingFront/search.go?"  method="get">
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="검색어를 입력하세요."
-								aria-label="Recipient's username"
+								aria-label="Recipient's username" name="Keyword"  value=""
 								aria-describedby="button-addon2" id="mainsearch">
 							<div class="input-group-append">
-								<button class="btn btn-outline-primary" type="button"
+								<button class="btn btn-outline-primary" type="submit"
 									id="button-addon2">Button</button>
 							</div>
 						</div>
+						</form>
 						<div class="my-4 h1 row row-cols-4 justify-content-start">
 							<a href="<%=path%>/list.go " class="d-flex align-items-center justify-content-center">
 								<div class="main-icons">

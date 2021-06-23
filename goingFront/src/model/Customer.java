@@ -22,6 +22,7 @@ public class Customer {
 	private String CUSTOMERCOUPLE;
 	private int CUSTOMERBALANCE;
 
+	
 		
 	
 	@Override
@@ -179,6 +180,10 @@ public class Customer {
 	
 	public boolean matchPassword(String pwd) {
 		return CUSTOMERPASS.equals(pwd);
+	}
+	
+	public Customer() {
+		
 	}
 	
 }

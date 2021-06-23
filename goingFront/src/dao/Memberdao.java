@@ -105,6 +105,42 @@ public class Memberdao {
 		}
 		return grade;
 	}
+  
+	public Customer selectByAll(Connection conn) throws SQLException {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(
+					"select * from customer");
+			rs = pstmt.executeQuery();
+			Customer member = null;
+			if (rs.next()) {
+				member = new Customer(
+						rs.getString("CUSTOMERID"), 
+						rs.getString("CUSTOMERPASS"),
+						rs.getString("CUSTOMERNAME"), 
+						rs.getDate("CUSTOMERBIRTHDAY"), 
+						rs.getString("CUSTOMERGENDER"),
+						
+						rs.getString("CUSTOMEREMAIL"), 
+						rs.getString("CUSTOMERPHONENUM"), 
+						rs.getString("CUSTOMERADDRESSCODE1"), 
+						rs.getString("CUSTOMERADDRESS1"), 
+						rs.getString("CUSTOMERADDRESS2"),
+						
+						rs.getString("CUSTOMERACCOUNT"), 
+						rs.getString("RECOMMENDER"), 
+						rs.getString("CUSTOMERGRADE"), 
+						rs.getString("CUSTOMERCOUPLE"), 
+						rs.getInt("CUSTOMERBALANCE"));
+			}
+			return member;
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+	}
+	
 
 	public Set<String> selectCustomerIdByAll(Connection conn) throws SQLException {
 		Statement stmt = null;
