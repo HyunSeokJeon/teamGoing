@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import dao.ProductLoveDao;
 import dao.ProductTypeDao;
 import dao.ProlistDao;
 import jdbc.JdbcUtil;
@@ -15,7 +16,7 @@ import model.Prolist;
 public class ProlistService {
 		private ProlistDao prolistDao = new ProlistDao();
 		private ProductTypeDao ptd = new ProductTypeDao();
-		
+		ProductLoveDao pld = new ProductLoveDao();
 		
 		public Map<Integer, List<Prolist>> arrageProduct() {
 			Connection conn =null;
@@ -73,6 +74,32 @@ public class ProlistService {
 				prolist.setProductType(productType);
 			}
 			return prolist;
+		}
+
+		public boolean isLikeThisItem(String productId, String id) throws SQLException {
+			int result = 0;
+			try(Connection conn = ConnectionProvider.getConnection()){
+				result = pld.selectByPidCid(conn, productId, id);
+			}
+			if(result <= 1) {
+				return false;
+			}else {
+				return true;
+			}
+		}
+
+		public void insertOrUpdatePLove(String productId, String userId, String action) throws SQLException {
+			try(Connection conn = ConnectionProvider.getConnection()){
+				int check;
+				check = pld.selectByPidCid(conn, productId, userId);
+				if (check == 0) {
+					pld.insertPLove(conn,productId,userId);
+					//insert
+				} else {
+					pld.updatePLove(conn,productId,userId,action);
+					//update
+				}
+			}
 		}
 		
 		

@@ -1,4 +1,5 @@
 <%@page import="model.Prolist"%>
+<%@page import="service.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/view/include/header.jspf"%>
@@ -7,6 +8,24 @@
 <link rel="stylesheet" href="<%=cssPath%>calender.style.css">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script defer type="text/javascript"
+	src="<%=path%>/frontResource/dist/js/likeHeart.js"></script>
+	<%
+		User user = null;
+		if(!notLogin){
+			user = (User)httpSession.getAttribute("authUser");
+		}
+	%>
+<script type="text/javascript">
+	let path = "<%=path%>";
+	let userId;
+	let productId = ${product.productID};
+	<% if(user!=null){ %>
+	userId = "<%=user.getId()%>";
+	<% } else {%>
+	userId = null;
+	<%}%>
+</script>
 <div class="container-fluid position-relative" id="page-content-wrapper">
 	<!--헤더부분 삽입 해야 됨-->
 
@@ -100,9 +119,31 @@
 			<div class="row">
 				<div class="col-5">
 					<div class="fs-4">${product.productName }</div>
-
+					<c:if test="${notLogin }">
+						<a href="#" id="likeitem">
+							<div id="heartBox">
+								<i class="bi bi-suit-heart h5 text-danger " style=""></i>
+								<i class="bi bi-suit-heart-fill h5 text-danger d-none " style=""></i>
+							</div>
+						</a>
+					</c:if>
+					<c:if test="${!notLogin}">
+						<a href="#" id="likeitem">
+							<div id="heartBox">
+						<c:if test="${!likeYN}">
+								<i class="bi bi-suit-heart h5 text-danger " style=""></i>
+								<i class="bi bi-suit-heart-fill h5 text-danger d-none " style=""></i>
+						</c:if>
+						<c:if test="${likeYN}">
+								<i class="bi bi-suit-heart h5 text-danger d-none " style=""></i>
+								<i class="bi bi-suit-heart-fill h5 text-danger " style=""></i>
+						</c:if>
+							</div>
+						</a>
+					</c:if>
 					<img src="../../frontResource/dist/img/psy.jpg" class="w-100"
 						align="left">
+					
 				</div>
 
 				<div class="col">
