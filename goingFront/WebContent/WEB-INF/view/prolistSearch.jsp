@@ -182,7 +182,7 @@
         <%=a.size()%>  --%>
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    <c:forEach var="Prolist"  items="${productListofType}" begin="0"  end="9" step="1" varStatus="status">
+                    <c:forEach var="Prolist"  items="${Keyword}" begin="0"  end="9" step="1" varStatus="status">
                      <form method="get" action="/goingFront/payment.go">
                     <div class="col mb-5">
                     	<input type="hidden" name="productName" value="${Prolist.productName}"/>
