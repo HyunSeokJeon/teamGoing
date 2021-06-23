@@ -4,8 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import jdbc.JdbcUtil;
 import model.Customer;
@@ -102,6 +105,7 @@ public class Memberdao {
 		}
 		return grade;
 	}
+  
 	public Customer selectByAll(Connection conn) throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -137,6 +141,25 @@ public class Memberdao {
 		}
 	}
 	
+
+	public Set<String> selectCustomerIdByAll(Connection conn) throws SQLException {
+		Statement stmt = null;
+		ResultSet rs = null;
+		Set<String> result = new HashSet<String>();
+		try {
+			stmt = conn.createStatement();
+			String query = "select customerid from customer";
+			rs = stmt.executeQuery(query);
+			
+			while(rs.next()) {
+				result.add(rs.getString("customerid"));
+			}
+			return result;
+		}finally {
+			JdbcUtil.close(stmt);
+			JdbcUtil.close(rs);
+		}
+	}
 	
 	
 	
