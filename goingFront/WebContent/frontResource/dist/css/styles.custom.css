@@ -108,7 +108,7 @@ a{
 }
 
 .like-heart-pink{
-  color: #FE1D73;
+  color: #FE1D73 !important;
 }
 
 .like-star-yellow{
