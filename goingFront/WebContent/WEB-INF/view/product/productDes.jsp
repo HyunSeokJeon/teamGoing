@@ -122,8 +122,7 @@
 					<c:if test="${notLogin }">
 						<a href="#" id="likeitem">
 							<div id="heartBox">
-								<i class="bi bi-suit-heart h5 text-danger " style=""></i>
-								<i class="bi bi-suit-heart-fill h5 text-danger d-none " style=""></i>
+								<i class="bi bi-suit-heart h5 like-heart-pink " style=""></i>
 							</div>
 						</a>
 					</c:if>
@@ -131,12 +130,12 @@
 						<a href="#" id="likeitem">
 							<div id="heartBox">
 						<c:if test="${!likeYN}">
-								<i class="bi bi-suit-heart h5 text-danger " style=""></i>
-								<i class="bi bi-suit-heart-fill h5 text-danger d-none " style=""></i>
+								<i class="bi bi-suit-heart h5 like-heart-pink " style=""></i>
+								<i class="bi bi-suit-heart-fill h5 like-heart-pink d-none " style=""></i>
 						</c:if>
 						<c:if test="${likeYN}">
-								<i class="bi bi-suit-heart h5 text-danger d-none " style=""></i>
-								<i class="bi bi-suit-heart-fill h5 text-danger " style=""></i>
+								<i class="bi bi-suit-heart h5 like-heart-pink d-none " style=""></i>
+								<i class="bi bi-suit-heart-fill h5 like-heart-pink " style=""></i>
 						</c:if>
 							</div>
 						</a>
@@ -282,36 +281,22 @@
 													</tbody>
 												</table>
 											</div>
-											<button class="button" id="add-button">Add Event</button>
 										</div>
 									</div>
-									<div class="dialog" id="dialog">
-										<h2 class="dialog-header">Add New Event</h2>
-										<form class="form" id="form">
-											<div class="form-container" align="center">
-												<label class="form-label" id="valueFromMyButton" for="name">Event
-													name</label> <input class="input" type="text" id="name"
-													maxlength="36"> <label class="form-label"
-													id="valueFromMyButton" for="count">Number of people
-													to invite</label> <input class="input" type="number" id="count"
-													min="0" max="1000000" maxlength="7"> <input
-													type="button" value="Cancel" class="button"
-													id="cancel-button"> <input type="button" value="OK"
-													class="button button-white" id="ok-button">
-											</div>
-										</form>
-									</div>
+									
 								</div>
 							</div>
 						</div>
 					</div>
-					<form action="" method="post">
+					<form action="<%=path %>/payment.go" method="post">
+						<input type="hidden" name="productName" id="productName" value="${product.productName }">
+						<input type="hidden" name="productPrice" id="productPrice" value="${product.productPrice }">
 						<input type="hidden" name="productId" id="productid1" value="<%=request.getParameter("pId") %>">
-						<input type="hidden" name="" id="orderYear">
-						<input type="hidden" name="" id="orderMonth">
-						<input type="hidden" name="" id="orderDay">
+						<input type="hidden" name="orderYear" id="orderYear">
+						<input type="hidden" name="orderMonth" id="orderMonth">
+						<input type="hidden" name="orderDay" id="orderDay">
 					
-					<div class="d-flex text-center btn btn-primary  mt-2 mx-4">예매하기</div>
+					<button class="d-flex text-center btn btn-primary  mt-2 mx-4" type="submit">예매하기</button>
 					</form>
 				</section>
 				

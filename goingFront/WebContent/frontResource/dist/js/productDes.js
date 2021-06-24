@@ -30,6 +30,9 @@ board.addEventListener("click", ()=>{
 	orderYear.value = year.innerHTML;
 	orderMonth.value = monthDict[month[0].innerHTML];
 	orderDay.value = day[0].innerHTML;
+	if(orderDay.value < 10){
+		orderDay.value = '0'+orderDay.value;
+	}
 //	console.log(orderYear.value);
 //	console.log(orderMonth.value);
 //	console.log(orderDay.value);

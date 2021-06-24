@@ -51,27 +51,27 @@
 					</div>
 					<div class="col-md-4 mb-3">
 						<label for="productName">상품명</label>
-						<input type="text" class="form-control" id="productName" name="productName" placeholder="상품명">
+						<input type="text" class="form-control" id="productName" name="productName" placeholder="상품명" required>
 					</div>
 					<div class="col-md-4 mb-3">
 						<label for="productPrice">상품가격</label>
-						<input type="text" class="form-control" id="productPrice" name="productPrice" placeholder="상품가격(숫자만 입력)">
+						<input type="number" class="form-control" id="productPrice" name="productPrice" placeholder="상품가격(숫자만 입력)" required>
 					</div>
-					<div class="col-md-8 mb-3">
+					<div class="col-md-4 mb-3">
 						<label for="productImg">상품썸네일</label>
 						<input type="file" class="form-control" id="productImg" name="productImg"></input>
 					</div>
-					<div class="col-md-8 mb-3">
+					<div class="col-md-4 mb-3">
 						<label for="productDesc">상품정보</label>
-						<input type="file" class="form-control" id="productDesc" name="productDesc"></input>
+						<input type="file" class="form-control" id="productDesc" name="productDesc" ></input>
 					</div>
 					<div class="col-md-4 mb-3">
 						<label for="productPrproductPlaytimeice">상품 상영 시간(분)</label>
-						<input type="text" class="form-control" id="productPlaytime" name="productPlaytime"></input>
+						<input type="number" class="form-control" id="productPlaytime" name="productPlaytime" required></input>
 					</div>
 					<div class="col-md-4 mb-3">
 						<label for="productAgeLimit">상품(공연)연령제한</label>
-						<input type="text" class="form-control" id="productAgeLimit" name="productAgeLimit"></input>
+						<input type="number" class="form-control" id="productAgeLimit" name="productAgeLimit" required></input>
 					</div>
 					<p>판매시작일자</p>
 					<div class="row">

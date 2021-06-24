@@ -43,9 +43,13 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 		rnMgtSn, bdMgtSn , detBdNmList, bdNm, bdKdcd, siNm, sggNm, emdNm, liNm, rn, udrtYn, buldMnnm, buldSlno, 
 		mtYn, lnbrMnnm, lnbrSlno, emdNo){ 
 	// 2017년 2월 제공항목이 추가되었습니다. 원하시는 항목을 추가하여 사용하시면 됩니다. 
-	document.getElementById("address1").value = roadFullAddr; 
-	document.getElementById("address2").value = addrDetail; 
-	document.getElementById("addresscod1").value = zipNo; }
+	// document.getElementById("address1").value = roadFullAddr; 
+	// document.getElementById("address2").value = addrDetail; 
+	// document.getElementById("addresscod1").value = zipNo;
+	document.getElementById("address1").setAttribute("value", roadFullAddr); 
+	document.getElementById("address2").setAttribute("value", addrDetail);
+	document.getElementById("addresscod1").setAttribute("value",zipNo);
+	}
 </script>
 </head>
 <body>
@@ -58,7 +62,7 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 	</div>
 	<div class="form-group">
 		<form name="joinForm" action="<%=request.getContextPath()%>/join.go"
-			method="post">
+			method="post" id="joinForm">
 			<div class="row justify-content-center my-3">
 				<div class="col-7 col-sm-2 text-center" style="min-width: 16.5rem">
 					<input type="text" name="id" value="${param.id}" id="inputId" class=" form-control form-control-sm" placeholder="아이디 (5 ~ 12자 영문, 숫자, !@#만 가능)">
@@ -94,7 +98,7 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 			</div>
 			<div class="row justify-content-center my-3">
 				<div class="col-10 col-sm-3 text-center login-input">
-					<input type="text" name="name" class=" form-control form-control-sm" placeholder="이름"> <br>
+					<input type="text" id="name" name="name" class=" form-control form-control-sm" placeholder="이름"> <br>
 					<c:if test="${errors.name}">이름을 입력하세요.</c:if>
 				</div>
 			</div>
@@ -179,13 +183,13 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 			<div class="row justify-content-center my-3">
 				<div class="col-10 col-sm-3 text-left login-input ">
 					<span class="mx-5">성별:</span>
-					<input type="radio" name="gender" value="M"> 남자 <span class="mx-5"></span>
+					<input type="radio" name="gender" value="M" checked="checked"> 남자 <span class="mx-5"></span>
 					<input type="radio" name="gender" value="W"> 여자
 				</div>
 			</div>
 			<div class="row justify-content-center my-3">
 				<div class="col-10 col-sm-3 text-center login-input">
-					<input type="text" name="email1" class="form-control form-control-sm inline-block" style="width:40%" placeholder="이메일">
+					<input type="text" id="email1" name="email1" class="form-control form-control-sm inline-block" style="width:40%" placeholder="이메일">
 					<span class="mx-2">@</span> 
 					<select name = "email2" class="form-select form-select-sm inline-block w-50">
 						<option value = "naver.com">naver.com</option>
@@ -196,13 +200,13 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 			</div>
 			<div class="row justify-content-center my-3">
 				<div class="col-10 col-sm-3 text-center login-input">
-					 <input type = "text" name="phonenum" placeholder="전화번호" class=" form-control form-control-sm">
+					 <input type = "text" id="phonenum" name="phonenum" placeholder="전화번호" class=" form-control form-control-sm">
 				</div>
 			</div>
 			<div class="row justify-content-center mt-3">
 						
 				<div class="col-7 col-sm-2 text-center" style="min-width: 16.5rem">
-					<input type="text"	name="addresscod1" id="addresscod1" class=" form-control form-control-sm" placeholder="우편번호" disabled>
+					<input type="text"	name="addresscod1" id="addresscod1" class=" form-control form-control-sm" placeholder="우편번호" value="" >
 				</div>
 				<div class="col-3 col-sm-1 text-center" style="min-width: 8.25rem">
 					<button onClick="goPopup();" type="button" class="btn btn-sm btn-primary">주소찾기</button>
@@ -210,9 +214,9 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 			</div>
 			<div class="row justify-content-center my-1">
 				<div class="col-10 col-sm-3 text-center login-input">
-					<input type = "text" name="address1" id="address1" class=" form-control form-control-sm my-1" placeholder="시, 군, 구 주소" disabled>
+					<input type = "text" name="address1" id="address1" class=" form-control form-control-sm my-1" placeholder="시, 군, 구 주소" value="" >
 
-					<input type = "text" name="address2" id="address2" class=" form-control form-control-sm" placeholder="상세주소"> <br>
+					<input type = "text" name="address2" id="address2" class=" form-control form-control-sm" placeholder="상세주소" value=""> <br>
 				</div>
 			</div>
 			<div class="row justify-content-center my-3">
