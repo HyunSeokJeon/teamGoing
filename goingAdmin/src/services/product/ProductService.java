@@ -53,7 +53,6 @@ public class ProductService {
 		// ** Spring 환경에서 바꿔야할 코드
 		String uploadPath = req.getRealPath("upload");
 //		String uploadPath = "C:\\temp";
-		System.out.println(uploadPath);
 		int size = 10 * 1024 * 1024;
 		MultipartRequest multi = new MultipartRequest(req, uploadPath, size, "utf-8",
 				new DefaultFileRenamePolicy());
@@ -114,9 +113,9 @@ public class ProductService {
 		for(int i=0; i<7; i++) {
 			file = (String) files.nextElement();
 			if(file.equalsIgnoreCase("productImg")) {
-				productImage = file;
+				productImage = multi.getFilesystemName(file);
 			}else if(file.equalsIgnoreCase("productDesc")) {
-				productDesc=file;
+				productDesc=multi.getFilesystemName(file);
 			}else {
 				fileArray[i] = file;
 			}
