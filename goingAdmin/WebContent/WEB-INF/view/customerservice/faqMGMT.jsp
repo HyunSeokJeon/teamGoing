@@ -54,7 +54,7 @@
 								</th>
 							</tr></c:forEach>
 						-->
-
+						
 						<c:forEach var="faqList" items="${faqList }">
 							<tr>
 								<th scope="row">${faqList.FAQNUMBER}</th>
@@ -62,8 +62,8 @@
 											class="arrow">▼</span>
 										<div class='content' id="content1" style="display: none;">${faqList.FAQCONTENTS }</div>
 									</div></th>
-								<th><a href="<%=path%>/customerservice/modifyFaq.go?faqid=${faqList.FAQNUMBER}" class="btn btn-sm btn-primary shadow-sm">수정</a>
-								<a href="" class="p-2 d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm ml-2">삭제</a></th>
+								<th><a href="<%=path%>/customerservice/modifyFaq.go?faqid=${faqList.FAQNUMBER}" class="p-2 d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">수정</a>
+								<a href="<%=path%>/customerservice/deleteFaq.go?faqid=${faqList.FAQNUMBER}" class="p-2 d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm ml-2">삭제</a></th>
 							</tr>
 						</c:forEach>
 

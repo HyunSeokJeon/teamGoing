@@ -65,7 +65,6 @@ public class FaqDao {
 		}
 	}
 
-	//select문에서 faqid(faqnumber) 값 하나로 나머지 다 가져오는 메소드 만들기
 		public Faq getSelectById(Connection conn, int faqnumber) throws SQLException{
 			PreparedStatement pstmt = null;
 			ResultSet rs=null;
@@ -84,7 +83,6 @@ public class FaqDao {
 			}		
 		}	
 
-		//post할때 사용, where faqtitle 을 키 값으로 받아주기 √ , int update?
 		public int update(Connection conn, String faqnumber, String faqtitle, String faqcontents) throws SQLException {
 			try (PreparedStatement pstmt =conn.prepareStatement("update faq set faqtitle=?, faqcontents=? where faqnumber=?")) {
 				pstmt.setString(1, faqtitle);
@@ -95,6 +93,12 @@ public class FaqDao {
 			}
 		}
 
+		public int delete(Connection conn, int faqnumber) throws SQLException {
+			try (PreparedStatement pstmt =conn.prepareStatement("delete from faq where faqnumber=?")) {
+				pstmt.setInt(1, faqnumber);
+				int result = pstmt.executeUpdate();
+				return result;				
+		}
+	}
 }
-
-
+	

@@ -32,8 +32,7 @@
 				<form action="<%= path %>/customerservice/modifyFaq.go" method="post">					
 					<div class="col-md-4 mb-3">
 					
-					<!-- id,title,contents 받아와서 채우기 -->
-					<input type="hidden" id="modifyFAQ_NUM" name = "modifyFAQ_NUM"value="${selecedFaq.FAQNUMBER }">
+					<input type="hidden" id="modifyFAQ_NUM" name = "modifyFAQ_NUM" value="${selecedFaq.FAQNUMBER }">
 					
 						<label for="FAQ_Q">제목</label>
 						<input type="text" class="form-control" id="modifyFAQ_Q" name="modifyFAQ_Q" placeholder="제목" value="${selecedFaq.FAQTITLE }">

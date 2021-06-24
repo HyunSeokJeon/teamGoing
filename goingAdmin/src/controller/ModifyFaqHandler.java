@@ -29,10 +29,7 @@ public class ModifyFaqHandler implements CommandHandler{
 	}
 	
 	public String processForm (HttpServletRequest req, HttpServletResponse res) throws SQLException{
-		//faqid 파라미터로 받아오기
 		int faqnumber = Integer.parseInt(req.getParameter("faqid")); 
-		System.out.println(faqnumber);
-//		//faq 객체 만들어서 제목,내용 채우기
 		Connection conn = ConnectionProvider.getConnection();
 		Faq faqreq = faqDao.getSelectById(conn, faqnumber);
 		req.setAttribute("selecedFaq", faqreq);
@@ -40,18 +37,13 @@ public class ModifyFaqHandler implements CommandHandler{
 	}
 	
 	public String processSubmit (HttpServletRequest req, HttpServletResponse res) throws SQLException{
-		System.out.println("asdf");
 		String faqnumber = req.getParameter("modifyFAQ_NUM");
 		String faqtitle = req.getParameter("modifyFAQ_Q");
 		String faqcontents = req.getParameter("modifyFAQ_A");		
-		System.out.println(faqnumber);
-		System.out.println(faqtitle);
-		System.out.println(faqcontents);
 		Connection conn = ConnectionProvider.getConnection();
 		int result = faqDao.update(conn, faqnumber, faqtitle, faqcontents);
-		System.out.println(result);
 		
-		return FORM_VIEW;
+		return "/WEB-INF/view/customerservice/modifySuccess.jsp";
 	}
 
 	
