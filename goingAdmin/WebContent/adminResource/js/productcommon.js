@@ -9,7 +9,7 @@ form.addEventListener("submit", (event) => {
 });
 
 function generateYear(tag, base='0') {
-  for (let i = 2000; i < 2025; i++) {
+  for (let i = 2020; i < 2025; i++) {
 	if (i==base){
 		tag.innerHTML += `<option value="${i}" selected>${i}</option>`;
 		continue;
