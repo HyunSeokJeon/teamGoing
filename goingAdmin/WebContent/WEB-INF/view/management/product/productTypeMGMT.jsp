@@ -20,8 +20,8 @@
 				<div class="dropdown no-arrow">
 					<a class="dropdown-toggle" href="#" role="button"
 						id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false"> <i
-						class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+						aria-expanded="false"> 
+						<i class="fas fa-plus fa-sm fa-fw text-gray-400"></i>
 					</a>
 					<div
 						class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
@@ -30,7 +30,7 @@
 							<div class="dropdown-header">
 								상품종류 추가 :
 							</div>
-							<div class="mx-2"><input class="form-control form-control-sm" placeholder="상품 종류입력" name="inputpType"></div>
+							<div class="mx-2"><input class="form-control form-control-sm" placeholder="상품 종류입력" name="inputpType" required></div>
 							<div class="mx-2 text-right">
 								<button type="submit" class="btn btn-sm btn-primary mt-2">등록 </button>
 								
