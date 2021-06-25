@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
@@ -87,6 +88,45 @@ public class ProlistDao {
 			JdbcUtil.close(rs);
 		}
 		return result;
+	}
+	public List<Prolist> selectByEndDayWeekLeft(Connection conn) throws SQLException {
+		Statement stmt = null;
+		ResultSet rs = null;
+		List<Prolist> result = new ArrayList<Prolist>();
+		try {
+			String query = "select productid pid, productname pname, productimage pimage from product where productsellend >= sysdate-1 and productsellend <= sysdate+7";
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(query);
+			while (rs.next()) {
+				result.add(new Prolist(rs.getInt("pid"), rs.getString("pname"), rs.getString("pimage")));
+			}
+			
+			return result;
+		}finally {
+			JdbcUtil.close(stmt);
+			JdbcUtil.close(rs);
+		}
+	}
+	public List<Prolist> selectOrderByPLove(Connection conn) throws SQLException {
+		Statement stmt = null;
+		ResultSet rs = null;
+		List<Prolist> result = new ArrayList<Prolist>();
+		try {
+			String query = "select pid, pname, pimage, plove \r\n"
+					+ "from (select productid pid, productname pname, productimage pimage, productlove plove \r\n"
+					+ "from product order by plove desc) \r\n"
+					+ "where rownum <= 3";
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(query);
+			while (rs.next()) {
+				result.add(new Prolist(rs.getInt("pid"), rs.getString("pname"), rs.getString("pimage"), rs.getInt("plove")));
+			}
+			System.out.println(result.size());
+			return result;
+		}finally {
+			JdbcUtil.close(stmt);
+			JdbcUtil.close(rs);
+		}
 	}
 	
 }

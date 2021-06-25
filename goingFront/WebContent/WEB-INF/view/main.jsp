@@ -124,7 +124,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="container my-4">
+	<!-- <div class="container my-4">
 		<div class="row"><span class="h2 px-10">인기많은 상품</span></div>
 		<div class="row">
 			<div class="col py-2">
@@ -219,50 +219,25 @@
 		</div>
 
 		
-	</div>
-	<div class="row my-4"><span class="h2 px-10">매진 임박 TOP3!</span></div>
+	</div> -->
+	<div class="row my-4"><span class="h2 px-10">인기상품 TOP3!</span></div>
 		<div class="row justify-content-between px-10">
-			<div class="col-md-4">
-				<div class="main-showcase-favor-imgbox" >
-					<img src="assets/img/favorP1.jpg" alt="" class="main-showcase-favor-img">
-				</div>
-				<div class="row m-3 p-1 align-items-center justify-content-center">
-					<div class="col">
-						<i class="bi bi-suit-heart-fill like-heart-pink h5"></i> <span class="h5">100</span>
+			<c:forEach var="top3Product" items="${top3itmes}">
+				<div class="col-md-4">
+					<div class="main-showcase-favor-imgbox" >
+						<img src="<%=path %>/upload/${top3Product.productImage}" alt="" class="main-showcase-favor-img">
 					</div>
-					<div class="col d-flex justify-content-end">
-						<a href="" class="btn btn-sm btn-outline-primary">바로가기</a>
-					</div>
-				</div>
-				
-			</div>
-			<div class="col-md-4">
-				<div class="main-showcase-favor-imgbox" >
-					<img src="assets/img/favorP2.jpg" alt="" class="main-showcase-favor-img">
-				</div>
-				<div class="row m-3 p-1 align-items-center justify-content-center">
-					<div class="col">
-						<i class="bi bi-suit-heart-fill like-heart-pink h5"></i> <span class="h5">100</span>
-					</div>
-					<div class="col d-flex justify-content-end">
-						<a href="" class="btn btn-sm btn-outline-primary">바로가기</a>
+					<div class="row m-3 p-1 align-items-center justify-content-center">
+						<div class="col">
+							<i class="bi bi-suit-heart-fill like-heart-pink h5"></i> <span class="h5">${top3Product.productLove}</span><span>${top3Product.productName} </span>
+						</div>
+						<div class="col d-flex justify-content-end">
+							<a href="<%=path %>/productInfo.go?pId=${top3Product.productID}" class="btn btn-sm btn-outline-primary">바로가기</a>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="main-showcase-favor-imgbox" >
-					<img src="assets/img/favorP1.jpg" alt="" class="main-showcase-favor-img">
-				</div>
-				<div class="row m-3 p-1 align-items-center justify-content-center">
-					<div class="col">
-						<i class="bi bi-suit-heart-fill like-heart-pink h5"></i> <span class="h5">100</span>
-					</div>
-					<div class="col d-flex justify-content-end">
-						<a href="" class="btn btn-sm btn-outline-primary">바로가기</a>
-					</div>
-				</div>
-			</div>
-		</div>
+			</c:forEach>
+		</div> 
 	
 </div>
 

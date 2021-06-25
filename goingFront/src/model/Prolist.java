@@ -22,11 +22,32 @@ public class Prolist {
 		
 	
 	private String productType;
-	
+		
 		public Prolist() {
 			
 		}
 		
+		
+		
+		public Prolist(Integer productID, String productName, String productImage) {
+			super();
+			this.productID = productID;
+			this.productName = productName;
+			this.productImage = productImage;
+		}
+
+			
+
+		public Prolist(Integer productID, String productName, String productImage, Integer productLove) {
+			super();
+			this.productID = productID;
+			this.productName = productName;
+			this.productImage = productImage;
+			this.productLove = productLove;
+		}
+
+
+
 		public Prolist(int productID, int productTypeID, String productName, int productPrice, String productDesc,
 				int productLove, Date productSellStart, Date productSellEnd, String productSellYN,
 				String productImage) {
@@ -66,6 +87,8 @@ public class Prolist {
 			this.productRegdate = productRegdate;
 			this.productSellYN = productSellYN;
 		}
+
+
 
 		public int getProductID() {
 			return productID;
