@@ -48,24 +48,31 @@
 			<!-- Card Body -->
 			<c:set var="prod" value="${selectedProduct}"></c:set>
 			<div class="card-body">
-				<form class="form-group" action="#" method="post" enctype="multipart/form-data" id="createform">
+				<form class="form-group" action="<%=path %>/manage/modifyProduct.go" method="post" id="createform">
+					<input type="hidden" name="productId" value="${prod.productID }">
 					<div class="col-md-4 mb-3">
 						<label for="productType">상품 분류</label>
 						<select class="custom-select mr-sm-2" id="productType" name="productType">
 							<option selected value="X">상품 종류</option>
 							<c:forEach var="productType" items="${productTypeList}">
-								<option value="${productType.productTypeId}">${productType.productType }</option>
+								<c:if test="${productType.productTypeId==prod.productType }" >
+									<option value="${productType.productTypeId}" selected="selected">${productType.productType }</option>
+								</c:if>
+								<c:if test="${productType.productTypeId!=prod.productType }">
+									<option value="${productType.productTypeId}">${productType.productType }</option>
+								</c:if>
+								
 							</c:forEach>
 							
 						</select>
 					</div>
 					<div class="col-md-4 mb-3">
 						<label for="productName">상품명</label>
-						<input type="text" class="form-control" id="productName" name="productName" value="${prod.productName }">
+						<input type="text" class="form-control" id="productName" name="productName" value="${prod.productName }" required>
 					</div>
 					<div class="col-md-4 mb-3">
 						<label for="productPrice">상품가격</label>
-						<input type="text" class="form-control" id="productPrice" name="productPrice" value="${prod.productPrice }">
+						<input type="text" class="form-control" id="productPrice" name="productPrice" value="${prod.productPrice }" required>
 					</div>
 					<div class="col-md-8 mb-3">
 						<label for="productImg">상품썸네일</label>
@@ -77,11 +84,11 @@
 					</div>
 					<div class="col-md-4 mb-3">
 						<label for="productPrproductPlaytimeice">상품 상영 시간(분)</label>
-						<input type="text" class="form-control" id="productPlaytime" name="productPlaytime" value="${prod.productPlaytime }"></input>
+						<input type="text" class="form-control" id="productPlaytime" name="productPlaytime" value="${prod.productPlaytime }" required></input>
 					</div>
 					<div class="col-md-4 mb-3">
 						<label for="productAgeLimit">상품(공연)연령제한</label>
-						<input type="text" class="form-control" id="productAgeLimit" name="productAgeLimit" value="${prod.productAgeLimit }"></input>
+						<input type="text" class="form-control" id="productAgeLimit" name="productAgeLimit" value="${prod.productAgeLimit }" required></input>
 					</div>
 					<p>판매시작일자</p>
 					<div class="row">
