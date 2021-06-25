@@ -113,9 +113,33 @@ public class ProductDao {
 			
 			return result;
 		}finally {
-			pstmt.close();
-			rs.close();
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(rs);
 		}
 		
+	}
+
+	public void update(Connection conn, Product product) throws SQLException {
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement("update product "
+					+ "set producttype=?, productname=?, productprice=?, productplaytime=?,"
+					+ "productagelimit=?, productsellstart=?, productsellend=?, productperiods=?,"
+					+ "productperiode=?, productsellyn=? where productid=?");
+			
+			pstmt.setInt(1, product.getProductType());
+			pstmt.setString(2, product.getProductName());
+			pstmt.setInt(3, product.getProductPrice());
+			pstmt.setInt(4, product.getProductPlaytime());
+			pstmt.setInt(5, product.getProductAgeLimit());
+			pstmt.setDate(6, product.getProductSellStart());
+			pstmt.setDate(7, product.getProductSellEnd());
+			pstmt.setDate(8, product.getProductPeriods());
+			pstmt.setDate(9, product.getProductPeriode());
+			pstmt.setString(10, product.getProductSellYN());
+			pstmt.setInt(11, product.getProductID());
+		}finally {
+			JdbcUtil.close(pstmt);
+		}
 	}
 }

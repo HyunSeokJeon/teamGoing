@@ -62,9 +62,30 @@ public class Product {
 		this.productRegdate = productRegdate;
 		this.productSellYN = productSellYN;
 	}
+	
+	//상품수정 생성자
+	
+	public Product(Integer productID, Integer productType, String productName, Integer productPrice,
+			int productPlaytime, int productAgeLimit, Date productSellStart, Date productSellEnd, Date productPeriods,
+			Date productPeriode, String productSellYN) {
+		super();
+		this.productID = productID;
+		this.productType = productType;
+		this.productName = productName;
+		this.productPrice = productPrice;
+		this.productPlaytime = productPlaytime;
+		this.productAgeLimit = productAgeLimit;
+		this.productSellStart = productSellStart;
+		this.productSellEnd = productSellEnd;
+		this.productPeriods = productPeriods;
+		this.productPeriode = productPeriode;
+		this.productSellYN = productSellYN;
+	}
+	
 	public Integer getProductID() {
 		return productID;
 	}
+	
 	public Integer getProductType() {
 		return productType;
 	}

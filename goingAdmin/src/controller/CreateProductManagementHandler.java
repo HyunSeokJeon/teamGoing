@@ -40,7 +40,7 @@ public class CreateProductManagementHandler implements CommandHandler{
 	
 	private String processSubmit(HttpServletRequest req, HttpServletResponse res) throws SQLException, IOException {
 		ps.createProduct(req);
-		return "/WEB-INF/view/management/product/createProduct.jsp";
+		return "/WEB-INF/view/management/product/productDMLResult.jsp";
 	}
 	
 	
