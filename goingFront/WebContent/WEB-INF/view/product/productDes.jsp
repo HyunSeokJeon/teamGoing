@@ -140,7 +140,7 @@
 							</div>
 						</a>
 					</c:if>
-					<img src="../../frontResource/dist/img/psy.jpg" class="w-100"
+					<img src="<%=path %>/upload/${product.productImage }" class="w-100"
 						align="left">
 					
 				</div>

@@ -53,7 +53,8 @@ public class ProductService {
 		// ** Spring 환경에서 바꿔야할 코드
 		String uploadPath = req.getRealPath("upload");
 //		String uploadPath = "C:\\temp";
-		System.out.println(uploadPath);
+		
+		uploadPath = uploadPath.replaceAll("goingAdmin", "goingFront");
 		int size = 10 * 1024 * 1024;
 		MultipartRequest multi = new MultipartRequest(req, uploadPath, size, "utf-8",
 				new DefaultFileRenamePolicy());
@@ -114,9 +115,9 @@ public class ProductService {
 		for(int i=0; i<7; i++) {
 			file = (String) files.nextElement();
 			if(file.equalsIgnoreCase("productImg")) {
-				productImage = file;
+				productImage = multi.getFilesystemName(file);
 			}else if(file.equalsIgnoreCase("productDesc")) {
-				productDesc=file;
+				productDesc=multi.getFilesystemName(file);
 			}else {
 				fileArray[i] = file;
 			}
@@ -162,4 +163,64 @@ public class ProductService {
 		}
 		return result;
 	}
+
+	public void modifyProduct(HttpServletRequest req) throws SQLException {
+		String productId = req.getParameter("productId");
+		String productType = req.getParameter("productType");
+		String productName = req.getParameter("productName");
+		String productPrice = req.getParameter("productPrice");
+		String productPlaytime = req.getParameter("productPlaytime");
+		String productAgeLimit = req.getParameter("productAgeLimit");
+		
+		String productSellStart1 = req.getParameter("productSellStart1");
+		String productSellStart2 = req.getParameter("productSellStart2");
+		String productSellStart3 = req.getParameter("productSellStart3");
+		
+		Date productSellStart 
+		= new Date(Integer.parseInt(productSellStart1), Integer.parseInt(productSellStart2), Integer.parseInt(productSellStart3));
+		
+		String productSellEnd1 = req.getParameter("productSellEnd1");
+		String productSellEnd2 = req.getParameter("productSellEnd2");
+		String productSellEnd3 = req.getParameter("productSellEnd3");
+		
+		Date productSellEnd 
+		= new Date(Integer.parseInt(productSellEnd1), Integer.parseInt(productSellEnd2), Integer.parseInt(productSellEnd3));
+		
+		String productPeriods1 = req.getParameter("productPeriods1");
+		String productPeriods2 = req.getParameter("productPeriods2");
+		String productPeriods3 = req.getParameter("productPeriods3");
+		
+		Date productPeriods 
+		= new Date(Integer.parseInt(productPeriods1), Integer.parseInt(productPeriods2), Integer.parseInt(productPeriods3));
+		
+		
+		String productPeriode1 = req.getParameter("productPeriode1");
+		String productPeriode2 = req.getParameter("productPeriode2");
+		String productPeriode3 = req.getParameter("productPeriode3");
+		
+		Date productPeriode 
+		= new Date(Integer.parseInt(productPeriode1), Integer.parseInt(productPeriode2), Integer.parseInt(productPeriode3));
+		
+		
+		
+		String productSellYN = req.getParameter("productSellYN");
+		
+		Product product = new Product(	Integer.parseInt(productId),
+				Integer.parseInt(productType),
+				productName,
+				Integer.parseInt(productPrice),
+				Integer.parseInt(productPlaytime),
+				Integer.parseInt(productAgeLimit),
+				productSellStart,
+				productSellEnd,
+				productPeriods,
+				productPeriode,
+				productSellYN);
+		
+		try(Connection conn = ConnectionProvider.getConnection()){
+			productDao.update(conn, product);
+		}
+	}
+	
+	
 }

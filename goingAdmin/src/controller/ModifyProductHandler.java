@@ -22,13 +22,17 @@ public class ModifyProductHandler implements CommandHandler {
 		if (req.getMethod().equalsIgnoreCase("get")) {
 			return processForm(req, res);
 		} else if (req.getMethod().equalsIgnoreCase("post")) {
-
+			return processSubmit(req, res);
 		} else {
 			res.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
 			return null;
 		}
 
-		return null;
+	}
+
+	private String processSubmit(HttpServletRequest req, HttpServletResponse res) throws SQLException {
+		ps.modifyProduct(req);
+		return "/WEB-INF/view/management/product/productUpdateResult.jsp";
 	}
 
 	private String processForm(HttpServletRequest req, HttpServletResponse res) throws SQLException {
