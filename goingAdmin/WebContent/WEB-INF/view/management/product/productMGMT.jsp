@@ -43,7 +43,7 @@
 					<thead>
 						<tr>
 							<th scope="col">상품종류</th>
-							<th scope="col">상품명</th>
+							<th scope="col" >상품명</th>
 							<th scope="col">가격</th>
 							<th scope="col">상품 이미지</th>
 							<th scope="col">상품 정보</th>
@@ -61,7 +61,7 @@
 						<c:forEach var="product" items="${productList}">
 							<tr>
 								<td>${product.productType}</td>
-								<td>${product.productName}</td>
+								<td style="max-width:10rem">${product.productName}</td>
 								<td>${product.productPrice }</td>
 								<td><a href="javascript:void(window.open('<%=path %>/upload/${product.productImage}','win0','width=800,height=768,status=no,toolbar=no,scrollbars=no'))">상품확인</a></td>
 								<td><a href="javascript:void(window.open('<%=path %>/upload/${product.productDesc}','win0','width=800,height=768,status=no,toolbar=no,scrollbars=no'))">상품확인</a></td>
