@@ -116,9 +116,9 @@
 <div class=" container border-top border-bottom border-dark ">
 	<div class="row">
 		<div class="col-8">
-			<div class="row">
+			<div class="row text-dark">
 				<div class="col-5">
-					<div class="fs-4">${product.productName }</div>
+					<div class="fs-5 fw-bold">${product.productName }</div>
 					<c:if test="${notLogin }">
 						<a href="#" id="likeitem">
 							<div id="heartBox">
@@ -146,7 +146,7 @@
 				</div>
 
 				<div class="col">
-					<ul class="list-group  ps-5 fs-5">
+					<ul class="list-group  ps-5 fs-6">
 						<li class="list-inline-item"><strong>장소</strong> <span
 							class="ps-5">잠실종합운동장</span></li>
 

@@ -97,7 +97,7 @@
 						<li class="nav-item dropdown"><a class="nav-link fs-4 "
 							href="#" id="navbarDropdown2" role="button"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<button class="border-0 btn btn-dark"  id="num5"  onclick = 'divide(50)'>콘서트</button> </a>  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<button class="border-0 btn btn-dark"  id="num5"  onclick = 'divide("")'>전체보기</button> </a>  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 										          <a class="dropdown-item" href="#">Action</a>
 										          <a class="dropdown-item" href="#">Another action</a>
 										          <div class="dropdown-divider"></div>
@@ -109,7 +109,7 @@
 						<li class="nav-item dropdown"><a class="nav-link fs-4"
 							href="#" id="navbarDropdown3" role="button"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<button class="border-0 btn btn-dark"  id="num4"  onclick = 'divide(40)'>연극</button>	 </a> 
+								<button class="border-0 btn btn-dark"  id="num4"  onclick = 'divide(20)'>콘서트</button>	 </a> 
 										        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 										          <a class="dropdown-item" href="#">Action</a>
 										          <a class="dropdown-item" href="#">Another action</a>
@@ -122,7 +122,7 @@
 						<li class="nav-item dropdown"><a class="nav-link fs-4"
 							href="#" id="navbarDropdown4" role="button"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<button class="border-0 btn btn-dark"  id="num3"  onclick = 'divide(30)'>스포츠</button> </a> 
+								<button class="border-0 btn btn-dark"  id="num3"  onclick = 'divide(30)'>연극</button> </a> 
 										        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 										          <a class="dropdown-item" href="#">Action</a>
 										          <a class="dropdown-item" href="#">Another action</a>
@@ -135,7 +135,7 @@
 						<li class="nav-item dropdown"><a class="nav-link fs-4"
 							href="#" id="navbarDropdown5" role="button"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<button class="border-0 btn btn-dark"  id="num2"  onclick = 'divide(20)'>콘서트</button> </a> <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<button class="border-0 btn btn-dark"  id="num2"  onclick = 'divide(40)'>콘서트</button> </a> <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 										          <a class="dropdown-item" href="#">Action</a>
 										          <a class="dropdown-item" href="#">Another action</a>
 										          <div class="dropdown-divider"></div>
@@ -147,7 +147,7 @@
 						<li class="nav-item dropdown"><a class="nav-link fs-4"
 							href="#" id="navbarDropdown6" role="button"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<button class="border-0 btn btn-dark"  id="num1"  onclick = 'divide(10)'>뮤지컬</button> </a>  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<button class="border-0 btn btn-dark"  id="num1"  onclick = 'divide(50)'>클래식&무용</button> </a>  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 										          <a class="dropdown-item" href="#">Action</a>
 										          <a class="dropdown-item" href="#">Another action</a>
 										          <div class="dropdown-divider"></div>
