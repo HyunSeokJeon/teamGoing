@@ -15,9 +15,7 @@
 					<li class="nav-item"><a class="nav-link text-dark"
 						id="profile-tab" data-toggle="tab" href="#profile" role="tab"
 						aria-controls="profile" aria-selected="false">About Us</a></li>
-					<li class="nav-item"><a class="nav-link text-dark"
-						id="contact-tab" data-toggle="tab" href="#contact" role="tab"
-						aria-controls="contact" aria-selected="false">카테고리</a></li>
+					
 				</ul>
 				<div class="tab-content" id="myTabContent">
 					<div class="tab-pane fade show active" id="home" role="tabpanel"
@@ -36,25 +34,25 @@
 						</div>
 						</form>
 						<div class="my-4 h1 row row-cols-4 justify-content-start">
-							<a href="<%=path%>/list.go " class="d-flex align-items-center justify-content-center">
+							<a href="<%=path%>/list.go?productTypeId=20 " class="d-flex align-items-center justify-content-center">
 								<div class="main-icons">
 									<img class="mainicon mt-4" src="https://img.icons8.com/ios-filled/50/000000/concert.png"/>
 									<p class="h7 text-center my-1">콘서트</p>
 								</div>
 							</a>
-							<a href="<%=path%>/list.go " class="d-flex align-items-center justify-content-center">
+							<a href="<%=path%>/list.go?productTypeId=30 " class="d-flex align-items-center justify-content-center">
 								<div class="main-icons">
 									<img class="mainicon mt-4" src="https://img.icons8.com/ios-filled/50/000000/guitarist.png"/>
 									<p class="h7 text-center my-1">공연</p>
 								</div>
 							</a>
-							<a href="<%=path%>/list.go " class="d-flex align-items-center justify-content-center">
+							<a href="<%=path%>/list.go?productTypeId=30 " class="d-flex align-items-center justify-content-center">
 								<div class="main-icons">
 									<img class="mainicon mt-4" src="https://img.icons8.com/pastel-glyph/64/000000/curtains--v1.png"/>
 									<p class="h7 text-center my-1">연극</p>
 								</div>
 							</a>
-							<a href="<%=path%>/list.go " class="d-flex align-items-center justify-content-center">
+							<a href="<%=path%>/list.go?productTypeId=40 " class="d-flex align-items-center justify-content-center">
 								<div class="main-icons">
 									<img class="mainicon mt-4" src="https://img.icons8.com/ios/50/000000/ballerina-full-body.png"/>
 									<p class="h7 text-center my-1">무용</p>
@@ -62,8 +60,8 @@
 							</a>
 							<a href="<%=path%>/list.go " class="d-flex align-items-center justify-content-center">
 								<div class="main-icons">
-									<img class="mainicon mt-4" src="https://img.icons8.com/ios/50/000000/ballerina-full-body.png"/>
-									<p class="h7 text-center my-1">콘서트</p>
+									<img class="mainicon mt-4" src="https://cdn4.iconfinder.com/data/icons/modern-ui-set-3-of-3/128/Apps-512.png"/>
+									<p class="h7 text-center my-1">전체보기</p>
 								</div>
 							</a>
 							
@@ -81,44 +79,9 @@
 					</div>
 					<div class="tab-pane fade" id="profile" role="tabpanel"
 						aria-labelledby="profile-tab">
-						<div class="my-4">Lorem ipsum dolor sit amet consectetur
-							adipisicing elit. Officia suscipit non consequatur iste
-							cupiditate, nobis, odit reprehenderit architecto ea rem molestias
-							inventore. Nostrum reprehenderit totam dolore adipisci dolorem
-							velit quo?</div>
+						<div class="my-4">Going Front 페이지입니다. </div>
 					</div>
-					<div class="tab-pane fade" id="contact" role="tabpanel"
-						aria-labelledby="contact-tab">
-						<div class="my-4 h1 d-flex justify-content-around">
-							<div>
-								<a href="<%=path%>/list.go"><i class="bi bi-three-dots"></i></a>
-							</div>
-							<div>
-								<a href="<%=path%>/list.go?productTypeId=10"><i class="bi bi-bookmark-star"></i></a>
-							</div>
-							<div>
-								<a href="<%=path%>/list.go?productTypeId=20"><i class="bi bi-binoculars"></i></a>
-							</div>
-							<div>
-								<a href="<%=path%>/list.go?productTypeId=30"><i class="bi bi-app"></i></a>
-							</div>
-
-						</div>
-						<div class="my-4 h1 d-flex justify-content-around">
-							<div>
-								<i class="bi bi-align-bottom"></i>
-							</div>
-							<div>
-								<i class="bi bi-app"></i>
-							</div>
-							<div>
-								<i class="bi bi-app"></i>
-							</div>
-							<div>
-								<i class="bi bi-app"></i>
-							</div>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 
@@ -227,21 +190,31 @@
 		
 	</div> -->
 	<div class="row my-4"><span class="h2 px-10">인기상품 TOP3!</span></div>
-		<div class="row justify-content-between px-10">
+		<div class="row justify-content-between px-10  main-size1">
 			<c:forEach var="top3Product" items="${top3itmes}">
-				<div class="col-md-4">
-					<div class="main-showcase-favor-imgbox" >
-						<img src="<%=path %>/upload/${top3Product.productImage}" alt="" class="main-showcase-favor-img">
-					</div>
-					<div class="row m-3 p-1 align-items-center justify-content-center">
-						<div class="col">
-							<i class="bi bi-suit-heart-fill like-heart-pink h5"></i> <span class="h5">${top3Product.productLove}</span><span>${top3Product.productName} </span>
+				
+					<div class="col-md-4">
+						<div class="main-showcase-favor-imgbox" >
+							<img src="<%=path %>/upload/${top3Product.productImage}" alt="" class="main-showcase-favor-img">
 						</div>
-						<div class="col d-flex justify-content-end">
-							<a href="<%=path %>/productInfo.go?pId=${top3Product.productID}" class="btn btn-sm btn-outline-primary">바로가기</a>
+						<div class="row m-3 p-1 align-items-center justify-content-center">
+							<div class="col">
+								<i class="bi bi-suit-heart-fill like-heart-pink h5"></i> <span class="h5">${top3Product.productLove}</span>
+								<p>
+								<c:if test="${top3Product.productName.length() < 13}">
+								${top3Product.productName}
+								</c:if>
+								<c:if test="${top3Product.productName.length() >= 14}">
+								${top3Product.productName.substring(0,14)}..
+								</c:if>
+								</p>
+							</div>
+							<div class="col-2 d-flex justify-content-end">
+								<a href="<%=path %>/productInfo.go?pId=${top3Product.productID}" class="btn btn-sm btn-outline-primary px-1">GO!</a>
+							</div>
 						</div>
 					</div>
-				</div>
+			
 			</c:forEach>
 		</div> 
 	
