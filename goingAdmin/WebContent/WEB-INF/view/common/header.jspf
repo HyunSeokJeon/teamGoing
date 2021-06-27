@@ -75,6 +75,22 @@
                     </div>
                 </div>
             </li>           
+            
+                        <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#couponMGMT"
+                    aria-expanded="true" aria-controls="couponMGMT">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>쿠폰 관리</span>
+                </a>
+                <div id="couponMGMT" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">쿠폰 관리 : </h6>
+                        <a class="collapse-item" href="<%=path%>/manage/readCoupon.go">쿠폰 목록</a>
+                        <a class="collapse-item" href="<%=path%>/manage/createCoupon.go">쿠폰 등록</a>
+                    </div>
+                </div>
+            </li>       
+            
             <!-- End 상품, 쿠폰, 회원 관리 -->
 			
 			<!-- Divider -->
