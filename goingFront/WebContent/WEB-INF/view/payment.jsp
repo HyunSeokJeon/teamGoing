@@ -16,6 +16,7 @@
 		  
 	  }  */
     %>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -34,53 +35,105 @@
     	
     	
         <div class="d-flex" id="wrapper">
-        	
-            <!-- Sidebar-->
-            <!--  <div class="border-end bg-white" id="sidebar-wrapper">
-                <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">카테고리1</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">카테고리2</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">카테고리3</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">카테고리4</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">카테고리5</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">카테고리6</a>
-                </div>
-            </div>-->
             <!-- Page content wrapper-->
             
 <div class="container-fluid" id="page-content-wrapper">
                 <!--헤더부분 삽입 해야 됨-->
                
-        		<nav class="navbar navbar-expand-lg navbar-light  " style="margin-top:4rem">
+        		<!-- <nav class="navbar navbar-expand-lg navbar-light  " style="margin-top:4rem">
         			<div class="collapse navbar-collapse d-flex justify-content-around " id="navbarSupportedContent">
-        				 <!--<ul class="navbar-nav mr-auto ">
-	        				  <li class="nav-item dropdown">
-							        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							          메뉴1
-							        </a>
-							        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							          <a class="dropdown-item" href="#">Action</a>
-							          <a class="dropdown-item" href="#">Another action</a>
-							          <div class="dropdown-divider"></div>
-							          <a class="dropdown-item" href="#">Something else here</a>
-							        </div>
-						      </li>
-						      </ul>
-						       -->
 	        				<button class="border-0 btn btn-dark list-inline-item   mx-10" >콘서트</button>
 	        				<button class="border-0 btn btn-dark list-inline-item  mx-10">영화</button>
 	        				<button class="border-0 btn btn-dark list-inline-item  mx-10">전시회</button>
 	        				<button class="border-0 btn btn-dark list-inline-item  mx-10">연극</button>
 	        				<button class="border-0 btn btn-dark list-inline-item  mx-10">뮤지컬</button>
-        				
-        			</div>
-        			<div></div>
-        			<div></div>
-        			<div></div>
-        			
-        				
-        			
-        		</nav>
+        			</div> 
+        		</nav> -->
+     <div class="container-fluid position-relative" id="page-content-wrapper">
+	<!--헤더부분 삽입 해야 됨-->
+
+	<nav class="navbar navbar-expand-lg navbar-light  "
+		style="margin-top: 5rem ">
+		<div class="collapse navbar-collapse d-flex justify-content-center "
+			id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto ">
+				<li class="nav-item dropdown"><a class="nav-link fs-4" href="#"
+					id="navbarDropdown1" role="button" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false"> Home <i
+						class="bi bi-pause-fill"></i>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">Action</a> <a
+							class="dropdown-item" href="#">Another action</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div></li>
+
+			</ul>
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item dropdown"><a class="nav-link fs-4 "
+					href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false"> 인기 </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">Action</a> <a
+							class="dropdown-item" href="#">Another action</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div></li>
+			</ul>
+
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item dropdown"><a class="nav-link fs-4" href="#"
+					id="navbarDropdown3" role="button" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false"> 브랜드 </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">Action</a> <a
+							class="dropdown-item" href="#">Another action</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div></li>
+			</ul>
+
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item dropdown"><a class="nav-link fs-4" href="#"
+					id="navbarDropdown4" role="button" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false"> 콘텐츠 </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">Action</a> <a
+							class="dropdown-item" href="#">Another action</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div></li>
+			</ul>
+
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item dropdown"><a class="nav-link fs-4" href="#"
+					id="navbarDropdown5" role="button" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false"> 이벤트 </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">Action</a> <a
+							class="dropdown-item" href="#">Another action</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div></li>
+			</ul>
+
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item dropdown"><a class="nav-link fs-4" href="#"
+					id="navbarDropdown6" role="button" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false"> 마이페이지 </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">Action</a> <a
+							class="dropdown-item" href="#">Another action</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div></li>
+			</ul>
+
+
+		</div>
+	</nav>
+</div>
         		
                 <!-- Page content-->
                 
@@ -88,7 +141,7 @@
                		<div class="text-center my-5"><h3>상품정보
                			</h3></div>
                		
- 		<div class=" border-top border-bottom border-dark bg-light container">
+ 		<div class=" border-top border-bottom border-dark  container">
  			<div class="row">
  				<div class="border-top border-bottom my-3 col-2 text-center">
  					이미지
@@ -146,7 +199,7 @@
                 	</h3>
                 </div>
 		 <!--  구매자 정보 --> 
-  		 <div class="border-top border-bottom border-dark bg-light container"> 
+  		 <div class="border-top border-bottom border-dark  container"> 
   		 <form>           
   	<div class="form-row"  id="chekform">
   		<div class="form-check">
@@ -155,28 +208,28 @@
 			    동일
 			  </label>
 		</div>
-    	<div class="form-group col-md-6">
-		      <label for="CUSTOMERNAME"></label>
-		      <input type="text" class="form-control " disabled id="CUSTOMERNAME"  name = "checkInfo" value ="${ec.CUSTOMERNAME}" placeholder="">
-    	</div>
-    <div class="form-group col-md-6">
-			      <label for="phoneNumber">전화번호</label>
-			      <input type="text" class="form-control"  disabled id="phoneNumber" name = "checkInfo" value = "${ec.CUSTOMERPHONENUM }"placeholder="하이픈(-)없이 작성해주세요">
-    </div>
-  
-  <div class="form-group col-md-6">
-		    <label for="inputAddress">배송지 주소</label>
-		    <input type="text" class="form-control" disabled id="inputAddress"  name = "checkInfo" value = "${ec.CUSTOMERADDRESS1 }"placeholder="">
-  </div>
-  <div class="form-group col-md-6">
-		    <label for="reqMemo">요청 메모</label>
-		    <input type="text" class="form-control" id="reqMemo" placeholder="">
-  </div>
-  	<div class="form-group col-md-6">
-		    <label for="email">이메일</label>
-		    <input type="email" class="form-control" id="email"  disabled name = "checkInfo" value ="${ec.CUSTOMEREMAIL }"placeholder="">
-  </div>
- 	</div>
+		</div>
+    	<dl class="row">
+		      <dt class="col-sm-6 text-left">구매자 성명</dt>
+		      <input type="text" class="col-sm-3 "  disabled id="CUSTOMERNAME" name = "checkInfo" value ="${ec.CUSTOMERNAME}"placeholder="">
+		      <%-- <input type="text" class="form-control-plaintext " disabled id="CUSTOMERNAME"  name = "checkInfo" value ="${ec.CUSTOMERNAME}" placeholder=""> --%>
+ 		</dl>
+ 		   <dl class="row">
+		      <dt class="col-sm-6 text-left">전화번호</dt>
+		     <input type="text" class="col-sm-3 "  disabled id="phoneNumber" name = "checkInfo" value = "${ec.CUSTOMERPHONENUM }"placeholder="하이픈(-)없이 작성해주세요">
+		 </dl>
+ 		   <dl class="row">
+		      <dt class="col-sm-6 text-left">배송지 주소</dt>
+		      <input type="text" class="col-sm-3 "  disabled id="inputAddress" name = "checkInfo" value ="${ec.CUSTOMERADDRESS1 }"placeholder="">
+		 </dl>
+		  <dl class="row">
+		      <dt class="col-sm-6 text-left">요청 메모</dt>
+		      <input type = "text" class= "col-sm-6 "  >
+		 </dl>
+		  <dl class="row">
+		      <dt class="col-sm-6 text-left">이메일</dt>
+		      <input type="text" class="col-sm-3 "  disabled id="email" name = "checkInfo" value ="${ec.CUSTOMEREMAIL }"placeholder="">
+		 </dl>
  	</form>
 </div>
  		<div class="my-4 text-center">
@@ -188,24 +241,36 @@
  	
      <!--  수령자 정보 -->
  <div class="border-top border-bottom border-dark bg-light fs-6 container">    
- <div class="form-row">
-    <div class="form-group col-md-6">
-	      <label for="inputname">수령인</label>
-	      <input type="text" class="form-control" id="inputname" placeholder="">
-    </div>
-    <div class="form-group col-md-6">
-	      <label for="phoneNumber">전화번호</label>
-	      <input type="text" class="form-control" id="phoneNumber" placeholder="하이픈(-)없이 작성해주세요">
-    			</div>
- 		 </div>
-  		<div class="form-group col-md-6">
-	    	<label for="inputAddress">배송지 주소</label>
-	    	<input type="text" class="form-control" id="inputAddress" placeholder="">
-  		</div>
-  	<div class="form-group col-md-6">
-	    <label for="reqMemo">요청 메모</label>
-	    <input type="text" class="form-control" id="reqMemo" placeholder="">
-  		</div>
+			
+			
+			<dl class="row my-1 ">
+				<dt class="col-sm-6 text-left">수령인</dt>
+				 <input type = "text" class= "col-sm-3 "  >
+			</dl>
+			<dl class="row">
+				<dt class="col-sm-6 text-left">전화번호</dt>
+				 <input type = "text" class= "col-sm-3 "  >
+			</dl>
+			<dl class="row">
+				<dt class="col-sm-6 text-left">우편번호</dt>
+				<dt class="col-sm-6">
+				 <input type = "text" class= "col-sm-3 " name = "addresscod1" id="addresscod1" >
+				 <input type="button" class="col-sm-3   btn-primary " value ="주소 찾기" onclick="goPopup();"> 
+				 </dt>
+			</dl>
+			<dl class="row">
+				<dt class="col-sm-6 text-left">배송지 주소</dt>
+				 <input type = "text" class= "col-sm-6 " name = "address1" id="address1" >
+			</dl>
+			<dl class="row">
+				<dt class="col-sm-6 text-left">상세 주소</dt>
+				 <input type = "text" class= "col-sm-6 "  name = "address2" id="address2">
+			</dl>
+			<dl class="row">
+				<dt class="col-sm-6 text-left ">요청 메모</dt>
+				 <input type = "text" class= "col-sm-6 "  >
+			</dl>
+			
  	</div>
 
 <!-- 쿠폰 사용 -->
@@ -217,14 +282,14 @@
 			<dt class="col-sm-2 text-left">쿠폰</dt>
 			<dd class= "col-sm-10 ">
 				<input type="text" >
-				<input type="button"  value="쿠폰조회" onclick="showPopup();"/>
+				<input type="button" class="btn-primary" value="쿠폰조회" onclick="showPopup();"/>
 			</dd>
 		</dl>
 			<dl class="row ">
 			<dt class="col-sm-2 text-left">적립금</dt>
 			<dd class= "col-sm-10">
 				<input type="text" >
-				<input type="button"  value="적립금 조회">
+				<input type="button"  class= "btn-primary" value="적립금 조회">
 			</dd>
 		</dl>
 		<dl class= "row">
@@ -300,8 +365,6 @@
 <div class="nav-item mx-0 mx-lg-1 text-center my-5">
 	<a class=" px-5 px-lg-5 rounded btn btn-primary btn-lg" href="#portfolio">결제하기</a>
 </div>
-
-		 	
  	</div> 
  </div>
         <!-- Bootstrap core JS-->
@@ -339,7 +402,16 @@ chek.addEventListener('change', function(){
 	}
 });	 
 
-
+function goPopup(){ 
+	var pop = window.open("/goingFront/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+}
+function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, 
+		rnMgtSn, bdMgtSn , detBdNmList, bdNm, bdKdcd, siNm, sggNm, emdNm, liNm, rn, udrtYn, buldMnnm, buldSlno, 
+		mtYn, lnbrMnnm, lnbrSlno, emdNo){ 
+	// 2017년 2월 제공항목이 추가되었습니다. 원하시는 항목을 추가하여 사용하시면 됩니다. 
+	document.getElementById("address1").value = roadFullAddr; 
+	document.getElementById("address2").value = addrDetail; 
+	document.getElementById("addresscod1").value = zipNo; }
 
 
 </script>

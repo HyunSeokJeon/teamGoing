@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -106,15 +107,16 @@ public class Memberdao {
 		return grade;
 	}
   
-	public Customer selectByAll(Connection conn) throws SQLException {
+	public ArrayList<Customer> selectByAll(Connection conn) throws SQLException {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement(
 					"select * from customer");
 			rs = pstmt.executeQuery();
+			ArrayList<Customer> memList = new ArrayList<>();
 			Customer member = null;
-			if (rs.next()) {
+			while(rs.next()) {
 				member = new Customer(
 						rs.getString("CUSTOMERID"), 
 						rs.getString("CUSTOMERPASS"),
@@ -133,8 +135,10 @@ public class Memberdao {
 						rs.getString("CUSTOMERGRADE"), 
 						rs.getString("CUSTOMERCOUPLE"), 
 						rs.getInt("CUSTOMERBALANCE"));
+				
+						memList.add(member);
 			}
-			return member;
+			return memList;
 		} finally {
 			JdbcUtil.close(rs);
 			JdbcUtil.close(pstmt);
