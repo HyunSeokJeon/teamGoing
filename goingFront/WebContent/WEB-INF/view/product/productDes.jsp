@@ -186,15 +186,7 @@
 			</div>
 			<!-- 캐스팅 Start -->
 			<div class="container mt-5">
-				<div class="row">
-					<h3>캐스팅</h3>
-
-
-					<div class="mt-5">
-						<img src="../../frontResource/dist/img/psys.gif">
-						<p>싸이</p>
-					</div>
-				</div>
+				
 				<!-- 캐스팅 정보 End -->
 
 				<div class="container mt-5">
@@ -202,7 +194,6 @@
 						<h3>공연시간 정보</h3>
 					</div>
 					<div class="mt-2">예매가능시간 : 관림 2시간전</div>
-					<div class="mt-2">2019년 8월 24일 토요일 오후 6시 42분</div>
 
 				</div>
 
@@ -216,17 +207,18 @@
 						티켓 환불은 불가합니다.
 					<p>※ 연출안에 따라 무대가 변경될 수 있습니다.</p>
 					<p>※ 공연 당일 혼잡함을 방지하기 위해 초기 예매분은 일괄 배송 방식으로만 운영합니다.</p>
-					<p>※ 일괄 배송 시작일 : 2019년 07월 30일(화) ~ 2019년 08월 02일(금)</p>
+					<p>※ 일괄 배송 시작일 : ${product.productSellStart }~${product.productSellEnd }</p>
 					<p>※ 티켓 분실/파손/도난 등 어떠한 경우에도 재발권이 불가하며, 티켓 미소지시에는 입장이 불가하오니 티켓
 						보관에 유의해 주시기 바랍니다.</p>
 				</div>
 			</div>
+			<c:forEach var="imglist" items="${ imgList}">
 			<div class="container mt-5">
-				<h3>공연상세/출연진 정보</h3>
 				<div class="row">
-					<img src="../../frontResource/dist/img/psyd.jpg">
+					<img src="<%=path %>/upload/${imglist.pImg }">
 				</div>
 			</div>
+			</c:forEach>
 		</div>
 
 
