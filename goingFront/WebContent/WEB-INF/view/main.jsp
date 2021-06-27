@@ -67,6 +67,12 @@
 								</div>
 							</a>
 							
+							<a href="<%=path%>/faq.go" class="d-flex align-items-center justify-content-center">
+								<div class="main-icons">
+									<img class="mainicon mt-4" src="https://img.icons8.com/ios/50/000000/headset.png"/>
+									<p class="h7 text-center my-1">고객센터</p>
+								</div>
+							</a>
 							
 
 						</div>

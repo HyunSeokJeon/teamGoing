@@ -1,0 +1,100 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/view/include/header.jspf"%>
+
+<div class="container-fluid">
+	<div class="d-sm-flex align-items-center justify-content-between mb-4">
+		<img class="mainicon mt-4"
+			src="https://img.icons8.com/ios/50/000000/headset.png" />
+		<h1 class="h3 mb-0 text-gray-800">FAQ</h1>
+	</div>
+</div>
+<div class="card-body">
+
+
+	<table class="table">
+		<thead>
+			<tr>
+			<tr>
+				<div class="container-fluid">
+					<img class="mainicon mt-4"
+						src="https://img.icons8.com/ios/50/000000/headset.png" />
+					<h1 class="h3 mb-0 text-gray-800">FAQ</h1>
+				</div>
+				</div>
+				<div class="card-body">
+			</tr>
+			<th scope="col">번호</th>
+			<th scope="col">제목</th>
+			<th scope="col"></th>
+			</tr>
+
+		</thead>
+		<tbody>
+
+			<c:forEach var="faqList" items="${faqList }">
+				<tr>
+					<th scope="row">${faqList.FAQNUMBER}</th>
+					<th><div onclick="display('content${faqList.FAQNUMBER}')">${faqList.FAQTITLE }<span
+								class="arrow">▼</span>
+							<div class='content' id="content${faqList.FAQNUMBER}"
+								style="display: none;">${faqList.FAQCONTENTS }</div>
+						</div></th>
+				</tr>
+			</c:forEach>
+
+			<script type="text/javascript">
+							  var contents = document.querySelectorAll('.content');
+							
+							  function display(id) {
+							    [...contents].forEach((content) => {
+							      if (content.id !== id) {
+							        content.style.display = "none";
+							        content.previousElementSibling.innerHTML = '▼';
+							      }
+							    });
+							    var element = document.getElementById(id);
+							    if (element.style.display === 'block') {
+							      element.style.display = 'none';
+							      element.previousElementSibling.innerHTML = '▼';
+							    } else {
+							      element.style.display = 'block';
+							      element.previousElementSibling.innerHTML = '▲';
+							    }
+							  }
+							
+						</script>
+
+		</tbody>
+	</table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%@ include file="/WEB-INF/view/include/footer.jspf"%>
