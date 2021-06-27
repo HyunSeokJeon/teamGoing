@@ -13,21 +13,13 @@ public class PaymentService {
 		private Memberdao memberDao = new Memberdao();
 		private Customer csr = new Customer();
 		
-		public Customer paymentInfo() throws SQLException {
+		public Customer paymentInfo(String ui) throws SQLException {
 			Connection conn = null;
 			
-		
-			try {
 				conn = ConnectionProvider.getConnection();
-				Customer cus = memberDao.selectByAll(conn);
+				Customer cus = memberDao.selectById(conn, ui);
 				
-				return cus;
-			}catch(SQLException e) {
 				
-			}finally {
-				
-			}
-			return null;
-			
+				return cus;			
 		}
 }
