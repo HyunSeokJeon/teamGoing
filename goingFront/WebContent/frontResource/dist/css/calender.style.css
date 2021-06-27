@@ -8385,10 +8385,10 @@ h1, h2, h3, h4, h5,
 
 .active-month {
   font-weight: 700;
-  color: #fc7fb2; }
+  color: #007bff; }
 
 .month:hover {
-  color: #fc7fb2; }
+  color:#007bff; }
 
 /*  Dates table */
 .table-date {
@@ -8441,7 +8441,7 @@ h1, h2, h3, h4, h5,
 .active-date {
   color: #fff; }
   .active-date:before {
-    background: #fc7fb2; }
+    background: #007bff; }
 
 .event-date.active-date {
   background: transparent;
