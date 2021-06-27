@@ -16,6 +16,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Landing Page - Start Bootstrap Theme</title>
+        <link href="<%=vendorPath %>fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="<%=assetsPath %>assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -25,6 +26,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="<%=cssPath %>styles.css" rel="stylesheet" />
         <link href="<%=cssPath %>styles.custom.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
        <body>
         <!-- Navigation-->
@@ -40,6 +42,7 @@
                 <%HttpSession httpSession = request.getSession(false); 
                 	Boolean notLogin = httpSession==null || httpSession.getAttribute("authUser")==null;
                 %>
+                
                 <c:if test="<%=notLogin%>">
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto align-items-center">
