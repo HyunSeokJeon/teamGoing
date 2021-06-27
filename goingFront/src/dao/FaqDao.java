@@ -20,6 +20,9 @@ public class FaqDao {
 
 			rs = pstmt.executeQuery();
 			List<Faq> result = new ArrayList<>();
+			while(rs.next()) {
+				result.add(new Faq(rs.getInt("faqnumber"), rs.getString("faqtitle"), rs.getString("faqcontents")));
+			}
 			return result;
 		} finally {
 			JdbcUtil.close(rs);
