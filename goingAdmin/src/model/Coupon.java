@@ -20,6 +20,16 @@ public class Coupon {
 		this.couponDiscount = couponDiscount;
 		this.couponVaild = couponVaild;
 	}
+	
+	public Coupon(String couponName, String couponDesc, Double couponDiscount, Date couponVaild) {
+
+		super();
+		this.couponName = couponName;
+		this.couponDesc = couponDesc;
+		this.couponDiscount = couponDiscount;
+		this.couponVaild = couponVaild;
+	}
+
 
 	public Integer getCouponID() {
 		return couponID;

@@ -32,7 +32,7 @@ public class CouponDao {
 		}
 
 	}
-/*
+
 	public int createCoupon(Connection conn, Coupon c) throws SQLException {
 		PreparedStatement pstmt = null;
 		Statement stmt = null;
@@ -44,7 +44,7 @@ public class CouponDao {
 					+ "(COUPONIDSEQ.nextval, ?, ?, ?, ?)");
 			pstmt.setString(1, c.getCouponName());
 			pstmt.setString(2, c.getCouponDesc());
-			pstmt.setInt(3, c.getCouponDiscount());
+			pstmt.setDouble(3, c.getCouponDiscount());
 			pstmt.setDate(4, c.getCouponVaild());
 		
 			pstmt.executeUpdate();
@@ -63,7 +63,7 @@ public class CouponDao {
 			JdbcUtil.close(stmt);
 		}
 	}
-*/
+
 	private Coupon convertCoupon(ResultSet rs) throws SQLException {
 		return new Coupon(
 				rs.getInt("couponID"),
