@@ -26,11 +26,11 @@
 					<div
 						class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
 						aria-labelledby="dropdownMenuLink">
-						<form action="/manage/readProductType.go" method="post" class="form-group">
+						<form role="form" method="post" class="form-group">
 							<div class="dropdown-header">
 								상품종류 추가 :
 							</div>
-							<div class="mx-2"><input class="form-control form-control-sm" placeholder="상품 종류입력" name="inputpType" required></div>
+							<div class="mx-2"><input class="form-control form-control-sm" placeholder="상품 종류입력" name="productType" required></div>
 							<div class="mx-2 text-right">
 								<button type="submit" class="btn btn-sm btn-primary mt-2">등록 </button>
 								
@@ -50,10 +50,10 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="productType" items="${productTypeList}">
+						<c:forEach var="productTypeVO" items="${list}">
 							<tr>
-								<th scope="row">${productType.productTypeId}</th>
-								<td>${productType.productType}</td>
+								<th scope="row">${productTypeVO.productTypeId}</th>
+								<td>${productTypeVO.productType}</td>
 								
 							</tr>
 						</c:forEach>
@@ -66,5 +66,11 @@
 		</div>
 	</div>
 </div>
-
+<script type="text/javascript">
+	let result = '${msg}';
+	
+	if(result == 'SUCCESS'){
+		alert("등록이 완료되었습니다.");
+	}
+</script>
 <%@ include file="/WEB-INF/views/common/footer.jspf"%>
