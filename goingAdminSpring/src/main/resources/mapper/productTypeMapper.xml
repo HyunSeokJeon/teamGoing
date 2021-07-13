@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="org.going.mapper.productTypeMapper">
 	<insert id="create">
 		insert into productType (productTypeid, productType)
-		values (#{productTypeId}, #{productType})
+		values (prodtypeseq.nextval, #{productType})
 	</insert>
 	<select id="read" resultType="ProductTypeVO">
 		select productTypeId, ProductType
@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where productTypeId = #{productTypeId}
 	</select>
 	
-	<select id="listAll" resultType="ProductTypeVO">
+	<select id="listAll" resultType="org.going.productType.domain.ProductTypeVO">
 		select productTypeId, productType
 		from productType
 	</select>

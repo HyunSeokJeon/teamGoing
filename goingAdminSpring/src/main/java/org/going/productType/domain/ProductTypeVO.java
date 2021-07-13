@@ -1,5 +1,8 @@
 package org.going.productType.domain;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("ProductTypeVO")
 public class ProductTypeVO {
 	private Integer productTypeId;
 	private String productType;

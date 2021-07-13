@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.going.productType.dao.ProductTypeDao;
 import org.going.productType.domain.ProductTypeVO;
+import org.going.productType.persistence.ProductTypeDao;
 import org.springframework.stereotype.Service;
 
 @Service
