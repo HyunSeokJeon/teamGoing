@@ -28,12 +28,23 @@
 		destroy-method="close">
 		<constructor-arg ref="hikariConfig"></constructor-arg>
 	</bean>
+	
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<tx:annotation-driven />
+	
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	<mybatis-spring:scan
 		base-package="org.going.mapper" />
-
+	
+	<context:component-scan base-package="org.going.**.service" />
+	<context:component-scan base-package="org.going.**.dao" />
+	<context:component-scan base-package="org.going.**.domain" />
 
 </beans>
