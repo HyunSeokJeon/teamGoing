@@ -1,4 +1,4 @@
-package org.going.productType.dao;
+package org.going.productType.persistence;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class ProductTypeDaoImpl implements ProductTypeDao {
 	@Inject
 	private SqlSession session;
 	
-	private final String NAMESPACE = "org.going.mapper.productTypeMapper";
+	private static final String NAMESPACE = "org.going.mapper.productTypeMapper";
 
 	@Override
 	public void create(ProductTypeVO vo) throws Exception {

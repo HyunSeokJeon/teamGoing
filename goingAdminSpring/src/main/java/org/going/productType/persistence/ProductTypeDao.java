@@ -1,4 +1,4 @@
-package org.going.productType.dao;
+package org.going.productType.persistence;
 
 import java.util.List;
 
