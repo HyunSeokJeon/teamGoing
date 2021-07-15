@@ -1,11 +1,9 @@
 package org.going.productType;
 
-import static org.junit.Assert.assertThat;
-
 import javax.inject.Inject;
 
 import org.going.productType.domain.ProductTypeVO;
-import org.going.productType.persistence.ProductTypeDao;
+import org.going.productType.persistence.ProductTypeMapper;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
@@ -22,7 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class ProductTypeDAOTest {
 	
 	@Inject
-	private ProductTypeDao dao;
+	private ProductTypeMapper mapper;
 	
 	ProductTypeVO vo;
 	
@@ -31,19 +29,19 @@ public class ProductTypeDAOTest {
 	@Test
 	public void testListAll() throws Exception{
 		
-		logger.info(dao.listAll().toString());
+		logger.info(mapper.listAll().toString());
 	}
 	
 	@Test
 	@Transactional
 	@Rollback(true)
 	public void testCreate() throws Exception{
-		int before = dao.listAll().size();
+		int before = mapper.listAll().size();
 		vo = new ProductTypeVO();
 		vo.setProductType("테스트타입");
-		dao.create(vo);
-		int after = dao.listAll().size();
+		mapper.create(vo);
+		int after = mapper.listAll().size();
 		Assertions.assertEquals(1, after - before);
-		logger.info(dao.listAll().toString());
+		logger.info(mapper.listAll().toString());
 	}
 }
