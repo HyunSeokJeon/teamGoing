@@ -5,28 +5,28 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.going.productType.domain.ProductTypeVO;
-import org.going.productType.persistence.ProductTypeDao;
+import org.going.productType.persistence.ProductTypeMapper;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProductTypeServiceImpl implements ProductTypeService{
 	
 	@Inject
-	private ProductTypeDao dao;
+	private ProductTypeMapper mapper;
 
 	@Override
 	public void regist(ProductTypeVO productType) throws Exception {
-		dao.create(productType);
+		mapper.create(productType);
 	}
 
 	@Override
 	public ProductTypeVO read(Integer productTypeid) throws Exception {
-		return dao.read(productTypeid);
+		return mapper.read(productTypeid);
 	}
 
 	@Override
 	public List<ProductTypeVO> listAll() throws Exception {
-		return dao.listAll();
+		return mapper.listAll();
 	}
 	
 	
