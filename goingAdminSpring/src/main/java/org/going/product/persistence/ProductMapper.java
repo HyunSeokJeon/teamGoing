@@ -8,14 +8,18 @@ import org.going.product.domain.ProductSearchCriteria;
 import org.going.product.domain.ProductVO;
 
 public interface ProductMapper {
-	
+
 	public void create(ProductVO vo) throws Exception;
-	
+
 	public ProductVO read(Integer productID) throws Exception;
+
 //	
 	public void update(ProductVO vo) throws Exception;
+
 //	
 	public List<ProductVO> listAll() throws Exception;
+	
+	public int selectLastValue() throws Exception;
 //	
 //	public List<ProductVO> listPage(int page) throws Exception;
 //	
@@ -28,5 +32,5 @@ public interface ProductMapper {
 //	public List<ProductVO> listSearch(ProductSearchCriteria pscri) throws Exception;
 //	
 //	public int listSearchCount(ProductSearchCriteria pscri) throws Exception;
-	
+
 }

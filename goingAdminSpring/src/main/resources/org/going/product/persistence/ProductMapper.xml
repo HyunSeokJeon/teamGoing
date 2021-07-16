@@ -10,9 +10,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		productdesc, productplaytime, productagelimit, productlove, productsellstart,
 		productsellend, productperiods, productperiode, productregdate, productsellyn)
 		values
-		(PRODIDSEQ.nextval, #{productTypeID}, #{productName}, 
-		#{productPrice}, #{productImage}, #{productDesc}, #{productPlaytime}, #{productAgeLimit}, #{productLove}, 
-		#{productSellStart}, #{productSellEnd}, #{productPeriods}, #{productPeriode}, sysdate, #{productSellYN}) 
+		(PRODIDSEQ.nextval, #{productTypeID}, #{productName}, #{productPrice}, #{productImage}
+		, #{productDesc}, #{productPlaytime}, #{productAgeLimit}, 0, #{productSellStart}
+		, #{productSellEnd}, #{productPeriods}, #{productPeriode}, sysdate, #{productSellYN}) 
 	</insert>
 	
 	<select id="read" resultType="org.going.product.domain.ProductVO">
@@ -38,6 +38,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		, productplaytime=#{productPlaytime}, productagelimit=#{productAgeLimit}, productsellstart=#{productSellStart}
 		, productsellend=#{productSellEnd}, productperiods=#{productPeriods}, productperiode=#{productPeriode}
 		, productsellyn=#{productSellYN} where productid=#{productID}
+	</select>
+	
+	<select id="selectLastValue" resultType="_int">
+		select max(productid) from product
 	</select>
 	
 </mapper>
