@@ -3,33 +3,46 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.going.product.persistence.ProductMapper">
-
+	<resultMap type="org.going.product.domain.ProductVO" id="ProductVOMap">
+		<id property="productID" column="productID"/>
+		<id property="productName" column="productName"/>
+		<id property="productPrice" column="productPrice"/>
+		<id property="productImage" column="productImage"/>
+		<id property="productDesc" column="productDesc"/>
+		<id property="productPlaytime" column="productPlaytime"/>
+		<id property="productAgeLimit" column="productAgeLimit"/>
+		<id property="productLove" column="productLove"/>
+		<id property="productSellStart" column="productSellStart"/>
+		<id property="productSellEnd" column="productSellEnd"/>
+		<id property="productPeriods" column="productPeriods"/>
+		<id property="productPeriode" column="productPeriode"/>
+		<id property="productRegdate" column="productRegdate"/>
+		<id property="productSellYN" column="productSellYN"/>
+		<association property="productTypeVO" javaType="org.going.productType.domain.ProductTypeVO" select="org.going.productType.persistence.ProductTypeMapper.read" column="productID">
+			<result property="productTypeId" column="productTypeId"/>
+			<result property="productType" column="productType"/>
+		</association>
+	</resultMap>
+	
 	<insert id="create">
 		insert into product 
 		(productid, producttypeid, productname, productprice, productimage,
 		productdesc, productplaytime, productagelimit, productlove, productsellstart,
 		productsellend, productperiods, productperiode, productregdate, productsellyn)
 		values
-		(PRODIDSEQ.nextval, #{productTypeID}, #{productName}, 
-		#{productPrice}, #{productImage}, #{productDesc}, #{productPlaytime}, #{productAgeLimit}, #{productLove}, 
-		#{productSellStart}, #{productSellEnd}, #{productPeriods}, #{productPeriode}, sysdate, #{productSellYN}) 
+		(PRODIDSEQ.nextval, #{productTypeVO.productTypeId}, #{productName}, #{productPrice}, #{productImage}
+		, #{productDesc}, #{productPlaytime}, #{productAgeLimit}, 0, #{productSellStart}
+		, #{productSellEnd}, #{productPeriods}, #{productPeriode}, sysdate, #{productSellYN}) 
 	</insert>
 	
-	<select id="read" resultType="org.going.product.domain.ProductVO">
-		select productID, productTypeID, productName, productPrice
-			,productImage, productDesc, productPlaytime, productAgeLimit
-			,productLove, productSellStart, productSellEnd, productPeriods
-			,productPeriode, productRegdate, productSellYN
+	<select id="read" resultMap="ProductVOMap">
+		select *
 		from product
 		where productID=#{productID}
 	</select>
 	
-	<select id="listAll" resultType="org.going.product.domain.ProductVO">
-		select productID, productTypeID, productName, productPrice
-			,productImage, productDesc, productPlaytime, productAgeLimit
-			,productLove, productSellStart, productSellEnd, productPeriods
-			,productPeriode, productRegdate, productSellYN
-		from product order by productID
+	<select id="listAll" resultMap="ProductVOMap">
+		select * from product order by productID
 	</select>
 	
 	<select id="update">
@@ -38,6 +51,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		, productplaytime=#{productPlaytime}, productagelimit=#{productAgeLimit}, productsellstart=#{productSellStart}
 		, productsellend=#{productSellEnd}, productperiods=#{productPeriods}, productperiode=#{productPeriode}
 		, productsellyn=#{productSellYN} where productid=#{productID}
+	</select>
+	
+	<select id="selectLastValue" resultType="_int">
+		select max(productid) from product
 	</select>
 	
 </mapper>
