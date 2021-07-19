@@ -2,14 +2,16 @@ package org.going.product.domain;
 
 import java.sql.Date;
 
-import lombok.Getter;
-import lombok.Setter;
+import org.apache.ibatis.type.Alias;
+import org.going.productType.domain.ProductTypeVO;
 
-@Getter
-@Setter
+import lombok.Data;
+
+@Alias("ProductVO")
+@Data
 public class ProductVO {
 	private Integer productID;
-	private Integer productTypeID;
+	private ProductTypeVO productTypeVO;
 	private String productName;
 	private Integer productPrice;
 	private String productImage;
@@ -24,13 +26,5 @@ public class ProductVO {
 	private Date productRegdate;
 	private String productSellYN;
 
-	@Override
-	public String toString() {
-		return "ProductVO [productID=" + productID + ", productTypeID=" + productTypeID + ", productName=" + productName
-				+ ", productPrice=" + productPrice + ", productImage=" + productImage + ", productDesc=" + productDesc
-				+ ", productPlayTime=" + productPlaytime + ", productAgeLimit=" + productAgeLimit + ", productLove="
-				+ productLove + ", productSellStart=" + productSellStart + ", productSellEnd=" + productSellEnd
-				+ ", productPeriods=" + productPeriods + ", productPeriode=" + productPeriode + ", productRegdate="
-				+ productRegdate + ", productSellYN=" + productSellYN;
-	}
+	
 }
