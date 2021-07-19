@@ -60,7 +60,7 @@
 					<tbody>
 						<c:forEach var="product" items="${productList}">
 							<tr>
-								<td>${product.productTypeID}</td>
+								<td>${product.productTypeVO.productType}</td>
 								<td style="max-width:10rem">${product.productName}</td>
 								<td>${product.productPrice }</td>
 								<td><a href="javascript:void(window.open('/manage/viewimg?fileName=${product.productImage }','win0','width=800,height=768,status=no,toolbar=no,scrollbars=no'))">상품확인</a></td>
