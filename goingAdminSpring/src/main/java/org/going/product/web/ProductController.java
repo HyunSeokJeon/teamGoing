@@ -5,14 +5,17 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
 
 import org.apache.commons.io.IOUtils;
+import org.going.error.web.DirtyDataException;
 import org.going.product.domain.ProductVO;
 import org.going.product.service.ProductService;
+import org.going.productType.domain.ProductTypeVO;
 import org.going.productType.service.ProductTypeService;
 import org.going.web.util.MediaUtils;
 import org.springframework.http.HttpHeaders;
@@ -22,6 +25,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -43,10 +47,11 @@ public class ProductController {
 	@Inject
 	ProductService service;
 	
+	
+	
 	@RequestMapping(value = "/product", method = RequestMethod.GET)
 	public String listRead(Model model) throws Exception {
 		List<ProductVO> voList = service.getProductList();
-		System.out.println("asdfasdfasdf");
 		log.info(voList);
 		model.addAttribute("productList", voList);
 		return "/product/productMGMT";
@@ -58,6 +63,13 @@ public class ProductController {
 		return "/product/uploadForm";
 	}
 	
+	/**
+	 * 
+	 * @param Request file, text 혼합정보
+	 * @return /product/uploadForm.jsp 페이지
+	 * @author JeonHyunSeok
+	 * @throws Exception
+	 */
 	@RequestMapping(value = "/uploadForm", method = RequestMethod.POST)
 	@Transactional
 	public String uploadForm(MultipartHttpServletRequest Request) throws Exception{
@@ -69,20 +81,31 @@ public class ProductController {
 		
 		String[] productImgsName = new String[fileList.size()];
 		
+		
 		for(int i = 0; i < fileList.size(); i++) {
 			String originFileName = fileList.get(i).getOriginalFilename();
 			String SaveFileName = System.currentTimeMillis() + originFileName;
 			productImgsName[i] = SaveFileName;
-			long fileSize = fileList.get(i).getSize();
 			
-			String safeFile = uploadPath + SaveFileName;
-			saveFile(fileList.get(i), safeFile);
+		}
+		String ImageFileName = SingleFileMake(productImage);
+		String DescFileName = SingleFileMake(productDesc);
+		vo.setProductImage(ImageFileName);
+		vo.setProductDesc(DescFileName);
+		
+		try{
+			service.productRegister(vo, productImgsName);
+		} catch(SQLException e){
+			throw new DirtyDataException();
 		}
 		
-		vo.setProductImage(SingleFileUpload(productImage));
-		vo.setProductDesc(SingleFileUpload(productDesc));
 		
-		service.productRegister(vo, productImgsName);
+		for(int i = 0; i < fileList.size(); i++) {
+			fileSave(fileList.get(i), productImgsName[i]);
+		}
+		fileSave(productImage, ImageFileName);
+		fileSave(productDesc, DescFileName);
+		
 		
 		return "/product/uploadForm";
 		
@@ -128,7 +151,9 @@ public class ProductController {
 	
 	private ProductVO convertProductVO(MultipartHttpServletRequest req) {
 		ProductVO vo = new ProductVO();
-		vo.setProductTypeID(Integer.parseInt(req.getParameter("productTypeID")));
+		ProductTypeVO typeVO = new ProductTypeVO();
+		typeVO.setProductTypeId(Integer.parseInt(req.getParameter("productTypeID")));
+		vo.setProductTypeVO(typeVO);
 		vo.setProductName(req.getParameter("productName"));
 		vo.setProductPrice(Integer.parseInt(req.getParameter("productPrice")));
 		vo.setProductPlaytime(Integer.parseInt(req.getParameter("productPlaytime")));
@@ -147,22 +172,19 @@ public class ProductController {
 	private Date dateMaker(MultipartHttpServletRequest req, String param) {
 		int year = Integer.parseInt(req.getParameter(param+"1"));
 		int month = Integer.parseInt(req.getParameter(param+"2"));
-		int day  = Integer.parseInt(req.getParameter(param+"2"));
-		return new Date(year, month, day);
+		int day  = Integer.parseInt(req.getParameter(param+"3"));
+		return Date.valueOf(year+"-"+month+"-"+day);
 	}
 	
-	private String SingleFileUpload(MultipartFile file) {
+	private String SingleFileMake(MultipartFile file) {
 		String fileName = file.getOriginalFilename();
 		String saveFileName = System.currentTimeMillis() + fileName;
-		String saveFile = uploadPath + saveFileName;
-		saveFile(file, saveFile);
-		
 		return saveFileName;
 	}
 	
-	private void saveFile(MultipartFile file, String safeFile) {
+	private void fileSave(MultipartFile file, String safeFile) {
 		try {
-			file.transferTo(new File(safeFile));
+			file.transferTo(new File(uploadPath + safeFile));
 		}catch(IllegalStateException e) {
 			e.printStackTrace();
 		}catch(IOException e) {
@@ -170,5 +192,7 @@ public class ProductController {
 		}
 	}
 	
+	
+
 
 }
