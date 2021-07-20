@@ -28,90 +28,81 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 
+			function makeProlist(Prolist){
+				console.log(Prolist)
+				listbox.innerHTML += `
+					<form method="get" action="/goingFront/payment.go">
+					<div class="col mb-5">
+						<input type="hidden" name="productName"
+							value="${Prolist.productName}" /> <input type="hidden"
+							name="productPrice" value="${Prolist.productPrice}" />
+
+						<div class="card h-100">
+							<!-- Product image-->
+							<img class="card-img-top"
+								src="<%=path %>/upload/${Prolist.productImage}"
+								alt="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" />
+							<!-- Product details-->
+							<div class="card-body p-4" >
+								<div class="text-center"  id="namebox">
+									<!-- Product name-->
+									<h5 class="fw-bolder" >
+										<a href="<%=path %>/productInfo.go?pId=${Prolist.productID}" ><c:out value="${Prolist.productName }"/></a>
+									</h5>
+									<!-- Product price-->
+									<c:out value="${Prolist.productName }"/>
+								</div>
+							</div>
+							<!-- Product actions-->
+							<div
+								class=" p-4 pt-0  d-flex justify-content-center bg-transparent ">
+								<div class="text-inline">
+									<button class="btn btn-outline-dark mt-auto" href="#">장바구니</button>
+								</div>
+								<div class="text-inline offset-1">
+									<button class="btn btn-outline-dark mt-auto" type="submit">구매하기</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+				`
+			}
 
 
 
-
-
-
-
-			$(function(){
+			
 				
+			$(function(){
 			$("#num4").on("click",function(){
-				let listbox = document.getElementById("listbox");
-				listbox.innerHTML = '';
+				 let listbox = document.getElementById("listbox");
+				listbox.innerHTML = '';  
 				$.ajax({
 					url : "/prolist/20",
 					type : "POST",
 					dataType : "json",
-					//data : {productTypeId : "20"},
-					success : function(data){
-						$.each(data, function(key, Prolist){
-							console.log(key+"+"+Prolist.productName);
-							const aa = JSON.stringify(Prolist);
-							console.log(`${aa.productName}`);
+					//data : { : "20"},
+					success : function(Prolist){
+						alert("성공");
+						$.each(Prolist, function(key, Prolist){
 							
-							
-							
-							
-		
-							listbox.innerHTML += `
-								<form method="get" action="/goingFront/payment.go">
-								<div class="col mb-5">
-									<input type="hidden" name="productName"
-										value="${Prolist.productName}" /> <input type="hidden"
-										name="productPrice" value="${Prolist.productPrice}" />
-
-									<div class="card h-100">
-										<!-- Product image-->
-										<img class="card-img-top"
-											src="<%=path %>/upload/${Prolist.productImage}"
-											alt="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" />
-										<!-- Product details-->
-										<div class="card-body p-4">
-											<div class="text-center">
-												<!-- Product name-->
-												<h5 class="fw-bolder">
-													<a href="<%=path %>/productInfo.go?pId=${Prolist.productID}">${Prolist.productName}</a>
-												</h5>
-												<!-- Product price-->
-												${Prolist.productPrice}
-											</div>
-										</div>
-										<!-- Product actions-->
-										<div
-											class=" p-4 pt-0  d-flex justify-content-center bg-transparent ">
-											<div class="text-inline">
-												<button class="btn btn-outline-dark mt-auto" href="#">장바구니</button>
-											</div>
-											<div class="text-inline offset-1">
-												<button class="btn btn-outline-dark mt-auto" type="submit">구매하기</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</form>
-							`
-							
-							
-							
-							
-							
-							
-							/* $("#num4").append(value.) */
+							 makeProlist(Prolist);
 						})
 						
-					}
+						/*  $.each(data, function(key,Prolist){
+							makeProlist(Prolist);
+							
+							document.getElementById("namebox").innerHTML += Prolist.productName;
+							console.log(Prolist.productName);
+						
+							
+						}) */		
+						}
 				});
 				
 			});
-		});  
-function divide(productTypeId){
-		
-			
-    		window.location.href = "/prolist/"+productTypeId; 
-    	}; 
-	
+		}); 
+
     function seperate(productTypeId){
     	window.location.href = "/goingFront/list.go?productTypeId=" + productTypeId;
     }
@@ -164,7 +155,7 @@ function divide(productTypeId){
 		<div class="container px-4 px-lg-5 my-5">
 			<div class="text-center text-dark">
 				<h1 class="display-4 fw-bolder">Going</h1>
-				<form action="/search.go" method="post">
+				<form action="/Search" method="post">
 					<div class="input-group input-group-lg">
 						<input class="form-control" type="text" placeholder="컨텐츠를 검색하세요"
 							aria-describedby="buttom-submit" />
@@ -202,7 +193,7 @@ function divide(productTypeId){
 					<li class="nav-item dropdown"><a class="nav-link fs-4"
 						href="#" id="navbarDropdown3" role="button" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">
-							<button class="border-0 btn btn-dark" id="num4">콘서트</button>
+							<button class="border-0 btn btn-dark" id="num4" >콘서트</button>
 					</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="#">Action</a> <a
@@ -231,7 +222,7 @@ function divide(productTypeId){
 					<li class="nav-item dropdown"><a class="nav-link fs-4"
 						href="#" id="navbarDropdown5" role="button" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">
-							<button class="border-0 btn btn-dark" id="num2" onclick="divides(20)">콘서트</button>
+							<button class="border-0 btn btn-dark" id="num2" >콘서트</button>
 					</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="#">Action</a> <a
@@ -302,14 +293,14 @@ function divide(productTypeId){
 										src="<%=path %>/upload/${Prolist.productImage}"
 										alt="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" />
 									<!-- Product details-->
-									<div class="card-body p-4">
-										<div class="text-center">
+									<div class="card-body p-4" >
+										<div class="text-center"  id="namebox">
 											<!-- Product name-->
-											<h5 class="fw-bolder">
-												<a href="<%=path %>/productInfo.go?pId=${Prolist.productID}">${Prolist.productName}</a>
+											<h5 class="fw-bolder" >
+												<a href="<%=path %>/productInfo.go?pId=${Prolist.productID}" ><c:out value="${Prolist.productName }"/></a>
 											</h5>
 											<!-- Product price-->
-											${Prolist.productPrice}
+											<c:out value="${Prolist.productPrice}"/>
 										</div>
 									</div>
 									<!-- Product actions-->
