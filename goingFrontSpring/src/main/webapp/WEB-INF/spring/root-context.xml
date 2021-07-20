@@ -45,11 +45,11 @@
 		</bean>
 		
 	<mybatis-spring:scan
-		base-package="org.going.main.persistence" /> 
+		base-package="org.going.*.persistence" /> 
 		
-		<context:component-scan base-package="org.going.main.domain" />
-		<context:component-scan base-package="org.going.main.persistence" />
-		<context:component-scan base-package="org.going.main.Service" />
+		<context:component-scan base-package="org.going.*.domain" />
+		<context:component-scan base-package="org.going.*.persistence" />
+		<context:component-scan base-package="org.going.*.service" />
 		
 		<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

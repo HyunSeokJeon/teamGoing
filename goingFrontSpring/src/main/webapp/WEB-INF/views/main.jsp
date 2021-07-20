@@ -22,10 +22,10 @@
 						aria-labelledby="home-tab">
 						<p class="h2 my-4">어떤 서비스가 <br>필요하세요?</p>
 						<!-- 검색 창 -->
-						<form action="/goingFront/search.go?"  method="get">
+						<form action="/search"  method="POST">
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="검색어를 입력하세요."
-								aria-label="Recipient's username" name="Keyword"  value=""
+								aria-label="Recipient's username" name="keyword"  value=""
 								aria-describedby="button-addon2" id="mainsearch">
 							<div class="input-group-append">
 								<button class="btn btn-outline-primary" type="submit"
