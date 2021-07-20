@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @Controller
-
 public class ProductController {
 		
 	
@@ -30,14 +29,25 @@ public class ProductController {
 		return "/prolist";
 	}
 	
-	@RequestMapping(value="/prolist/{productTypeId}", method=RequestMethod.POST)
+	/*@RequestMapping(value="/prolist/{productTypeId}", method=RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<List<ProductVo>> selectById(@PathVariable("productTypeId") Integer productTypeId) throws Exception{
 		System.out.println("productTypeId="+productTypeId);
 		
 		List<ProductVo> list = productListService.selectById(productTypeId);
-		System.out.println("List="+ list);
+		System.out.println("List="+list);
 		return  ResponseEntity.ok(list);
+		
+	}*/
+	
+	@RequestMapping(value="/prolist/{productTypeId}", method=RequestMethod.POST)
+	@ResponseBody
+	public List<ProductVo> selectById(@PathVariable Integer productTypeId, Model model) throws Exception{
+		System.out.println("id="+productTypeId);
+		List<ProductVo> list = productListService.selectById(productTypeId);
+		model.addAttribute("productListofType", list);
+		System.out.println("List=" + list);
+		return  list;
 		
 	}
 	
