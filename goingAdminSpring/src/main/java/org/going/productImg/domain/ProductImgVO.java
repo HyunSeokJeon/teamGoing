@@ -2,11 +2,9 @@ package org.going.productImg.domain;
 
 import java.sql.Date;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class ProductImgVO {
 	private Integer productID;
 	private String pImg;

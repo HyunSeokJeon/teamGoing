@@ -73,7 +73,7 @@
 								<td>${product.productRegdate }</td>
 								<c:if test="${product.productSellYN eq '0'}"><td>비노출</td></c:if> 
 								<c:if test="${product.productSellYN eq '1'}"><td>노출</td></c:if>
-								<td><a href="<%=path %>/manage/modifyProduct.go?productId=${product.productID}" class="btn btn-sm btn-primary shadow-sm">수정</a></td>
+								<td><a href="<%=path %>/manage/modifyForm?productID=${product.productID}" class="btn btn-sm btn-primary shadow-sm">수정</a></td>
 								<!-- #TODO 수정 삭제가 가능하도록 button이외에 a태그를 사용하던 매개변수를 넘겨줄 수 있도록 하자 -->
 								<!-- #TODO 수정시 수정 페이지로 이동할 수 있도록 삭제시 확인버튼을 출력해서 확인시 넘어갈 수 있도록 -->
 							</tr>

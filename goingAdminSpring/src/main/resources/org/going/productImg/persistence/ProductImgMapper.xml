@@ -7,4 +7,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into productImg(productid, pimg, regdate)
 		values (#{productID}, #{pImg}, sysdate)
 	</insert>
+	<select id="listAll" resultType="org.going.productImg.domain.ProductImgVO">
+		select * from productImg where productid = #{productID}
+	</select>
+	
+	<delete id="deleteAllById">
+		delete from productimg where productid=#{productID}
+	</delete>
 </mapper>

@@ -75,6 +75,7 @@
 					</div>
 					<p>판매시작일자</p>
 					<div class="row">
+						<input type="hidden" id="productSellStart" name="productSellStart"/>
 						<div class="col-md-3 mb-3">
 							<select class="custom-select mr-sm-2" id="productSellStart1" name="productSellStart1" onchange="dateChange(this)">
 							</select>
@@ -93,6 +94,7 @@
 					
 					<p>판매종료일자</p>
 					<div class="row">
+						<input type="hidden" id="productSellEnd" name="productSellEnd"/>
 						<div class="col-md-3 mb-3">
 							<select class="custom-select mr-sm-2" id="productSellEnd1" name="productSellEnd1" onchange="dateChange(this)">
 							</select>
@@ -111,6 +113,7 @@
 					
 					<p>상품기간시작 - 공연기간</p>
 					<div class="row">
+						<input type="hidden" id="productPeriods" name="productPeriods"/>
 						<div class="col-md-3 mb-3">
 							<select class="custom-select mr-sm-2" id="productPeriods1" name="productPeriods1" onchange="dateChange(this)">
 							</select>
@@ -129,6 +132,7 @@
 					
 					<p>상품기간종료 - 공연기간</p>
 					<div class="row">
+						<input type="hidden" id="productPeriode" name="productPeriode"/>
 						<div class="col-md-3 mb-3">
 							<select class="custom-select mr-sm-2" id="productPeriode1" name="productPeriode1" onchange="dateChange(this)">
 							</select>
@@ -155,7 +159,7 @@
 					<div class="col border rounded py-4" id="files">
 						
 						<!-- 상품사진은 img저장방법 구현, db구조 img테이블 생성 후, 처리 -->
-						<input type="file" class="form-control-file" id="customFile1" name="productImg" multiple="multiple"/><br/>
+						<input type="file" class="form-control-file" id="productImg" name="productImg" multiple="multiple"/><br/>
 					
 					</div>
 					<br/>

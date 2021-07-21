@@ -45,16 +45,45 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from product order by productID
 	</select>
 	
-	<select id="update">
+	<update id="update" parameterType="org.going.product.domain.ProductVO">
+	<![CDATA[
 		update product 
-		set productTypeID=#{productTypeID}, productname=#{productName}, productprice=#{productPrice}
-		, productplaytime=#{productPlaytime}, productagelimit=#{productAgeLimit}, productsellstart=#{productSellStart}
-		, productsellend=#{productSellEnd}, productperiods=#{productPeriods}, productperiode=#{productPeriode}
-		, productsellyn=#{productSellYN} where productid=#{productID}
-	</select>
-	
+		set productTypeID=#{product.productTypeId}
+		, productname=#{product.productName}
+		, productprice=#{product.productPrice}
+		, productplaytime=#{product.productPlaytime}
+	]]>
+	<include refid="imgSql"></include>
+	<![CDATA[
+		, productagelimit=#{product.productAgeLimit}
+		, productsellstart=#{product.productSellStart}
+		, productsellend=#{product.productSellEnd}
+		, productperiods=#{product.productPeriods}
+		, productperiode=#{product.productPeriode}
+		, productsellyn=#{product.productSellYN}
+		 where productid=#{product.productID}
+	]]>	
+		
+	</update>
+	<sql id="imgSql">
+	<foreach collection="imgCheck" index="key" item="value">
+		<if test="key.equals('productImage')">
+			<if test="value==false">
+				, productimage = #{product.productImage}
+			</if>
+		</if>
+		<if test="key.equals('productDesc')">
+			<if test="value==false">
+				, productDesc = #{product.productDesc}
+			</if>
+		</if>
+	</foreach>
+	</sql>
 	<select id="selectLastValue" resultType="_int">
 		select max(productid) from product
 	</select>
+	
+	
+	
 	
 </mapper>
