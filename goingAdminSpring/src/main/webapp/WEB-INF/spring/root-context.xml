@@ -43,6 +43,9 @@
 	
 	<mybatis-spring:scan
 		base-package="org.going.**.persistence" />
+	<bean id="uploadPath" class="java.lang.String">
+		<constructor-arg value="C:/temp/upload/"></constructor-arg>
+	</bean>
 	
 	<context:component-scan base-package="org.going.**.service" />
 	<context:component-scan base-package="org.going.**.persistence" />

@@ -2,12 +2,10 @@ package org.going.product.domain;
 
 import java.sql.Date;
 
-import org.apache.ibatis.type.Alias;
 import org.going.productType.domain.ProductTypeVO;
 
 import lombok.Data;
 
-@Alias("ProductVO")
 @Data
 public class ProductVO {
 	private Integer productID;
@@ -26,5 +24,7 @@ public class ProductVO {
 	private Date productRegdate;
 	private String productSellYN;
 
-	
+	public Integer getProductTypeId() {
+		return productTypeVO.getProductTypeId();
+	}
 }

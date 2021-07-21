@@ -1,8 +1,10 @@
 package org.going.product.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.going.product.domain.ProductCriteria;
 import org.going.product.domain.ProductSearchCriteria;
 import org.going.product.domain.ProductVO;
@@ -13,10 +15,8 @@ public interface ProductMapper {
 
 	public ProductVO read(Integer productID) throws Exception;
 
-//	
-	public void update(ProductVO vo) throws Exception;
+	public void update(@Param("product")ProductVO vo, @Param("imgCheck") Map<String, Boolean> imgCheck) throws Exception;
 
-//	
 	public List<ProductVO> listAll() throws Exception;
 	
 	public int selectLastValue() throws Exception;
