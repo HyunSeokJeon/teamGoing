@@ -21,94 +21,15 @@
 <link
 	href="<%=request.getContextPath()%>/frontResource/dist/css/stylesproduct.css"
 	rel="stylesheet" />
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 </head>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
-
-			function makeProlist(Prolist){
-				console.log(Prolist)
-				listbox.innerHTML += `
-					<form method="get" action="/goingFront/payment.go">
-					<div class="col mb-5">
-						<input type="hidden" name="productName"
-							value="${Prolist.productName}" /> <input type="hidden"
-							name="productPrice" value="${Prolist.productPrice}" />
-
-						<div class="card h-100">
-							<!-- Product image-->
-							<img class="card-img-top"
-								src="<%=path %>/upload/${Prolist.productImage}"
-								alt="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" />
-							<!-- Product details-->
-							<div class="card-body p-4" >
-								<div class="text-center"  id="namebox">
-									<!-- Product name-->
-									<h5 class="fw-bolder" >
-										<a href="<%=path %>/productInfo.go?pId=${Prolist.productID}" ><c:out value="${Prolist.productName }"/></a>
-									</h5>
-									<!-- Product price-->
-									<c:out value="${Prolist.productName }"/>
-								</div>
-							</div>
-							<!-- Product actions-->
-							<div
-								class=" p-4 pt-0  d-flex justify-content-center bg-transparent ">
-								<div class="text-inline">
-									<button class="btn btn-outline-dark mt-auto" href="#">장바구니</button>
-								</div>
-								<div class="text-inline offset-1">
-									<button class="btn btn-outline-dark mt-auto" type="submit">구매하기</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</form>
-				`
-			}
-
-
-
-			
-				
-			$(function(){
-			$("#num4").on("click",function(){
-				 let listbox = document.getElementById("listbox");
-				listbox.innerHTML = '';  
-				$.ajax({
-					url : "/prolist/20",
-					type : "POST",
-					dataType : "json",
-					//data : { : "20"},
-					success : function(Prolist){
-						alert("성공");
-						$.each(Prolist, function(key, Prolist){
-							
-							 makeProlist(Prolist);
-						})
-						
-						/*  $.each(data, function(key,Prolist){
-							makeProlist(Prolist);
-							
-							document.getElementById("namebox").innerHTML += Prolist.productName;
-							console.log(Prolist.productName);
-						
-							
-						}) */		
-						}
-				});
-				
-			});
-		}); 
-
-    function seperate(productTypeId){
-    	window.location.href = "/goingFront/list.go?productTypeId=" + productTypeId;
-    }
-    
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script defer type="text/javascript" src="<%=path%>/frontResource/dist/js/product.js">
+// Java Script each 안에서 JSTL은 못돌린다
+// 실행순서 Java > JSTL > HTML > Java script
 </script>
-
 
 <body>
 	<!-- Navigation-->
@@ -162,7 +83,6 @@
 						<button class="btn btn-primary" type="button">
 							<i class="bi bi-search"></i>
 						</button>
-						<!-- <p class="lead fw-normal text-white-50 mb-0"></p> -->
 					</div>
 				</form>
 			</div>
@@ -173,13 +93,14 @@
 		<nav class="navbar navbar-expand-lg navbar-light  ">
 			<div class="collapse navbar-collapse d-flex justify-content-left "
 				id="navbarSupportedContent">
-
+			<c:forEach items="${productType}" var="typelist">
+			
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item dropdown"><a class="nav-link fs-4 "
 						href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">
-							<button class="border-0 btn btn-dark" id="num5"
-								onclick='divide("")'>전체보기</button>
+							<button class="border-0 btn btn-dark" id="" name="tp" value="${typelist.productTypeID}"
+								>${typelist.productType}</button>
 					</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="#">Action</a> <a
@@ -188,12 +109,12 @@
 							<a class="dropdown-item" href="#">Something else here</a>
 						</div></li>
 				</ul>
-
-				<ul class="navbar-nav mr-auto">
+			
+				<!-- <ul class="navbar-nav mr-auto">
 					<li class="nav-item dropdown"><a class="nav-link fs-4"
 						href="#" id="navbarDropdown3" role="button" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">
-							<button class="border-0 btn btn-dark" id="num4" >콘서트</button>
+							<button class="border-0 btn btn-dark" name= id="num4" value="20">콘서트</button>
 					</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="#">Action</a> <a
@@ -208,7 +129,7 @@
 						href="#" id="navbarDropdown4" role="button" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">
 							<button class="border-0 btn btn-dark" id="num3"
-								onclick='divide(30)'>연극</button>
+								>연극</button>
 					</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="#">Action</a> <a
@@ -222,7 +143,7 @@
 					<li class="nav-item dropdown"><a class="nav-link fs-4"
 						href="#" id="navbarDropdown5" role="button" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">
-							<button class="border-0 btn btn-dark" id="num2" >콘서트</button>
+							<button class="border-0 btn btn-dark" id="num2">콘서트</button>
 					</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="#">Action</a> <a
@@ -237,7 +158,7 @@
 						href="#" id="navbarDropdown6" role="button" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">
 							<button class="border-0 btn btn-dark" id="num1"
-								onclick='divide(50)'>클래식&무용</button>
+								>클래식&무용</button>
 					</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="#">Action</a> <a
@@ -245,8 +166,8 @@
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#">Something else here</a>
 						</div></li>
-				</ul>
-
+				</ul> -->
+			</c:forEach>
 
 			</div>
 		</nav>
@@ -273,34 +194,32 @@
 		</nav>
 		<!-- Section-->
 		<section class="py-5">
-			<%-- <% List<Prolist> a = (List<Prolist>) request.getAttribute("productListofType");
-        %>
-        <%=a.size()%>  --%>
+		
 			<div class="container px-4 px-lg-5 mt-5">
-				<div
-					class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" id="listbox">
+				<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" id="listbox">
 					<c:forEach var="Prolist" items="${productListofType}" begin="0"
 						end="9" step="1" varStatus="status">
-						<form method="get" action="/goingFront/payment.go">
+						<form method="POST" action="">
 							<div class="col mb-5">
 								<input type="hidden" name="productName"
-									value="${Prolist.productName}" /> <input type="hidden"
-									name="productPrice" value="${Prolist.productPrice}" />
+									value="${Prolist.productName}" /> 
+									<input type="hidden" name="productPrice" value="${Prolist.productPrice}" />
 
 								<div class="card h-100">
 									<!-- Product image-->
 									<img class="card-img-top"
-										src="<%=path %>/upload/${Prolist.productImage}"
+										src="<%=path %>/viewimg?fileName=${Prolist.productImage}"
 										alt="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" />
 									<!-- Product details-->
-									<div class="card-body p-4" >
-										<div class="text-center"  id="namebox">
+									<div class="card-body p-4">
+										<div class="text-center" id="namebox">
 											<!-- Product name-->
-											<h5 class="fw-bolder" >
-												<a href="<%=path %>/productInfo.go?pId=${Prolist.productID}" ><c:out value="${Prolist.productName }"/></a>
+											<h5 class="fw-bolder">
+												<a href="<%=path %>/productInfo.go?pId=${Prolist.productID}" id="pnbox">
+														${Prolist.productName}</a>
 											</h5>
 											<!-- Product price-->
-											<c:out value="${Prolist.productPrice}"/>
+											<c:out value="${Prolist.productPrice}" />
 										</div>
 									</div>
 									<!-- Product actions-->
