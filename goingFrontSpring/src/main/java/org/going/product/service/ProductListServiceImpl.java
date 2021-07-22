@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.going.product.domain.ProductVo;
+import org.going.product.domain.TypeVo;
 import org.going.product.persistence.ProductMapper;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,12 @@ public class ProductListServiceImpl implements ProductListService{
 	@Override
 	public List<ProductVo> selectById(Integer productTypeId) throws Exception {
 		return mapper.selectById(productTypeId);
+	}
+
+	@Override
+	public List<TypeVo> selectPType() throws Exception {
+		
+		return mapper.selectType();
 	}
 		
 

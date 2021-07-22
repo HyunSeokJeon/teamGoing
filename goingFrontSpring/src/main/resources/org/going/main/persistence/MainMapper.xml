@@ -17,9 +17,7 @@
 			SYSDATE+7 >= productSellEnd
 			</select> -->
 			<select id="selectAll" resultType="org.going.main.domain.MainVo">
-				select *
-				from
-				product
+				select * from product, productType where product.productTypeid=producttype.producttypeid
 			</select>
 			
 			<select id="selectOrderByPLove" resultType="org.going.main.domain.MainVo">

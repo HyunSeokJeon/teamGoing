@@ -19,6 +19,12 @@
 				product
 			</select>
 			
+			<select id="selectType" resultType="org.going.product.domain.TypeVo">
+				select * 
+				from
+				productType
+			</select>
+			
 	<!-- 	<select id="selectByEndDayWeekLeft" resultType="MainVo">
 			select productID, 
 			productName , 
