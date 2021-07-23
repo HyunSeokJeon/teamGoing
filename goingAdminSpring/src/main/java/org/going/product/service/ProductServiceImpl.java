@@ -13,6 +13,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.inject.Inject;
 
+import org.going.product.domain.ProductRownum;
 import org.going.product.domain.ProductVO;
 import org.going.product.persistence.ProductMapper;
 import org.going.productImg.domain.ProductImgVO;
@@ -80,8 +81,8 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<ProductVO> getProductList() throws Exception {
-		return mapper.listAll();
+	public List<ProductVO> getProductList(ProductRownum rownum) throws Exception {
+		return mapper.listAll(rownum);
 	}
 
 	@Override
@@ -196,7 +197,12 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	private void fileSave(MultipartFile file, String safeFile) {
+		File folder = new File(uploadPath);
+		
 		try {
+			if(!folder.exists()) {
+				folder.mkdir();
+			}
 			file.transferTo(new File(uploadPath + safeFile));
 
 		} catch (IllegalStateException e) {

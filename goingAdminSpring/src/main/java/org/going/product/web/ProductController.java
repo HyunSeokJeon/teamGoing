@@ -1,32 +1,19 @@
 package org.going.product.web;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
-
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Method;
-import java.sql.Date;
-import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
-import javax.inject.Qualifier;
 
 import org.apache.commons.io.IOUtils;
-import org.going.error.web.DirtyDataException;
+import org.going.product.domain.ProductRownum;
 import org.going.product.domain.ProductVO;
 import org.going.product.service.ProductService;
-import org.going.productType.domain.ProductTypeVO;
 import org.going.productType.service.ProductTypeService;
 import org.going.web.util.MediaUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -34,9 +21,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -57,8 +44,8 @@ public class ProductController {
 	ProductService service;
 
 	@RequestMapping(value = "/product", method = RequestMethod.GET)
-	public String listRead(Model model) throws Exception {
-		List<ProductVO> voList = service.getProductList();
+	public String listRead(Model model, ProductRownum rownum) throws Exception {
+		List<ProductVO> voList = service.getProductList(rownum);
 		log.info(voList);
 		model.addAttribute("productList", voList);
 		return "/product/productMGMT";
@@ -138,6 +125,13 @@ public class ProductController {
 
 		service.productUpdater(paramMap, imgMap, imgsMap);
 
+	}
+	
+	@RequestMapping(value="getMore")
+	@ResponseBody
+	public ResponseEntity<List<ProductVO>> getMoreProduct(ProductRownum rownum) throws Exception{
+		List<ProductVO> voList = service.getProductList(rownum);
+		return new ResponseEntity<List<ProductVO>>(voList, HttpStatus.CREATED);
 	}
 
 }

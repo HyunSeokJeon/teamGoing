@@ -34,7 +34,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/index.jsp">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                 <div class="sidebar-brand-icon">
                     <i class="fab fa-google"></i>
                 </div>
@@ -46,7 +46,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="/index.jsp">
+                <a class="nav-link" href="/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -69,9 +69,9 @@
                 <div id="productMGMT" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">상품관리 : </h6>
-                        <a class="collapse-item" href="/manage/readProductType.go">상품종류 목록</a>
-                        <a class="collapse-item" href="/manage/readProduct.go">상품 목록</a>
-                        <a class="collapse-item" href="/manage/createProduct.go">상품 등록</a>
+                        <a class="collapse-item" href="/manage/productType">상품종류 목록</a>
+                        <a class="collapse-item" href="/manage/product">상품 목록</a>
+                        <a class="collapse-item" href="/manage/uploadForm">상품 등록</a>
                     </div>
                 </div>
             </li>           
