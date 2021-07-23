@@ -42,7 +42,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="listAll" resultMap="ProductVOMap">
-		select * from product order by productID
+		select * from (select row_number() over(order by productid) num, a.*
+                from product a order by productid) where num between #{rownum} and #{rownumEnd}
 	</select>
 	
 	<update id="update" parameterType="org.going.product.domain.ProductVO">

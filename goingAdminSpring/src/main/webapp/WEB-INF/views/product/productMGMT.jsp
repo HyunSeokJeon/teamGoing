@@ -1,3 +1,5 @@
+<%-- <%@ page import="org.going.product.domain.*" %>
+<%@ page import="org.going.productType.domain.*" %> --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/header.jspf"%>
@@ -7,14 +9,13 @@
 <div class="container-fluid">
 	<div class="d-sm-flex align-items-center justify-content-between mb-4">
 		<h1 class="h3 mb-0 text-gray-800">상품 관리</h1>
-		<a href="<%=path %>/manage/createProduct.go"
+		<a href="<%=path %>/manage/uploadForm"
 			class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
 			<i class="fas fa-plus fa-sm text-white-50"></i> &nbsp;상품 추가 <!-- #TODO 상품추가를 클릭 한다면 상품추가 페이지로 이동할 수 있도록 -->
 		</a>
 	</div>
-
-
-	<div class="col" style="min-width:1400px;">
+<script defer type="text/javascript" src="<%=path%>/adminResource/js/productMGMG.js"></script>
+	<div class="col" style="min-width:1200px;">
 		<div class="card shadow mb-4">
 			<!-- Card Header - Dropdown -->
 			<div
@@ -57,7 +58,7 @@
 							<th scope="col"></th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="productBody">
 						<c:forEach var="product" items="${productList}">
 							<tr>
 								<td>${product.productTypeVO.productType}</td>
