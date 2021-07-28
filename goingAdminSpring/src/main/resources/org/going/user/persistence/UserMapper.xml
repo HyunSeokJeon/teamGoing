@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.going.user.persistence.UserMapper">
+	<select id="lRead" resultType="org.going.user.domain.UserVO">
+		select customerId, customerPass, customerName from customer
+		where customerId=#{customerId} and customerPass=#{customerPass}
+	</select>
+</mapper>
