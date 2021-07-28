@@ -1,40 +1,48 @@
 
 
-for(var a=0; a<document.getElementsByName("tp").length; a++){
+let productTypeId = 0;
+const lowPrice = document.getElementById("seperate");
+console.log(Prolist);
+for (var a = 0; a < document.getElementsByName("tp").length; a++) {
 	let va = 0;
 	va = document.getElementsByName("tp")[a].value;
-	document.getElementsByName("tp")[a].addEventListener("click", () => {
-    let httpRequest = new XMLHttpRequest();
-    if (!httpRequest) {
-        alert("xml 인스턴스 못만듬");
-    }
-    let listbox = document.getElementById("listbox");
-   	
-    console.log(va);
-    listbox.innerHTML="";
-    httpRequest.onreadystatechange = function () {
-        if (httpRequest.readyState === XMLHttpRequest.DONE) {
-            if (httpRequest.status === 200) {
-                console.log(typeof httpRequest.responseText);
-                console.log(httpRequest.responseText);
-                let Prolist = JSON.parse(httpRequest.responseText);
-                console.log(Prolist.length);
-                for (var i = 0; i < Prolist.length; i++) {
-                    makeProlist(Prolist[i]);
-                }
-            }
-        }
-    };
+	document.getElementsByName("tp")[a].addEventListener("click", (e) => {
+		productTypeId = va;
+		console.log(productTypeId);
+		let httpRequest = new XMLHttpRequest();
+		if (!httpRequest) {
+			alert("xml 인스턴스 못만듬");
+		}
+		let listbox = document.getElementById("listbox");
+		
+		console.log(va);
+		listbox.innerHTML = "";
+		httpRequest.onreadystatechange = function() {
+			if (httpRequest.readyState === XMLHttpRequest.DONE) {
+				if (httpRequest.status === 200) {
+					console.log(typeof httpRequest.responseText);
+					console.log(httpRequest.responseText);
+					Prolist = JSON.parse(httpRequest.responseText);
+					console.log(Prolist);
+					/*Prolist.sort(sortProduct);
+					console.log(Prolist);*/
+					for (var i = 0; i < Prolist.length; i++) {
+						makeProlist(Prolist[i]);
+					}
+					
+				}
+			}
+		};
 
-    httpRequest.open("POST", `/prolist/`+va, true);
-    httpRequest.send();
-});
+		httpRequest.open("POST", `/prolist/` + va, true);
+		httpRequest.send();
+	});
 }
 
 function makeProlist(Prolist) {
-    console.log(listbox);
-    listbox.innerHTML += `
-      <form method="get" action="/goingFront/payment.go">
+	console.log(listbox);
+	listbox.innerHTML += `
+      <form method="get" action="/proDesc/${Prolist.productID}">
       <div class="col mb-5">
         <input type="hidden" name="productName"
           value="${Prolist.productName}" /> <input type="hidden"
@@ -43,14 +51,14 @@ function makeProlist(Prolist) {
         <div class="card h-100">
           <!-- Product image-->
           <img class="card-img-top"
-            src="<%=path %>/upload/${Prolist.productImage}"
+            src="/viewimg?fileName=${Prolist.productImage}"
             alt="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" />
           <!-- Product details-->
           <div class="card-body p-4" >
             <div class="text-center"  id="namebox">
                <!-- Product name-->
                <h5 class="fw-bolder" >
-                 <a href="<%=path %>/productInfo.go?pId=${Prolist.productID}" id="pnbox">${Prolist.productName}</a>
+                 <a href="/proDesc/${Prolist.productID}" id="pnbox">${Prolist.productName}</a>
                </h5>
                <!-- Product price-->
                ${Prolist.productPrice}
@@ -71,3 +79,19 @@ function makeProlist(Prolist) {
    </form>   
    `;
 }
+
+lowPrice.addEventListener("click", function(){
+	listbox.innerHTML = "";
+	Prolist.sort(function(a, b){
+		return a.productPrice - b.productPrice;
+	});
+	for (var i = 0; i < Prolist.length; i++) {
+						makeProlist(Prolist[i]);
+					}
+});
+
+
+
+function sortProduct(a,b){
+	return a.productPrice - b.productPrice;
+};

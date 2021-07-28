@@ -23,7 +23,6 @@ public class SearchController {
 	
 	@RequestMapping(value="/search", method=RequestMethod.POST)
 	public String SearchKey(@RequestParam("keyword")String keyword, Model model) throws Exception{
-				System.out.println(keyword);
 		List<MainVo> sepo = searchService.searchPro(keyword);
 		model.addAttribute("Keyword", sepo);
 		return "/prolistSearch";

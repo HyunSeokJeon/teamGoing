@@ -11,7 +11,7 @@ public interface MainMapper {
 	
 	public List<MainVo> selectOrderByPLove() throws Exception;
 	
-	/* public List<MainVo> selectByEndDayWeekLeft() throws Exception; */
+	
 	
 	
 }

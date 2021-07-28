@@ -13,4 +13,8 @@ public interface ProductListService {
 	
 	List<TypeVo> selectPType()throws Exception;
 	
+	ProductVo selectProductId(Integer productID) throws Exception;
+	
+	List<ProductVo> selectByLowPrice(int productTypeId) throws Exception;
+	
 }
