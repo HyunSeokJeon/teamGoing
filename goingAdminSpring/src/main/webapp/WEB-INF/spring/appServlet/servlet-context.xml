@@ -35,10 +35,23 @@
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<beans:property name="maxUploadSize" value="10485760"></beans:property>
 	</beans:bean>
-
-	<!-- <beans:bean id="uploadPath" class="java.lang.String">
-		<beans:constructor-arg value="C:/temp/upload/">
-		</beans:constructor-arg>
+	
+	<beans:bean id="loginInterseptor" class="org.going.interseptor.LoginInterseptor">
 	</beans:bean>
- -->
+	
+	<beans:bean id="authInterseptor" class="org.going.interseptor.AuthInterseptor">
+	</beans:bean>
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/user/login"/>
+			<beans:ref bean="loginInterseptor"/>
+		</interceptor>
+		<interceptor>
+			<mapping path="/**/**"/>
+			<exclude-mapping path="/user/login"/>
+			<exclude-mapping path="/adminResource/**"/>
+			<beans:ref bean="authInterseptor"/>
+		</interceptor>
+	</interceptors>
 </beans:beans>
