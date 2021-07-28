@@ -21,8 +21,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.extern.log4j.Log4j;
 
@@ -41,22 +43,19 @@ public class ProductController {
 	@RequestMapping(value="/prolist", method=RequestMethod.GET)
 	public String ListAll(Model model) throws Exception {
 		List<TypeVo> pType = productListService.selectPType();
+		ObjectMapper obm = new ObjectMapper();
+		String jsonStr =obm.writeValueAsString(productListService.selectAll());
+		model.addAttribute("productJson", jsonStr);
 		model.addAttribute("productType", pType);
 		model.addAttribute("productListofType", productListService.selectAll());
-		System.out.println(productListService.selectAll());
-		System.out.println("상품타입출력="+pType);
 		return "/prolist";
 	}
 	
 	@RequestMapping(value="/prolist/{productTypeId}", method=RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<List<ProductVo>> selectById(@PathVariable("productTypeId") Integer productTypeId) throws Exception{
-		System.out.println("productTypeId="+productTypeId);
-		
 		List<ProductVo> list = productListService.selectById(productTypeId);
-		System.out.println("List="+list);
 		return  ResponseEntity.ok(list);
-		
 	}
 	
 	
@@ -95,6 +94,35 @@ public class ProductController {
 			in.close();
 		}
 		return entity;
+	}
+	
+	@RequestMapping(value = "/proDesc/{productID}", method=RequestMethod.POST)
+	public String proDesc(@PathVariable("productID")Integer productID, Model model) throws Exception{
+		ProductVo desc = productListService.selectProductId(productID);
+		model.addAttribute("product", desc);
+		return "productDes";
+	}
+	
+	@RequestMapping(value = "/proDesc/{productID}", method=RequestMethod.GET)
+	public String proDes(@PathVariable("productID")Integer productID, Model model) throws Exception{
+		ProductVo desc = productListService.selectProductId(productID);
+		model.addAttribute("product", desc);
+		return "productDes";
+	}
+	
+	
+	@RequestMapping(value = "/prolist/{productTypeId}/{sort}", method = RequestMethod.POST)
+	public String LowPrice(@RequestParam("productTypeId") int productTypeId, @RequestParam("sort") int sort, Model model) throws Exception {
+		if(productTypeId==0) {
+			List<ProductVo> noSort = productListService.selectAll();
+			model.addAttribute("productListofType", noSort);
+		}else {
+			List<ProductVo> yesSort = productListService.selectByLowPrice(productTypeId);
+			model.addAttribute("", yesSort);
+		}
+		
+		
+		return "prolist";
 	}
 	
 	/*

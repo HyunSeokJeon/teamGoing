@@ -25,6 +25,29 @@
 				productType
 			</select>
 			
+			<select id="selectProductId" resultType="org.going.product.domain.ProductVo">
+				select * 
+				from
+				product
+				where productID= #{productID}
+			
+			</select>
+			
+			<select id="selectByLowPrice" parameterType="int" resultType="org.going.product.domain.ProductVo" >
+				<![CDATA[
+				select * from product
+				 ]]>
+				<choose>  
+				<when test="productTypeId != 0">
+					where productTypeId = #{productTypeId} order by productPrice asc
+				</when>
+				<when test="productTypeId = 0">
+				order by productPrice asc
+				</when>
+				</choose>
+			
+			</select>
+			
 	<!-- 	<select id="selectByEndDayWeekLeft" resultType="MainVo">
 			select productID, 
 			productName , 

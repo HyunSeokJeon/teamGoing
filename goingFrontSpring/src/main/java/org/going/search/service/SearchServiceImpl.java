@@ -22,7 +22,6 @@ public class SearchServiceImpl implements SearchService{
 
 	@Override
 	public List<MainVo> searchPro(String keyword) throws Exception {
-		System.out.println("service="+keyword);
 		return mapper.Search(keyword);
 	}
 	

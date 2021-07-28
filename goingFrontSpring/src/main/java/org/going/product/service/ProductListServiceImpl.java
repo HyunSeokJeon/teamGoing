@@ -10,14 +10,14 @@ import org.going.product.persistence.ProductMapper;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductListServiceImpl implements ProductListService{
-	
+public class ProductListServiceImpl implements ProductListService {
+
 	@Inject
 	ProductMapper mapper;
 
 	@Override
 	public List<ProductVo> selectAll() throws Exception {
-		
+
 		return mapper.selectAll();
 	}
 
@@ -28,10 +28,19 @@ public class ProductListServiceImpl implements ProductListService{
 
 	@Override
 	public List<TypeVo> selectPType() throws Exception {
-		
 		return mapper.selectType();
 	}
-		
 
+	@Override
+	public ProductVo selectProductId(Integer productID) throws Exception {
+		
+		return mapper.selectProductId(productID);
+	}
+
+	@Override
+	public List<ProductVo> selectByLowPrice(int productTypeId) throws Exception {
+		
+		return mapper.selectByLowPrice(productTypeId);
+	}
 
 }
