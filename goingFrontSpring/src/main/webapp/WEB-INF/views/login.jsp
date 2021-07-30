@@ -68,9 +68,9 @@ String vendorPath = request.getContextPath() + "/frontResource/vendor/";
 	</div>
 	<div class="row justify-content-center my-3">
 				<div class="col-6 col-sm-2 text-center" style="min-width:16.5rem">
-					<input type="image" value="카카오로그인" class="w-100 btn" src="<%=imgPath%>kakao_login_large_narrow.png">
+					<a href="https://kauth.kakao.com/oauth/authorize?client_id=7a9d7646f024ea13e76abbd9ff73055f&redirect_uri=http://localhost:8081/kakaologin&response_type=code"><input type="image" value="카카오로그인" class="w-100 btn" src="<%=imgPath%>kakao_login_large_narrow.png"></a>
 				</div>
 			</div>
-
+		
 </body>
 </html>

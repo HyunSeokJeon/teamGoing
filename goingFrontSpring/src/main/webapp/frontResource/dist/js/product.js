@@ -81,17 +81,38 @@ function makeProlist(Prolist) {
 }
 
 lowPrice.addEventListener("click", function(){
-	listbox.innerHTML = "";
-	Prolist.sort(function(a, b){
-		return a.productPrice - b.productPrice;
-	});
-	for (var i = 0; i < Prolist.length; i++) {
-						makeProlist(Prolist[i]);
-					}
+	
 });
+
+
 
 
 
 function sortProduct(a,b){
 	return a.productPrice - b.productPrice;
 };
+
+
+
+document.getElementById("highprice").addEventListener("click", function(){
+		listbox.innerHTML = "";
+	Prolist.sort(function(a, b){
+		return b.productPrice - a.productPrice;
+	});
+	for (var i = 0; i < Prolist.length; i++) {
+						makeProlist(Prolist[i]);
+					}
+		
+	});
+	
+document.getElementById("data").addEventListener("click", function(){
+		listbox.innerHTML = "";
+	Prolist.sort(function(a, b){
+		return Number(new Date(b.productRegdate)) - Number(new Date(a.productRegdate));
+	});
+	console.log(Prolist);
+	for (var i = 0; i < Prolist.length; i++) {
+						makeProlist(Prolist[i]);
+					}
+		
+	});
