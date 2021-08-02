@@ -1,32 +1,100 @@
 package org.going.customer.controller;
 
-import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+
+import java.util.Date;
 
 import org.going.customer.domain.CustomerDTO;
 import org.going.customer.domain.PasswordDTO;
-import org.going.customer.service.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.inject.Inject;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.going.customer.domain.CustomerVo;
+import org.going.customer.domain.LoginDTO;
+import org.going.customer.service.CustomerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.util.WebUtils;
+
 
 import lombok.extern.log4j.Log4j;
 
 @Controller
-@Log4j
 @RequestMapping("/customer/*")
+@Log4j
 public class CustomerController {
 	
 	@Inject
-	CustomerService service;
+	private CustomerService customerService;
 	
-	//join
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public void loginGET(@ModelAttribute("dto") LoginDTO dto) {
+		
+	}
+	
+	@RequestMapping(value = "/loginPost", method = RequestMethod.POST)
+		public void loginPOST(LoginDTO dto , HttpSession session, Model model) throws Exception {		
+		
+		CustomerVo vo = customerService.login(dto);
+		
+		// vo == null 이면
+		// dto 안에 있는 id, pw 값으로 db에서 검색을 했는데,
+		// 찾아지지 않았다.
+		if(vo == null) {
+			log.info("회원이 없습니다.");
+			model.addAttribute("loginFail", true);
+		}
+		
+		model.addAttribute("customerVo", vo);
+		
+		if(dto.isUseCookie()) {
+			
+			int amount = 60*60*24*7;
+			
+			Date sessionLimit = new Date(System.currentTimeMillis()+(1000*amount));
+			
+			customerService.keepLogin(vo.getCustomerId(), session.getId());
+		}
+
+	}
+	
+	@RequestMapping(value="/logout", method=RequestMethod.GET)
+	public String logout(HttpServletRequest request,
+			HttpServletResponse response, HttpSession session) throws Exception{
+		
+		Object obj = session.getAttribute("login");
+		
+		if(obj != null) {
+			CustomerVo vo = (CustomerVo) obj;
+			session.removeAttribute("login");
+			session.invalidate();
+			
+			Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
+			
+			if(loginCookie != null) {
+				loginCookie.setPath("/");
+				loginCookie.setMaxAge(0);
+				response.addCookie(loginCookie);
+				customerService.keepLogin(vo.getCustomerId(), session.getId());
+			}			
+		}
+		
+		return "customer/logout";
+		
+	}
+  
+  //join
 	@RequestMapping(value="/join", method=RequestMethod.GET)
 	public void joinGet() {
 		
@@ -58,25 +126,6 @@ public class CustomerController {
 		boolean result = service.idDuplicationCheck(CustomerId);
 		return new ResponseEntity<Boolean>(result, HttpStatus.OK);
 	}
-	
-	
-	//login
-
-	// modify
-	@RequestMapping(value="modifyPi", method=RequestMethod.GET)
-	public void modifyPiGet(HttpServletRequest req, Model model) throws Exception {
-		req.getSession().getAttribute("User");
-		// TODO 하드코딩 : 로그인 이후 수정
-		model.addAttribute("customer", service.getCustomerInfo("sjunhs")); 
-	}
-	
-	// 비밀번호 변경
-	@RequestMapping(value="modifyPass", method=RequestMethod.GET)
-	public void modifyPassGet() {}
-	
-	@RequestMapping(value="modifyPass", method=RequestMethod.POST)
-	public void modifyPassPost(PasswordDTO dto, HttpServletRequest req) throws Exception{
-			
-	}
+  
 	
 }

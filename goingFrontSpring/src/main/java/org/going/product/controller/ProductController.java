@@ -40,8 +40,9 @@ public class ProductController {
 	@Inject
 	ProductListService productListService;
 	
-	@RequestMapping(value="/prolist", method=RequestMethod.GET)
-	public String ListAll(Model model) throws Exception {
+	@RequestMapping(value="/prolist", method= {RequestMethod.GET, RequestMethod.POST})
+	public String ListAll(Model model, String code) throws Exception {
+		System.out.println("카카오톡 코드=" + code);
 		List<TypeVo> pType = productListService.selectPType();
 		ObjectMapper obm = new ObjectMapper();
 		String jsonStr =obm.writeValueAsString(productListService.selectAll());

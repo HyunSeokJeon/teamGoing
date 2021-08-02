@@ -5,10 +5,11 @@ import java.sql.Date;
 import javax.inject.Inject;
 
 import org.going.customer.domain.CustomerDTO;
-import org.going.customer.domain.CustomerVO;
-import org.going.customer.persistence.CustomerMapper;
+import org.going.customer.domain.CustomerVo;
+import org.going.customer.domain.LoginDTO;
 import org.going.grade.domain.GrademgmtVO;
 import org.going.grade.persistence.GradeMapper;
+import org.going.customer.persistence.CustomerMapper;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.log4j.Log4j;
@@ -16,14 +17,31 @@ import lombok.extern.log4j.Log4j;
 @Service
 @Log4j
 public class CustomerServiceImpl implements CustomerService {
-
+	
 	@Inject
-	CustomerMapper mapper;
+	private CustomerMapper customerMapper;
 	
 	@Inject
 	GradeMapper gradeMapper;
 	
 	@Override
+	public CustomerVo login(LoginDTO dto) throws Exception {
+		return customerMapper.login(dto);
+	}
+
+	@Override
+	public void keepLogin(String customerId, String sessionId) throws Exception {
+		customerMapper.keepLogin(customerId, sessionId);
+		
+	}
+
+	@Override
+	public CustomerVo checkLoginBefore(String value) {
+		// TODO Auto-generated method stub
+		return customerMapper.checkUserWithSessionKey(value);
+	}
+  
+  @Override
 	public boolean idDuplicationCheck(String customerId) throws Exception {
 		log.info("idDuplicationCheck");
 		String id = mapper.selectOne(customerId);
@@ -53,7 +71,5 @@ public class CustomerServiceImpl implements CustomerService {
 	public CustomerVO getCustomerInfo(String customerId) throws Exception {
 		return mapper.selectById(customerId);
 	}
-	
-	
 
 }
