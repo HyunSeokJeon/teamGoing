@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.going.customer.persistence.CustomerMapper">
+
+<!-- 로그인 -->
+	<select id="login" resultType ="org.going.customer.domain.CustomerVo">
+		select customerId, customerPass from customer where customerId=#{customerId} and customerPass=#{customerPass}
+	</select>
+
+	<update id="keepLogin">
+		update customer set sessionKey = #{sessionId}, sessionLimit =#{next} where customerId=#{customerId}
+	</update>
+	
+	<select id="checkUserWithSessionKey" resultType="org.going.customer.domain.CustomerVo">
+		select * from customer where sessionKey =#{value} and sessionlimit > now()
+	</select>
+	
+</mapper>
