@@ -231,3 +231,8 @@ a.badge-light:focus, a.badge-light.focus {
 .inline-block{
 	display:inline-block !important;
 }
+
+.carousel-inner > .carousel-item > img {
+            width: 500px !important;
+            height: 500px !important;
+        }

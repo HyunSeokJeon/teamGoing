@@ -81,7 +81,12 @@ function makeProlist(Prolist) {
 }
 
 lowPrice.addEventListener("click", function(){
-	
+	listbox.innerHTML = "";
+	Prolist.sort(function(a,b){
+	return a.productPrice - b.productPrice;
+	});
+	for (var i = 0; i< Prolist.length; i++){
+		makeProlist(Prolist[i]);}
 });
 
 
