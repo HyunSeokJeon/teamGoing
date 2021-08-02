@@ -18,4 +18,43 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from customer where sessionKey =#{value} and sessionlimit > now()
 	</select>
 	
+	<select id="selectOne" resultType="String">
+		select customerId from customer where customerId=#{customerId}
+	</select>
+	
+	<insert id="create">
+		insert into customer values (
+		#{customerId},
+		#{customerPass},
+		#{customerName},
+		#{customerBirthday},
+		#{customerGender},
+		
+		#{customerEmail},
+		#{customerPhonenum},
+		#{customerAddresscode1},
+		#{customerAddress1},
+		#{customerAddress2},
+		
+		null,
+		#{recommender},
+		'basic',
+		null,
+		null)
+	</insert>
+	
+	<select id="selectById">
+		select CUSTOMERID,
+			CUSTOMERNAME,
+			CUSTOMERBIRTHDAY,
+			CUSTOMERGENDER,
+			CUSTOMEREMAIL,
+			CUSTOMERPHONENUM,
+			CUSTOMERADDRESSCODE1,
+			CUSTOMERADDRESS1,
+			CUSTOMERADDRESS2,
+			CUSTOMERACCOUNT
+		from customer where customerid=#{customerId}
+	</select>
+	
 </mapper>
