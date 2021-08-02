@@ -1,7 +1,10 @@
 package org.going.customer.service;
 
+
 import org.going.customer.domain.CustomerVo;
 import org.going.customer.domain.LoginDTO;
+import org.going.customer.domain.CustomerDTO;
+
 
 public interface CustomerService {
 
@@ -11,5 +14,11 @@ public interface CustomerService {
 	
 	public CustomerVo checkLoginBefore(String value);
 	
+  
+	public boolean idDuplicationCheck(String customerId) throws Exception;
+
+	public void join(CustomerDTO dto) throws Exception;
+	
+	public CustomerVO getCustomerInfo(String customerId) throws Exception;
 
 }

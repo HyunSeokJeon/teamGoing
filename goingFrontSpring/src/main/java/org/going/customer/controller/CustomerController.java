@@ -1,6 +1,13 @@
 package org.going.customer.controller;
 
+
 import java.util.Date;
+
+import org.going.customer.domain.CustomerDTO;
+import org.going.customer.domain.PasswordDTO;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.inject.Inject;
 import javax.servlet.http.Cookie;
@@ -20,10 +27,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.WebUtils;
 
+
 import lombok.extern.log4j.Log4j;
 
 @Controller
-@RequestMapping("/customer")
+@RequestMapping("/customer/*")
 @Log4j
 public class CustomerController {
 	
@@ -85,12 +93,39 @@ public class CustomerController {
 		return "customer/logout";
 		
 	}
+  
+  //join
+	@RequestMapping(value="/join", method=RequestMethod.GET)
+	public void joinGet() {
+		
+	}
+	
+	@RequestMapping(value="/join", method=RequestMethod.POST)
+	public void joinPost(CustomerDTO dto, Model model)throws Exception{
+		if(!dto.getCustomerPass().equals(dto.getCustomerRePass())) {
+			model.addAttribute("passError", true);
+			return;
+		}
+		service.join(dto);
+		model.addAttribute("success", true);
+	}
+	
+	// 주소록
+	@RequestMapping(value="/jusoPopup")
+	public String jusoPopup() {
+		return "/jusoPopup";
+	}
+	
+	
+	//CheckIdAjax 아이디 체크
+	@RequestMapping(value="/idCheck", method=RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<Boolean> CheckIdAjax(@RequestParam("customerId") String CustomerId) throws Exception{
+		// 서비스에서 id 체크 
+		log.info("idCheck ajax");
+		boolean result = service.idDuplicationCheck(CustomerId);
+		return new ResponseEntity<Boolean>(result, HttpStatus.OK);
+	}
+  
 	
 }
-
-
-
-
-
-
-
