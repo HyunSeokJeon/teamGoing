@@ -18,6 +18,6 @@ public interface CustomerMapper {
 
 	public void create(CustomerDTO dto);
 	
-	public CustomerVO selectById(String customerId) throws Exception;
+	public CustomerVo selectById(String customerId) throws Exception;
 	
 }

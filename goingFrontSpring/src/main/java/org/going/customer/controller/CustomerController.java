@@ -1,6 +1,5 @@
 package org.going.customer.controller;
 
-
 import java.util.Date;
 
 import org.going.customer.domain.CustomerDTO;
@@ -106,7 +105,7 @@ public class CustomerController {
 			model.addAttribute("passError", true);
 			return;
 		}
-		service.join(dto);
+		customerService.join(dto);
 		model.addAttribute("success", true);
 	}
 	
@@ -123,7 +122,7 @@ public class CustomerController {
 	public ResponseEntity<Boolean> CheckIdAjax(@RequestParam("customerId") String CustomerId) throws Exception{
 		// 서비스에서 id 체크 
 		log.info("idCheck ajax");
-		boolean result = service.idDuplicationCheck(CustomerId);
+		boolean result = customerService.idDuplicationCheck(CustomerId);
 		return new ResponseEntity<Boolean>(result, HttpStatus.OK);
 	}
   

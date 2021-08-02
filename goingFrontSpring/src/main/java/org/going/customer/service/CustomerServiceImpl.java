@@ -44,7 +44,7 @@ public class CustomerServiceImpl implements CustomerService {
   @Override
 	public boolean idDuplicationCheck(String customerId) throws Exception {
 		log.info("idDuplicationCheck");
-		String id = mapper.selectOne(customerId);
+		String id = customerMapper.selectOne(customerId);
 		if(id == null) {
 			log.info("No duplication!");
 			return true;
@@ -64,12 +64,12 @@ public class CustomerServiceImpl implements CustomerService {
 			gradeMapper.createBasic();
 		}
 		
-		mapper.create(dto);
+		customerMapper.create(dto);
 	}
 
 	@Override
-	public CustomerVO getCustomerInfo(String customerId) throws Exception {
-		return mapper.selectById(customerId);
+	public CustomerVo getCustomerInfo(String customerId) throws Exception {
+		return customerMapper.selectById(customerId);
 	}
 
 }

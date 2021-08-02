@@ -19,6 +19,6 @@ public interface CustomerService {
 
 	public void join(CustomerDTO dto) throws Exception;
 	
-	public CustomerVO getCustomerInfo(String customerId) throws Exception;
+	public CustomerVo getCustomerInfo(String customerId) throws Exception;
 
 }
