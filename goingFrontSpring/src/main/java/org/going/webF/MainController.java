@@ -2,7 +2,7 @@ package org.going.webF;
 
 import javax.inject.Inject;
 
-import org.going.main.Service.MainService;
+import org.going.main.service.MainService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
