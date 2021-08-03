@@ -11,6 +11,7 @@ import org.going.grade.domain.GrademgmtVO;
 import org.going.grade.persistence.GradeMapper;
 import org.going.customer.persistence.CustomerMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import lombok.extern.log4j.Log4j;
 
@@ -55,6 +56,7 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
+	@Transactional
 	public void join(CustomerDTO dto) throws Exception {
 		Date birthday = Date.valueOf(dto.getBirthday1() + "-" + dto.getBirthday2() + "-" + dto.getBirthday3());
 		dto.setCustomerBirthday(birthday);
@@ -70,6 +72,18 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public CustomerVo getCustomerInfo(String customerId) throws Exception {
 		return customerMapper.selectById(customerId);
+	}
+
+	@Override
+	public void changePassword(LoginDTO dto) throws Exception {
+		customerMapper.updatePass(dto);
+	}
+
+	@Override
+	public void modifyCustomerInfo(CustomerDTO dto) throws Exception {
+		dto.setCustomerEmail(dto.getEmail1()+"@"+dto.getEmail2());
+		customerMapper.update(dto);
+		
 	}
 
 }

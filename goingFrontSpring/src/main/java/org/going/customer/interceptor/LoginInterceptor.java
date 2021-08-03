@@ -11,7 +11,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
-	  private static final String LOGIN = "login";
+	  private static final String LOGIN = "authUser";
 
 	  @Override
 	  public void postHandle(HttpServletRequest request, 

@@ -20,4 +20,8 @@ public interface CustomerMapper {
 	
 	public CustomerVo selectById(String customerId) throws Exception;
 	
+	public void updatePass(LoginDTO dto) throws Exception;
+	
+	public void update(CustomerDTO dto);
+	
 }

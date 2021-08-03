@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 로그인 -->
 	<select id="login" resultType ="org.going.customer.domain.CustomerVo">
-		select customerId, customerPass from customer where customerId=#{customerId} and customerPass=#{customerPass}
+		select customerId, customerName from customer where customerId=#{customerId} and customerPass=#{customerPass}
 	</select>
 
 	<update id="keepLogin">
@@ -43,7 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		null)
 	</insert>
 	
-	<select id="selectById">
+	<select id="selectById" resultType ="org.going.customer.domain.CustomerVo">
 		select CUSTOMERID,
 			CUSTOMERNAME,
 			CUSTOMERBIRTHDAY,
@@ -56,5 +56,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			CUSTOMERACCOUNT
 		from customer where customerid=#{customerId}
 	</select>
+	
+	<update id="updatePass">
+		update customer set customerPass = #{customerPass} where customerid=#{customerId}
+	</update>
+	
+	<update id="update">
+		update
+			customer
+		set
+			customerName=#{customerName}
+			, customerEmail=#{customerEmail}
+			, customerPhonenum=#{customerPhonenum}
+			, customerAddresscode1=#{customerAddresscode1}
+			, customeraddress1=#{customerAddress1}
+			, customeraddress2=#{customerAddress2}
+		where
+			customerId=#{customerId}
+	</update>
 	
 </mapper>
