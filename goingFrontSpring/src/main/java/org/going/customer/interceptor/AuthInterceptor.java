@@ -16,6 +16,8 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 
 	@Inject
 	private CustomerService customerService;
+	
+	private final String LOGIN="authUser";
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
@@ -23,7 +25,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 
 		HttpSession session = request.getSession();
 
-		if (session.getAttribute("login") == null) {
+		if (session.getAttribute(LOGIN) == null) {
 
 
 			saveDest(request);
@@ -36,7 +38,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 
 
 				if (customerVo != null) {
-					session.setAttribute("login", customerVo);
+					session.setAttribute(LOGIN, customerVo);
 					return true;
 				}
 

@@ -12,7 +12,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class MyPageController {
 	
-	@RequestMapping(value="/", method=RequestMethod.GET)
+	@RequestMapping(value="/main", method=RequestMethod.GET)
 	public String myPageMain(Model model) {
 		//회원 정보 db에서 가져와 model에 담기
 		// 등급

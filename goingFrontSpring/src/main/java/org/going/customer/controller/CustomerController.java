@@ -72,11 +72,11 @@ public class CustomerController {
 	public String logout(HttpServletRequest request,
 			HttpServletResponse response, HttpSession session) throws Exception{
 		
-		Object obj = session.getAttribute("login");
+		Object obj = session.getAttribute("authUser");
 		
 		if(obj != null) {
 			CustomerVo vo = (CustomerVo) obj;
-			session.removeAttribute("login");
+			session.removeAttribute("authUser");
 			session.invalidate();
 			
 			Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
@@ -89,7 +89,7 @@ public class CustomerController {
 			}			
 		}
 		
-		return "customer/logout";
+		return "/main";
 		
 	}
   
@@ -125,6 +125,72 @@ public class CustomerController {
 		boolean result = customerService.idDuplicationCheck(CustomerId);
 		return new ResponseEntity<Boolean>(result, HttpStatus.OK);
 	}
-  
+	
+	@RequestMapping(value="/modifyPi", method=RequestMethod.GET)
+	public void modifyPiGet(HttpSession session, Model model) throws Exception{
+		Object user = session.getAttribute("authUser");
+		if(user instanceof CustomerVo) {
+			CustomerVo authUser = (CustomerVo) user;
+			CustomerVo customerInfo = customerService.getCustomerInfo(authUser.getCustomerId());
+			
+			model.addAttribute("customer", customerInfo);
+		}
+	}
+	
+	@RequestMapping(value="/modifyPi", method=RequestMethod.POST)
+	public String modifyPiPost(CustomerDTO dto, Model model) throws Exception{
+		customerService.modifyCustomerInfo(dto);
+		model.addAttribute("success", true);
+		return "customer/modifyPi";
+	}
+	
+	
+	@RequestMapping(value="/modifyPass", method=RequestMethod.GET)
+	public void modifyPassGet() {}
+	
+	@RequestMapping(value="/modifyPass", method=RequestMethod.POST)
+	public String modifyPassPost(PasswordDTO dto, HttpSession session, Model model, RedirectAttributes rtta) throws Exception {
+		Object user = session.getAttribute("authUser");
+		if(user instanceof CustomerVo) {
+			CustomerVo authUser = (CustomerVo) user;
+			LoginDTO loginDTO = new LoginDTO();
+			
+			loginDTO.setCustomerId(authUser.getCustomerId());
+			loginDTO.setCustomerPass(dto.getCurrentPassword());
+			
+			CustomerVo customer = customerService.login(loginDTO);
+			
+			
+			
+			if (customer == null) {
+				model.addAttribute("currentPassError", true);
+				
+			}else {
+				String pass = dto.getChangePassword();
+				String repass = dto.getChangeRePassword();
+				if(!pass.equals(repass)) {
+					model.addAttribute("passwordEqualsError", true);
+				}else {
+					loginDTO.setCustomerPass(pass);
+					customerService.changePassword(loginDTO);
+					model.addAttribute("modifysuccess", true);
+				}
+			}
+		}
+		
+		
+		return "customer/modifyPass";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

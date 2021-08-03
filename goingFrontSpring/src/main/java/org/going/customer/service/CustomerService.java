@@ -20,5 +20,9 @@ public interface CustomerService {
 	public void join(CustomerDTO dto) throws Exception;
 	
 	public CustomerVo getCustomerInfo(String customerId) throws Exception;
+	
+	public void changePassword(LoginDTO dto) throws Exception;
+	
+	public void modifyCustomerInfo(CustomerDTO dto) throws Exception;
 
 }

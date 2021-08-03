@@ -1,11 +1,13 @@
 package org.going.product.controller;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.IOUtils;
 import org.going.product.domain.ProductVo;
@@ -61,7 +63,7 @@ public class ProductController {
 	
 	
 	@RequestMapping(value = "/viewimg")
-	public ResponseEntity<byte[]> displayFile(String fileName) throws Exception{
+	public ResponseEntity<byte[]> displayFile(String fileName, HttpServletRequest req) throws Exception{
 		
 		InputStream in = null;
 		ResponseEntity<byte[]> entity = null;
@@ -76,7 +78,12 @@ public class ProductController {
 			
 			HttpHeaders headers = new HttpHeaders();
 			
-			in = new FileInputStream(uploadPath + fileName);
+			File file = new File(uploadPath + fileName);
+			if(!file.exists()) {
+				String path = req.getSession().getServletContext().getRealPath("");
+				file = new File(path + "/frontResource/dist/img/image-not-found.png");
+			}
+			in = new FileInputStream(file);
 			
 			if (mType != null) {
 				headers.setContentType(mType);

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ include file="/frontResource/dist/include/searchbarHeader.jspf"%>
+<%@ include file="/WEB-INF/views/include/searchbarHeader.jspf"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <nav class="navbar navbar-expand-lg navbar-light bg-light "
 	style="margin-top: 4rem">
@@ -191,4 +191,4 @@
         </div>
       </div>
     </div>
-<%@ include file="/frontResource/dist/include/footer.jspf"%>
+<%@ include file="/WEB-INF/views/include/footer.jspf"%>
