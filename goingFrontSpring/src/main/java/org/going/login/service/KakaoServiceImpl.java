@@ -1,6 +1,9 @@
 package org.going.login.service;
 
+import org.going.customer.domain.CustomerVo;
 import org.going.login.domain.OAuthToken;
+import org.going.login.persistence.KaKaoMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -13,11 +16,16 @@ import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
 @Service
-public class KaKaoLoginService{
+public class KakaoServiceImpl implements KakaoService{
 	
+	@Autowired
+	KaKaoMapper kakaoMapper;
 	
-	public String kakao(String code) throws Exception{
+
+	@Override
+	public String kakao(String code) throws Exception {
 		RestTemplate rt = new RestTemplate();
 		//http 헤더 생성
 		HttpHeaders headers = new HttpHeaders();
@@ -51,5 +59,14 @@ public class KaKaoLoginService{
 			  e.printStackTrace(); }
 	
 	return kato.getAccess_token();
-}
+	}
+
+//	@Override
+//	public String kakaoJoin(CustomerVo vo) throws Exception {
+//		
+//		return kakaoMapper.kakaoCreate(vo);
+//	}
+
+	
+
 }

@@ -40,17 +40,17 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <%HttpSession httpSession = request.getSession(false); 
-                	Boolean notLogin = httpSession==null || httpSession.getAttribute("authUser")==null;
+                	Boolean notLogin = httpSession==null || httpSession.getAttribute("login")==null;
                 %>
                 
                 <c:if test="<%=notLogin%>">
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto align-items-center">
                         <li class="nav-item mx-0 mx-lg-1">
-                        <a class=" px-0 px-lg-3 rounded btn btn-primary btn-sm" href="<%=path %>/login">로그인</a>
+                        <a class=" px-0 px-lg-3 rounded btn btn-primary btn-sm" href="<%=path %>/customer/login">로그인</a>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1">
-                        <a class=" px-0 px-lg-3 border rounded btn btn-light btn-sm" href="<%=path %>/join.go">회원가입</a>
+                        <a class=" px-0 px-lg-3 border rounded btn btn-light btn-sm" href="<%=path %>/customer/join">회원가입</a>
                         </li>
                         
                     </ul>
@@ -60,7 +60,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto align-items-center">
                         <li class="nav-item mx-0 mx-lg-1">
-                        <a class=" px-0 px-lg-3 rounded btn btn-primary btn-sm" href="<%=path %>/logout.go">로그아웃</a>
+                        <a class=" px-0 px-lg-3 rounded btn btn-primary btn-sm" href="<%=path %>/customer/logout">로그아웃</a>
                         </li>
                        	<li class="nav-item nav-item-position-rel">
                        		<a class="drop-down-toggle-cart dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
