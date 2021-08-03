@@ -1,9 +1,17 @@
 package org.going.login.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
+
+import org.going.customer.domain.CustomerDTO;
+import org.going.customer.domain.CustomerVo;
+import org.going.customer.service.CustomerService;
 import org.going.login.domain.KaKaoProfile;
-import org.going.login.service.KaKaoLoginService;
+import org.going.login.service.KakaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -27,12 +35,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Controller
 public class KaKaoLoginController {
 	
+	KaKaoProfile kaPro = null;
+	
 	@Autowired
-	KaKaoLoginService kakaoService;
+	KakaoService kakaoService;
+	
+	@Autowired
+	CustomerService customerService;
 
 	@RequestMapping(value = "/kakaologin", method = RequestMethod.GET)
-	@ResponseBody
-	public String kakaoinfo(String code, Model model) throws Exception {
+	public void kakaoinfo(String code, Model model, HttpSession session) throws Exception {
 		String AccessToken = kakaoService.kakao(code);
 		
 		RestTemplate rt2 = new RestTemplate();
@@ -52,7 +64,7 @@ public class KaKaoLoginController {
 		  ResponseEntity<String> response2 = rt2.exchange("https://kapi.kakao.com/v2/user/me", HttpMethod.POST, kakaoInfo, String.class);
 		  System.out.println(response2.getBody());
 		  ObjectMapper ojb = new ObjectMapper();
-		  KaKaoProfile kaPro = null;
+		  
 		  try {
 			  kaPro = ojb.readValue(response2.getBody(), KaKaoProfile.class);
 		  }catch(JsonMappingException e) {
@@ -61,14 +73,38 @@ public class KaKaoLoginController {
 			  e.printStackTrace();
 		  }
 		  
+		  
+		  model.addAttribute("customerVo", converter());
+		  
 		  System.out.println("카톡아이디"+kaPro.getId());
 		  System.out.println(kaPro.getKakao_account().getProfile().getNickname());
 		  System.out.println("카톡이메일"+kaPro.kakao_account.getEmail());
 		  
 		  
-		 
-		 
-		 return response2.getBody();
+//		  CustomerVo vo = new CustomerVo();
+//		//카톡 아이디로 회원가입 여부 Check
+//		  if(customerService.idDuplicationCheck("kakao"+kaPro.getId())) {
+//			  vo.setCustomerId("kakao"+kaPro.getId());
+//			  String kakaoPassWord = kaPro.getId()+"GOGO";
+//			  vo.setCustomerPass(kakaoPassWord);
+//			  vo.setCustomerName(kaPro.getKakao_account().getProfile().getNickname());
+//			  vo.setCustomerEmail(kaPro.kakao_account.getEmail());
+//			  vo.setCustomerGrade("level1");
+//			System.out.println("세팅 성공");  
+//			kakaoService.kakaoJoin(vo);
+//			System.out.println("가입성공");
+//			}
 		
+	}
+	
+	public CustomerVo converter() throws Exception{
+		CustomerVo vo = new CustomerVo();
+		vo.setCustomerId("kakao"+kaPro.getId());
+		String kakaoPassWord = kaPro.getId()+"GOGO";
+		vo.setCustomerPass(kakaoPassWord);
+		vo.setCustomerName(kaPro.getKakao_account().getProfile().getNickname());
+		vo.setCustomerEmail(kaPro.kakao_account.getEmail());
+		
+		return vo;
 	}
 }

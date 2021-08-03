@@ -40,7 +40,7 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <%HttpSession httpSession = request.getSession(false); 
-                	Boolean notLogin = httpSession==null || httpSession.getAttribute("authUser")==null;
+                	Boolean notLogin = httpSession==null || httpSession.getAttribute("login")==null;
                 %>
                 
                 <c:if test="<%=notLogin%>">
