@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.going.faq.persistence.FaqMapper">
+	
+	<!-- 조회 -->
+	<select id ="list" resultType="org.going.faq.domain.FaqVO">
+		select  faqNumber, faqTitle, faqContents
+		from faq order by faqNumber desc
+	</select>
+
+	<select id="read" parameterType="int" resultType="org.going.faq.domain.FaqVO">
+		select  faqNumber, faqTitle, faqContents
+		from faq where faqNumber=#{faqNumber}
+	</select>
+	
+	
+	<!-- 등록 -->
+	<insert id="write">
+		insert into faq (faqNumber, faqTitle,faqContents) values(faqnumseq.nextval, #{faqTitle},#{faqContents})
+	</insert>
+	
+	<!-- 수정 -->
+	<update id="update" parameterType="org.going.faq.domain.FaqVO">
+		update faq set faqTitle=#{faqTitle}, faqContents=#{faqContents} where faqNumber=#{faqNumber}
+	</update>
+	
+	<!-- 삭제 -->
+	<delete id="delete" parameterType="org.going.faq.domain.FaqVO">
+		delete from faq where faqNumber=#{faqNumber}
+	</delete>
+
+
+
+</mapper>
