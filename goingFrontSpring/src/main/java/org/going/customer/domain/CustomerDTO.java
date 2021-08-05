@@ -23,6 +23,6 @@ public class CustomerDTO {
 	private String customerAddresscode1;
 	private String customerAddress1;
 	private String customerAddress2;
-	private String customerRecommender;
+	private String recommender;
 	
 }

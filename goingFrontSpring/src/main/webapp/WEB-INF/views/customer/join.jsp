@@ -21,7 +21,7 @@ String vendorPath = request.getContextPath() + "/frontResource/vendor/";
 <title>로그인</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon"
-	href="<%=assetsPath%>assets/favicon.ico" />
+	href="<%=assetsPath%>favicon.ico" />
 <!-- Bootstrap icons-->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
@@ -34,12 +34,13 @@ String vendorPath = request.getContextPath() + "/frontResource/vendor/";
 <link href="<%=cssPath%>styles.css" rel="stylesheet" />
 <link href="<%=cssPath%>styles.custom.css" rel="stylesheet" />
 <script defer type="text/javascript"
-	src="<%=request.getContextPath()%>/frontResource/dist/js/joinCheck.js"></script>
-	
-<script defer type="text/javascript"
 	src="<%=request.getContextPath()%>/frontResource/dist/js/juso.js"></script>
 
 </head>
+<script defer type="text/javascript"
+	src="<%=request.getContextPath()%>/frontResource/dist/js/joinCheck.js"></script>
+	
+
 <body>
 	<div class="row justify-content-center">
 		<div class="col-4 text-center">
@@ -144,7 +145,7 @@ String vendorPath = request.getContextPath() + "/frontResource/vendor/";
 			</div>
 			<div class="row justify-content-center my-3">
 				<div class="col-10 col-sm-3 text-center login-input">
-					<input type = "text" name="customerRecommender" class=" form-control form-control-sm" placeholder="추천인"> <br>
+					<input type = "text" name="recommender" class=" form-control form-control-sm" placeholder="추천인"> <br>
 				</div>
 			</div>
 			
