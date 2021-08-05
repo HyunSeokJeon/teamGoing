@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.going.faq.persistence.FaqMapper">
+	
+	<!-- 조회 -->
+	<select id ="list" resultType="org.going.faq.domain.FaqVO">
+		select  faqNumber, faqTitle, faqContents
+		from faq order by faqNumber desc
+	</select>
+	
+</mapper>
