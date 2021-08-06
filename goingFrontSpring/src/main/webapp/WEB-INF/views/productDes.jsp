@@ -279,7 +279,7 @@
 							</div>
 						</div>
 					</div>
-					<form action="<%=path %>/payment" method="post">
+					<form action="<%=path %>/kakaoPay" method="post">
 						<input type="hidden" name="productName" id="productName" value="${product.productName }">
 						<input type="hidden" name="productPrice" id="productPrice" value="${product.productPrice }">
 						<input type="hidden" name="productId" id="productid1" value="<%=request.getParameter("pId") %>">

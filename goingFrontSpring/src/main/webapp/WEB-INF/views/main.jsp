@@ -67,7 +67,7 @@
 										src="https://img.icons8.com/ios/50/000000/ballerina-full-body.png" />
 									<p class="h7 text-center my-1">무용</p>
 								</div>
-							</a> <a href="<%-- <%=path%>/list.go --%> "
+							</a> <a href=" <%=path%>/prolist"
 								class="d-flex align-items-center justify-content-center">
 								<div class="main-icons">
 									<img class="mainicon mt-4"
@@ -110,15 +110,15 @@
 				<div
 					class="carousel-inner col-md-5">
 					<div class="carousel-item active">
-						<img class="d-block  " src="<%=imgPath%>mainAssist.jpg"
+						<img class="d-block  div-img" src="<%=imgPath%>mainAssist.jpg"
 							alt="First slide">
 					</div>
 					<div class="carousel-item">
-						<img class="d-block " src="<%=imgPath%>psy.jpg"
+						<img class="d-block div-img" src="<%=imgPath%>psy.jpg"
 							alt="Second slide">
 					</div>
 					<div class="carousel-item">
-						<img class="d-block " src="<%=imgPath%>favorP2.jpg"
+						<img class="d-block div-img" src="<%=imgPath%>favorP2.jpg"
 							alt="Third slide">
 					</div>
 				</div>
@@ -239,7 +239,7 @@
 			<div class="col-md-4">
 				<div class="main-showcase-favor-imgbox">
 					<img src="<%=path %>/viewimg?fileName=${top3Product.productImage}"
-						alt="" class="main-showcase-favor-img">
+						alt="" class="main-showcase-favor-img div-img">
 				</div>
 				<div class="row m-3 p-1 align-items-center justify-content-center">
 					<div class="col">

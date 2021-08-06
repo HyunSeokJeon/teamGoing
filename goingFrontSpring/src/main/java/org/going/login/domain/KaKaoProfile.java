@@ -30,6 +30,7 @@ public class KaKaoProfile {
 		public boolean gender_needs_agreement;
 		public String gender;
 		
+		
 		@Data
 		public class Profile{
 			public String nickname;
