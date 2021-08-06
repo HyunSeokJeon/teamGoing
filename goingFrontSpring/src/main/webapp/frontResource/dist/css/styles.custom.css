@@ -236,3 +236,20 @@ a.badge-light:focus, a.badge-light.focus {
             width: 500px !important;
             height: 500px !important;
         }
+
+        
+.div-img {
+	width: inherit;
+	max-width:100%;
+	height: auto;
+}
+.mt-8 {
+  margin-top: 6rem !important;
+}
+
+.img-pay{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 50%;
+}

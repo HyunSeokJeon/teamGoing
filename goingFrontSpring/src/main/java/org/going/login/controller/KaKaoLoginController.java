@@ -1,13 +1,9 @@
 package org.going.login.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
-import org.going.customer.domain.CustomerDTO;
 import org.going.customer.domain.CustomerVo;
 import org.going.customer.service.CustomerService;
 import org.going.login.domain.KaKaoProfile;
@@ -24,7 +20,6 @@ import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.DefaultResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 
@@ -72,28 +67,19 @@ public class KaKaoLoginController {
 		  }catch(JsonProcessingException e) {
 			  e.printStackTrace();
 		  }
-		  
-		  
+//		  CustomerDTO dto = new CustomerDTO();
+//		  dto.setCustomerId(converter().getCustomerId());
+//		  dto.setCustomerPass(converter().getCustomerPass());
+//		  dto.setCustomerName(converter().getCustomerName());
+//		  dto.setCustomerEmail(converter().getCustomerEmail());
+//		  customerService.join(dto);
+//		  System.out.println("회원가입");
 		  model.addAttribute("customerVo", converter());
 		  
 		  System.out.println("카톡아이디"+kaPro.getId());
 		  System.out.println(kaPro.getKakao_account().getProfile().getNickname());
 		  System.out.println("카톡이메일"+kaPro.kakao_account.getEmail());
 		  
-		  
-//		  CustomerVo vo = new CustomerVo();
-//		//카톡 아이디로 회원가입 여부 Check
-//		  if(customerService.idDuplicationCheck("kakao"+kaPro.getId())) {
-//			  vo.setCustomerId("kakao"+kaPro.getId());
-//			  String kakaoPassWord = kaPro.getId()+"GOGO";
-//			  vo.setCustomerPass(kakaoPassWord);
-//			  vo.setCustomerName(kaPro.getKakao_account().getProfile().getNickname());
-//			  vo.setCustomerEmail(kaPro.kakao_account.getEmail());
-//			  vo.setCustomerGrade("level1");
-//			System.out.println("세팅 성공");  
-//			kakaoService.kakaoJoin(vo);
-//			System.out.println("가입성공");
-//			}
 		
 	}
 	

@@ -2,20 +2,6 @@
     pageEncoding="UTF-8"%>
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
   <%@ include file = "/WEB-INF/views/include/header.jspf" %>
-  <%
-  	
-/*   	User user = null;
-  	String name = null;
-  	String id = null;
-	  if(session.getAttribute("authUser") instanceof User){
-		  	user = (User)session.getAttribute("authUser");
-		  	name = user.getName();
-		  	id = user.getId();
-	  }else {
-		  
-	  }  */
-    %>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -137,62 +123,50 @@
                 <!-- Page content-->
                 
                		<!-- 상품 정보 -->
-               		<div class="text-center my-5"><h3>상품정보
+               		<div class="text-center my-5"><h3>주문 정보
                			</h3></div>
                		
  		<div class=" border-top border-bottom border-dark  container">
  			<div class="row">
- 				<div class="border-top border-bottom my-3 col-2 text-center">
+ 				<div class="border-top border-bottom my-3 col-3 text-center">
  					이미지
  				</div>
  				<div class="border-top border-bottom my-3 col-3 text-center">
  					상품정보
  				</div>
  				<div class= "border-top border-bottom my-3 col-2 text-center">
- 					판매가
- 				</div>
- 				<div class= "border-top border-bottom  my-3 col-1 text-center">
- 					수량
- 				</div>
- 				<div class= "border-top border-bottom  my-3 col-1 text-center">
- 					배송구분
- 				</div>
- 				<div class= "border-top border-bottom  my-3 col-1 text-center">
- 					배송비
+ 					합계
  				</div>
  				<div class= "border-top border-bottom  my-3 col-2 text-center">
- 					합계	
+ 					수량
+ 				</div>
+ 				<div class= "border-top border-bottom  my-3 col-2 text-center">
+ 					
  				</div>
  			</div>
  				
  		<div class = "container">
  			<div class= "row">
- 				<div class=" col-2 text-center" >
- 					<img src="<%=path %>/viewimg?fileName=<%=request.getParameter("productImage") %>"  class="rounded float-left">
+ 				<div class=" col-3 text-center " >
+ 					<img src="<%=path %>/viewimg?fileName=${productImage}"  class="rounded float-left div-img">
  				</div >
- 			<div class="col-3 text-center">
- 				<span><%=request.getParameter("productName") %></span>
+ 			<div class="col-3 text-center h5">
+ 				<span>${kakaoApprove.item_name}</span>
  			</div>
- 			<div class= "col-2 text-center">
- 				<span><%=request.getParameter("productPrice") %></span>
+ 			<div class= "col-2 text-center h5">
+ 				<span>${kakaoApprove.amount.total}</span>
  			</div >
- 			<div class= "col-1 text-center">
- 				<span>1</span>
- 			</div>
- 			<div class= "col-1 text-center">
- 				<span>%</span>
- 			</div>
- 			<div class= "col-1 text-center">
- 				<span>3,000</span>
+ 			<div class= "col-2 text-center">
+ 				<span>${kakaoApprove.quantity}</span>
  			</div>
  			<div class= "col-2 text-center">
- 				<span>55,900</span>
+ 				<a href = "/orderCheck" class="btn">상세 조회</a>
  			</div>
  			</div>		
  		</div>		
  	
  </div>	
-                <div class="my-4 text-center">
+ <%--                <div class="my-4 text-center">
                 	<h3>
                 		구매자 정보
                 	</h3>
@@ -210,16 +184,15 @@
 		</div>
     	<dl class="row">
 		      <dt class="col-sm-6 text-left">구매자 성명</dt>
-		      <input type="text" class="col-sm-3 "  disabled id="CUSTOMERNAME" name = "checkInfo" value ="${ec.CUSTOMERNAME}"placeholder="">
-		      <input type="text" class="form-control-plaintext " disabled id="CUSTOMERNAME"  name = "checkInfo" value ="${ec.CUSTOMERNAME}" placeholder="">
+		      <input type="text" class="col-sm-3 "  disabled id="" name = "checkInfo" value ="${ec.CustomerName}"placeholder="">
  		</dl>
  		   <dl class="row">
 		      <dt class="col-sm-6 text-left">전화번호</dt>
-		     <input type="text" class="col-sm-3 "  disabled id="phoneNumber" name = "checkInfo" value = "${ec.CUSTOMERPHONENUM }"placeholder="하이픈(-)없이 작성해주세요">
+		     <input type="text" class="col-sm-3 "  disabled id="phoneNumber" name = "checkInfo" value = ""placeholder="하이픈(-)없이 작성해주세요">
 		 </dl>
  		   <dl class="row">
 		      <dt class="col-sm-6 text-left">배송지 주소</dt>
-		      <input type="text" class="col-sm-3 "  disabled id="inputAddress" name = "checkInfo" value ="${ec.CUSTOMERADDRESS1 }"placeholder="">
+		      <input type="text" class="col-sm-3 "  disabled id="inputAddress" name = "checkInfo" value =""placeholder="">
 		 </dl>
 		  <dl class="row">
 		      <dt class="col-sm-6 text-left">요청 메모</dt>
@@ -227,7 +200,7 @@
 		 </dl>
 		  <dl class="row">
 		      <dt class="col-sm-6 text-left">이메일</dt>
-		      <input type="text" class="col-sm-3 "  disabled id="email" name = "checkInfo" value ="${ec.CUSTOMEREMAIL }"placeholder="">
+		      <input type="text" class="col-sm-3 "  disabled id="email" name = "checkInfo" value ="${ec.CustomerEmail }"placeholder="">
 		 </dl>
  	</form>
 </div>
@@ -271,32 +244,6 @@
 			</dl>
 			
  	</div>
-
-<!-- 쿠폰 사용 -->
-<div class="my-4 text-center" >
-	<h3>쿠폰/적립금</h3>
-</div>
-	<div class="border-top border-bottom border-dark bg-light container">
-		<dl class="row ">
-			<dt class="col-sm-2 text-left">쿠폰</dt>
-			<dd class= "col-sm-10 ">
-				<input type="text" >
-				<input type="button" class="btn-primary" value="쿠폰조회" onclick="showPopup();"/>
-			</dd>
-		</dl>
-			<dl class="row ">
-			<dt class="col-sm-2 text-left">적립금</dt>
-			<dd class= "col-sm-10">
-				<input type="text" >
-				<input type="button"  class= "btn-primary" value="적립금 조회">
-			</dd>
-		</dl>
-		<dl class= "row">
-			<dt class= "col-sm-2 text-left">적용</dt>
-			<dd class= "col-sm-10">생일자 쿠폰 10%</dd>
-		</dl>
-		</div>
-
  
  <!--  최종 결제 -->
  	<div class="my-4 text-center">
@@ -363,7 +310,7 @@
 <!-- 결제하기 버튼 -->
 <div class="nav-item mx-0 mx-lg-1 text-center my-5">
 	<a class=" px-5 px-lg-5 rounded btn btn-primary btn-lg" href="#portfolio">결제하기</a>
-</div>
+</div> --%>
  	</div> 
  </div>
         <!-- Bootstrap core JS-->
@@ -373,6 +320,9 @@
     </body>
 </html>
 	<script language = "javascript">
+	
+	console.log("${kakaoApprove}");
+	
 function showPopup(){
 	window.open("/goingFront/coupon.go?couponID=?","쿠폰 조회", "width=500, height=300, left=100, top=50");
 }
@@ -383,7 +333,7 @@ var chek = document.getElementById("checkmain");
 var chekN	= document.getElementsByName('checkInfo');
 
 
-let che = ["${ec.CUSTOMERNAME}", "${ec.CUSTOMERPHONENUM }", "${ec.CUSTOMERADDRESS1 }", "${ec.CUSTOMEREMAIL }"];
+
 
 chek.addEventListener('change', function(){
 	if(chek.checked == false){
