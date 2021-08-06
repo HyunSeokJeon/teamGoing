@@ -48,7 +48,6 @@ function onMessage(event){
 	}
 	//current session id 
 	let currentSessionId = document.getElementById("sessionuserid").value;
-	
 	console.log('current session id: ' + currentSessionId);
 	
 	sessionid = strArray[0]; //현재 메세지를 보낸 사람의 세션 등록//
@@ -83,8 +82,6 @@ function onMessage(event){
 	}
 	
 	console.log('chatting data: ' + data);
-	
-	window.scrollTo(0, document.body.scrollHeight);
 	
   	/* sock.close(); */
 }
