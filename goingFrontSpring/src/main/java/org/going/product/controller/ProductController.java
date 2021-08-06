@@ -14,6 +14,8 @@ import org.going.customer.domain.CustomerVo;
 import org.going.product.domain.ProductVo;
 import org.going.product.domain.TypeVo;
 import org.going.product.service.ProductListService;
+import org.going.productimg.domain.ProductImgVO;
+import org.going.productimg.service.ProductImgService;
 import org.going.webF.util.MediaUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -42,6 +44,9 @@ public class ProductController {
 	
 	@Inject
 	ProductListService productListService;
+	
+	@Inject
+	ProductImgService productImgService;
 	
 	@RequestMapping(value="/prolist", method= {RequestMethod.GET, RequestMethod.POST})
 	public String ListAll(Model model, String code) throws Exception {
@@ -115,14 +120,16 @@ public class ProductController {
 	@RequestMapping(value = "/proDesc/{productID}", method=RequestMethod.GET)
 	public String proDes(@PathVariable("productID")Integer productID, Model model, HttpServletRequest req) throws Exception{
 		ProductVo desc = productListService.selectProductId(productID);
+		List<ProductImgVO> pImgList = productImgService.getImageList(productID);
 		boolean likeThisItem = false;
 		if(req.getSession().getAttribute("authUser") != null) {
 			CustomerVo user = (CustomerVo)req.getSession().getAttribute("authUser");
 			likeThisItem = productListService.isLikeThisItem(productID, user.getCustomerId());
 		}
-		System.out.println(likeThisItem);
+		System.out.println(pImgList.toString());
 		model.addAttribute("likeYN", likeThisItem);
 		model.addAttribute("product", desc);
+		model.addAttribute("imgList", pImgList);
 		return "productDes";
 	}
 	
