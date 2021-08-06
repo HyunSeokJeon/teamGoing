@@ -31,18 +31,18 @@ document.getElementById("likeitem").addEventListener("click", function (event) {
             // 좋아요 취소
             heart.className = heart.className.replace("d-none", "");
             heartFill.className += "d-none";
-            httpRequest.open("POST", `/goingFront/productLove.go?pId=${productId}&customerid=${userId}&action=0`, true);
+            httpRequest.open("POST", `/product/productLove?pId=${productId}&customerid=${userId}&action=0`, true);
 			httpRequest.send();	
         } else {
             // 좋아요!
             heart.className += "d-none";
             heartFill.className = heartFill.className.replace("d-none", "");
-            httpRequest.open("POST", `/goingFront/productLove.go?pId=${productId}&customerid=${userId}&action=1`, true);
+            httpRequest.open("POST", `/product/productLove?pId=${productId}&customerid=${userId}&action=1`, true);
 			httpRequest.send();
         }
     } else {
         if (confirm("로그인이 필요한 서비스입니다. 로그인 하시겠습니까?")) {
-            window.location = `${path}/login.go`;
+            window.location = `${path}/customer/login`;
         }
     }
     

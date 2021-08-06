@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.IOUtils;
+import org.going.customer.domain.CustomerVo;
 import org.going.product.domain.ProductVo;
 import org.going.product.domain.TypeVo;
 import org.going.product.service.ProductListService;
@@ -112,8 +113,15 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/proDesc/{productID}", method=RequestMethod.GET)
-	public String proDes(@PathVariable("productID")Integer productID, Model model) throws Exception{
+	public String proDes(@PathVariable("productID")Integer productID, Model model, HttpServletRequest req) throws Exception{
 		ProductVo desc = productListService.selectProductId(productID);
+		boolean likeThisItem = false;
+		if(req.getSession().getAttribute("authUser") != null) {
+			CustomerVo user = (CustomerVo)req.getSession().getAttribute("authUser");
+			likeThisItem = productListService.isLikeThisItem(productID, user.getCustomerId());
+		}
+		System.out.println(likeThisItem);
+		model.addAttribute("likeYN", likeThisItem);
 		model.addAttribute("product", desc);
 		return "productDes";
 	}
@@ -146,6 +154,12 @@ public class ProductController {
 	 * }
 	 */
 	
+	@RequestMapping(value="/product/productLove", method=RequestMethod.POST)
+	@ResponseBody
+	public String process(@RequestParam("pId")String productId, @RequestParam("customerid")String userId, @RequestParam("action")String action) throws Exception {
+		productListService.productLove(productId, userId, action);
+		return null;
+	}
 	
 	
 }

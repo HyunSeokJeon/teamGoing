@@ -14,7 +14,7 @@ public class ProductListServiceImpl implements ProductListService {
 
 	@Inject
 	ProductMapper mapper;
-
+	
 	@Override
 	public List<ProductVo> selectAll() throws Exception {
 
@@ -43,4 +43,30 @@ public class ProductListServiceImpl implements ProductListService {
 		return mapper.selectByLowPrice(productTypeId);
 	}
 
+	@Override
+	public void productLove(String productId, String customerid, String action) throws Exception {
+		int check = 0;
+		
+		check = mapper.countProductLove(productId, customerid);
+		if (check == 0) {
+			mapper.insertPLove(productId,customerid);
+			//insert
+		} else {
+			mapper.updatePLove(productId,customerid,action);
+			//update
+		}
+	}
+
+	@Override
+	public boolean isLikeThisItem(Integer productID, String customerId) throws Exception{
+		int result = 0;
+		if(mapper.countProductLove(productID.toString(), customerId) != 0) {
+			result = mapper.selectByProdidCustomid(productID.toString(), customerId);
+		}
+		if(result == 0) {
+			return false;
+		}else {
+			return true;
+		}
+	}
 }

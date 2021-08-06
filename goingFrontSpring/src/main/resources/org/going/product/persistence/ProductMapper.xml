@@ -6,66 +6,77 @@
 
 	<!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어 
 		있습니다. -->
-			<select id="selectById" resultType="org.going.product.domain.ProductVo">
-				select * from 
-				product 
-				where 
-				productTypeId = #{productTypeId} 
-			</select>
-			
-			<select id="selectAll" resultType="org.going.product.domain.ProductVo">
-				select *
-				from
-				product
-			</select>
-			
-			<select id="selectType" resultType="org.going.product.domain.TypeVo">
-				select * 
-				from
-				productType
-			</select>
-			
-			<select id="selectProductId" resultType="org.going.product.domain.ProductVo">
-				select * 
-				from
-				product
-				where productID= #{productID}
-			
-			</select>
-			
-			<select id="selectByLowPrice" parameterType="int" resultType="org.going.product.domain.ProductVo" >
+	<select id="selectById"
+		resultType="org.going.product.domain.ProductVo">
+		select * from
+		product
+		where
+		productTypeId = #{productTypeId}
+	</select>
+
+	<select id="selectAll"
+		resultType="org.going.product.domain.ProductVo">
+		select *
+		from
+		product
+	</select>
+
+	<select id="selectType"
+		resultType="org.going.product.domain.TypeVo">
+		select *
+		from
+		productType
+	</select>
+
+	<select id="selectProductId"
+		resultType="org.going.product.domain.ProductVo">
+		select *
+		from
+		product
+		where productID= #{productID}
+
+	</select>
+
+	<select id="selectByLowPrice" parameterType="int"
+		resultType="org.going.product.domain.ProductVo">
 				<![CDATA[
 				select * from product
 				 ]]>
-				<choose>  
-				<when test="productTypeId != 0">
-					where productTypeId = #{productTypeId} order by productPrice asc
-				</when>
-				<when test="productTypeId = 0">
+		<choose>
+			<when test="productTypeId != 0">
+				where productTypeId = #{productTypeId} order by productPrice asc
+			</when>
+			<when test="productTypeId = 0">
 				order by productPrice asc
-				</when>
-				</choose>
-			
-			</select>
-			
-	<!-- 	<select id="selectByEndDayWeekLeft" resultType="MainVo">
-			select productID, 
-			productName , 
-			productImage  
-			from product 
-			where productSellEnd >= SYSDATE-1 
-			and 
-			SYSDATE+7 >= productSellEnd
-			</select> -->
-			
-			
-			<!-- <select id="selectOrderByPLove" resultType="org.going.main.domain.ProductVo">
-			select 
-			productID, productName, productImage, productLove
-			from (select  productID, productName, productImage, productLove		
-			from product order by productLove desc)
-			where rownum between 1 and 3
-			</select> -->
-	 
+			</when>
+		</choose>
+
+	</select>
+
+	<!-- <select id="selectByEndDayWeekLeft" resultType="MainVo"> select productID, 
+		productName , productImage from product where productSellEnd >= SYSDATE-1 
+		and SYSDATE+7 >= productSellEnd </select> -->
+
+
+	<!-- <select id="selectOrderByPLove" resultType="org.going.main.domain.ProductVo"> 
+		select productID, productName, productImage, productLove from (select productID, 
+		productName, productImage, productLove from product order by productLove 
+		desc) where rownum between 1 and 3 </select> -->
+
+	<select id="countProductLove" resultType ="_int">
+		select count(*) from productlove where productid =#{pid} and customerid=#{cid}
+	</select>
 	
+	<select id="selectByProdidCustomid" resultType="_int">
+		select loveyn from productlove where productid =#{pid} and customerid=#{cid}
+	</select>
+
+	<insert id="insertPLove">
+		insert into productlove values (#{pid},#{cid},'1')
+	</insert>
+	
+	<update id="updatePLove">
+		update productlove set loveyn=#{action} where productid=#{pid} and customerid=#{cid}
+	</update>
+
 </mapper>
