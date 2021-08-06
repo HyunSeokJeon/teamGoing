@@ -211,10 +211,10 @@
 						보관에 유의해 주시기 바랍니다.</p>
 				</div>
 			</div>
-			<c:forEach var="imglist" items="${ imgList}">
+			<c:forEach var="img" items="${imgList}">
 			<div class="container mt-5">
 				<div class="row">
-					<img src="<%=path %>/upload/${imglist.pImg }">
+					<img src="<%=path %>/viewimg?fileName=${img.PImg}">
 				</div>
 			</div>
 			</c:forEach>
