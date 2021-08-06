@@ -72,17 +72,17 @@
 	                        </form>
                         </li>
                         <li class="nav-item mx-0 mx-lg-1">
-                        <a class=" px-0 px-lg-3 rounded btn btn-primary btn-sm" href="<%=path %>/logout.go">로그아웃</a>
+                        <a class=" px-0 px-lg-3 rounded btn btn-primary btn-sm" href="<%=path %>/customer/logout">로그아웃</a>
                         </li>
                        	<li class="nav-item nav-item-position-rel">
                        		<a class="drop-down-toggle-cart dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					          <i class="bi bi-cart4 text-dark"></i>
 					        </a>
-					        <div class="dropdown-menu dropdown-menu-right1" aria-labelledby="navbarDropdown">
+					         <div class="dropdown-menu dropdown-menu-right1" aria-labelledby="navbarDropdown">
 					          <a class="dropdown-item" href="/myPage/main">마이페이지</a>
-					          <a class="dropdown-item" href="#">장바구니</a>
+					          <a class="dropdown-item" href="/myPage/main">장바구니</a>
 					          <div class="dropdown-divider"></div>
-					          <a class="dropdown-item" href="#">여긴 뭘넣지?</a>
+					          <a class="dropdown-item" href="javascript:void(window.open('/chatting','win0','width=475,height=768,status=no,toolbar=no,scrollbars=no'))">자유채팅방</a>
 					        </div>
                         </li>
                         

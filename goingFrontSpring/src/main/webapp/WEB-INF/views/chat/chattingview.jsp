@@ -51,7 +51,7 @@
         </a>
       </div>
       <div class="alt-header__colume">
-        <h1 class="alt-header__title"><%=user.getCustomerId() %></h1>
+        <h1 class="alt-header__title">자유 채팅방</h1>
         <input type="hidden" value='<%=user.getCustomerId() %>' id="sessionuserid">
       </div>
       <div class="alt-header__colume">
@@ -63,8 +63,10 @@
     </header>
     <div class="main-screen main-chat" id="messageBox">
       <div class="chat__timestamp" id="nowday"></div>
-      
     </div>
+    
+    <div style="height:30px"></div>
+    
     <form class="reply">
       <div class="reply__colume">
         <i class="far fa-plus-square fa-lg"></i>
