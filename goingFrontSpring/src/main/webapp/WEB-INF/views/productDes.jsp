@@ -1,3 +1,4 @@
+<%@page import="org.going.customer.domain.CustomerVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jspf"%>
@@ -8,21 +9,21 @@
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script defer type="text/javascript"
 	src="<%=path%>/frontResource/dist/js/likeHeart.js"></script>
-<%-- 	<%
-		User user = null;
+ 	<%
+		CustomerVo user = null;
 		if(!notLogin){
-			user = (User)httpSession.getAttribute("authUser");
+			user = (CustomerVo)httpSession.getAttribute("authUser");
 		}
-	%> --%>
+	%>
 <script type="text/javascript">
-	<%-- let path = "<%=path%>";
+	let path = "<%=path%>";
 	let userId;
 	let productId = ${product.productID};
 	<% if(user!=null){ %>
-	userId = "<%=user.getId()%>";
+	userId = "<%=user.getCustomerId()%>";
 	<% } else {%>
 	userId = null;
-	<%}%> --%>
+	<%}%>
 </script>
 <div class="container-fluid position-relative" id="page-content-wrapper">
 	<!--헤더부분 삽입 해야 됨-->
