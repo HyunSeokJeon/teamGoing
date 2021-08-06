@@ -82,7 +82,7 @@ function onMessage(event){
 	}
 	
 	console.log('chatting data: ' + data);
-	
+	window.scrollTo(0, document.body.scrollHeight);
   	/* sock.close(); */
 }
 
