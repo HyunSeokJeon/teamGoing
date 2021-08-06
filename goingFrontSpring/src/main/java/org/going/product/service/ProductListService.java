@@ -17,4 +17,8 @@ public interface ProductListService {
 	
 	List<ProductVo> selectByLowPrice(int productTypeId) throws Exception;
 	
+	void productLove(String productId, String customerid, String action) throws Exception;
+
+	boolean isLikeThisItem(Integer productID, String customerId) throws Exception;
+	
 }

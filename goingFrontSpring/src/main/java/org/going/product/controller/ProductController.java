@@ -10,9 +10,12 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.IOUtils;
+import org.going.customer.domain.CustomerVo;
 import org.going.product.domain.ProductVo;
 import org.going.product.domain.TypeVo;
 import org.going.product.service.ProductListService;
+import org.going.productimg.domain.ProductImgVO;
+import org.going.productimg.service.ProductImgService;
 import org.going.webF.util.MediaUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -41,6 +44,9 @@ public class ProductController {
 	
 	@Inject
 	ProductListService productListService;
+	
+	@Inject
+	ProductImgService productImgService;
 	
 	@RequestMapping(value="/prolist", method= {RequestMethod.GET, RequestMethod.POST})
 	public String ListAll(Model model, String code) throws Exception {
@@ -112,9 +118,18 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/proDesc/{productID}", method=RequestMethod.GET)
-	public String proDes(@PathVariable("productID")Integer productID, Model model) throws Exception{
+	public String proDes(@PathVariable("productID")Integer productID, Model model, HttpServletRequest req) throws Exception{
 		ProductVo desc = productListService.selectProductId(productID);
+		List<ProductImgVO> pImgList = productImgService.getImageList(productID);
+		boolean likeThisItem = false;
+		if(req.getSession().getAttribute("authUser") != null) {
+			CustomerVo user = (CustomerVo)req.getSession().getAttribute("authUser");
+			likeThisItem = productListService.isLikeThisItem(productID, user.getCustomerId());
+		}
+		System.out.println(pImgList.toString());
+		model.addAttribute("likeYN", likeThisItem);
 		model.addAttribute("product", desc);
+		model.addAttribute("imgList", pImgList);
 		return "productDes";
 	}
 	
@@ -146,6 +161,12 @@ public class ProductController {
 	 * }
 	 */
 	
+	@RequestMapping(value="/product/productLove", method=RequestMethod.POST)
+	@ResponseBody
+	public String process(@RequestParam("pId")String productId, @RequestParam("customerid")String userId, @RequestParam("action")String action) throws Exception {
+		productListService.productLove(productId, userId, action);
+		return null;
+	}
 	
 	
 }
