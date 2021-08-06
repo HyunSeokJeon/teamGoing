@@ -46,10 +46,10 @@
 		<interceptor>
 			<mapping path="/customer/loginPost" />
 			<mapping path="/payment"/>
+			<mapping path="/kakaologin"/>
 			<beans:ref bean="loginInterceptor" />
 		</interceptor>
 		<interceptor>
-			<mapping path="/kakaologin"/>
 			<mapping path="/customer/modify*" />
 			<mapping path="/myPage/**" />
 			<mapping path="/chatting" />
